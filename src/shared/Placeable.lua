@@ -12,8 +12,12 @@ Placeable.__index = Placeable
 function Placeable.new(tycoon, id, cost)
 	local self = setmetatable({}, Placeable)
 	self.Tycoon = tycoon
+
+	self.PlaceableID = id
 	self.Instance = placeablesFolder:FindFirstChild(id)
-	
+
+	-- Cloned via client, CAN NOT PASS THIS TO SERVER
+	-- Pass its id instead, then clone new one from serverstorage
 	self.placeable = placeablesFolder:WaitForChild(self.Instance.Name):clone()
 
 	-- Ignore list
@@ -65,19 +69,21 @@ function Placeable:Place()
 	local Placing
 	local Stepped
 
+	-- Place on click
 	Placing = UIS.InputBegan:Connect(function(i)
-		-- When the user clicks (left mouse button)
 		if i.UserInputType == Enum.UserInputType.MouseButton1 then
 			hasPlaced = self:PlacePosition(self.placeable, true, placeEvent, self.IgnoreList)
 
-			-- End placing after instance has been placed
+			-- Verify it was actually placed, above fires on invalid positions still
 			if hasPlaced then
+				-- Faster we disconnect placing the better, don't want duplicate placements
 				Placing:Disconnect()
 				Stepped:Disconnect()
 			end
 		end
 	end)
 
+	-- Move ghost with mouse
 	-- RenderStepped will run every frame for the client (60ish times a second)
 	Stepped = RunService.RenderStepped:Connect(function()
 		self:PlacePosition(self.placeable, false, placeEvent, self.IgnoreList)
@@ -85,25 +91,22 @@ function Placeable:Place()
 end
 
 function Placeable:PlacePosition(placeable, toPlace, placeEvent)
-	-- Get the mouse location using the User Input Service
 	local mouseLocation = UIS:GetMouseLocation()
-	-- Get the target object and position
-
 	local target, position = self:getMousePoint(mouseLocation.X, mouseLocation.Y, self.IgnoreList)
 
-	--print(self.Tycoon)
-	--print(placeable)
 	if placeable.Parent ~= self.Tycoon.Model then
 		placeable.Parent = self.Tycoon.Model
 	end
 
-	-- If the target object and position BOTH exist
+	-- Move ghost to client target
 	if target and target.Name == "Base" and position then
-		-- Set the bed there for the client
-		placeable.PrimaryPart.CFrame = CFrame.new(position + Vector3.new(0,.1,0))
+		-- Position sinks into ground by half of the primary parts height, add to y
+		position = CFrame.new(position + Vector3.new(0,.1,0))
+		placeable.PrimaryPart.CFrame = position
 		
 		if toPlace then
-			placeEvent:FireServer(position, placeable, target)
+			-- Pass desired position and id of desired placeable
+			placeEvent:FireServer(position, self.PlaceableID, self.Tycoon.Model)
 			return true
 		else
 			return false

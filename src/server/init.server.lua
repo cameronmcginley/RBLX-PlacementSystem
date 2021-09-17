@@ -1,6 +1,7 @@
 local Tycoon = require(script.Tycoon)
 local PlayerManager = require(script.PlayerManager)
 local ReplicatedStorage = game:GetService('ReplicatedStorage')
+local placeablesFolder = ReplicatedStorage.Placeables
 
 local function FindSpawn()
 	-- loop through parts in spawns folder
@@ -22,12 +23,14 @@ end)
 
 -- Object placement
 -- Waiting for client to fire RemoteEvent
-ReplicatedStorage:WaitForChild('Place').OnServerEvent:Connect(function(player, placePosition, placeObject, placeTarget)
-	print(player, placePosition, placeObject, placeTarget)
+ReplicatedStorage:WaitForChild('Place').OnServerEvent:Connect(function(player, placePosition, placeableID, placeableParent)
+	--print(player, placePosition, placeObject, placeTarget)
+	print(player, placePosition, placeableID)
 
-	local objClone = placeObject:Clone()
-	objClone.PrimaryPart.CFrame = CFrame.new(placePosition)
+	local Placeable = placeablesFolder:FindFirstChild(placeableID)
+	local PlaceableClone = Placeable:Clone()
+	PlaceableClone.PrimaryPart.CFrame = placePosition
 
 	-- Place inside of template group
-	objClone.Parent = placeTarget.Parent
+	PlaceableClone.Parent = placeableParent
 end)
