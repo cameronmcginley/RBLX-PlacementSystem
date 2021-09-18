@@ -24,7 +24,7 @@ function PlacementSystem.new(tycoon, id, cost)
 	self.IgnoreList = self.Tycoon.Model:GetDescendants()
 	table.insert(self.IgnoreList, self.placeable)
 	table.remove(self.IgnoreList, table.find(self.IgnoreList, self.Tycoon.Model.Base))
-
+	table.insert(self.IgnoreList, self.Tycoon.Owner)
 	return self
 end
 
@@ -35,8 +35,11 @@ function PlacementSystem:getMousePoint(X, Y)
 
 	-- Create a new set of Raycast Parameters
 	local raycastParams = RaycastParams.new()
-	raycastParams.FilterType = Enum.RaycastFilterType.Blacklist -- have the mouse ignore objects
-	raycastParams.FilterDescendantsInstances = self.IgnoreList -- have the mouse ignore the bed
+
+	-- Rather than use an ignore list, just whitelist the base
+	-- everything else will be ignored
+	raycastParams.FilterType = Enum.RaycastFilterType.Whitelist
+	raycastParams.FilterDescendantsInstances = {self.Tycoon.Model.Base}
 	raycastParams.IgnoreWater = true
 
 	local camray = camera:ScreenPointToRay(X, Y) -- get the position on the world relative to the mouse's screen position(x,y)
