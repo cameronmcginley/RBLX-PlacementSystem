@@ -29,27 +29,13 @@ end
 function GuiButton:Press(player)
 	local id = self.Instance:GetAttribute("Id")
 	local cost = self.Instance:GetAttribute("Cost")
-
-	print(player)
 	local money = PlayerManager.GetMoney(player)
 
 	if player == self.Tycoon.Owner and money >= cost then
 		print(player.Name .. " purchased ButtonId: " .. id)
 		PlayerManager.SetMoney(player, money - cost)
 
-		-- publish button id to topic, all placeables listening will check if it
-		-- matches their id
-		--self.Tycoon:PublishTopic("GuiButton", id)	
-
-		-- Get the placeable from the storage
-		--local placeable = placeablesFolder:FindFirstChild(id)
-		-- local compModule = require(componentFolder:FindFirstChild("Placeable"))
-		-- local newComp = compModule.new(self, placeable, cost)
-		-- newComp:Init()
-
-
 		local selectEvent = ReplicatedStorage:WaitForChild('Select') -- tell client to run module
-		print(id)
 		selectEvent:FireClient(self.Tycoon.Owner, self.Tycoon, id, cost)
 	end
 end

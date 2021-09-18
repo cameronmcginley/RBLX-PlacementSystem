@@ -23,13 +23,10 @@ end)
 
 -- Object placement
 -- Waiting for client to fire RemoteEvent
-ReplicatedStorage:WaitForChild('Place').OnServerEvent:Connect(function(player, placePosition, placeableID, placeableParent)
-	--print(player, placePosition, placeObject, placeTarget)
-	print(player)
-	print(placePosition)
-	print(placeableID)
+ReplicatedStorage:WaitForChild('Place').OnServerEvent:Connect(function(player, placePosition, placeableId, placeableParent)
+	print(player.Name .. " placed Id " .. placeableId .. " at ", placePosition)
 
-	local Placeable = placeablesFolder:FindFirstChild(placeableID)
+	local Placeable = placeablesFolder:FindFirstChild(placeableId)
 	local PlaceableClone = Placeable:Clone()
 	PlaceableClone.PrimaryPart.CFrame = placePosition
 

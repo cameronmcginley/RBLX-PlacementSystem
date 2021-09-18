@@ -8,33 +8,24 @@ local Placeable = {}
 
 Placeable.__index = Placeable
 
--- instance is the object
 function Placeable.new(tycoon, id, cost)
 	local self = setmetatable({}, Placeable)
 	self.Tycoon = tycoon
 
-	self.PlaceableID = id
-	self.Instance = placeablesFolder:FindFirstChild(id)
+	self.placeableID = id
+	local placeableOriginal = placeablesFolder:FindFirstChild(id)
 
 	-- Cloned via client, CAN NOT PASS THIS TO SERVER
 	-- Pass its id instead, then clone new one from serverstorage
-	self.placeable = placeablesFolder:WaitForChild(self.Instance.Name):clone()
+	self.placeable = placeablesFolder:WaitForChild(placeableOriginal.Name):clone()
 
 	-- Ignore list
-	-- Everything inside template model + user
-	 self.IgnoreList = self.Tycoon.Model:GetDescendants()
+	-- Everything inside tycoon model + user
+	self.IgnoreList = self.Tycoon.Model:GetDescendants()
 	table.insert(self.IgnoreList, self.placeable)
 	table.remove(self.IgnoreList, table.find(self.IgnoreList, self.Tycoon.Model.Base))
-	print(self.IgnoreList)
 
 	return self
-end
-
-function Placeable:Init()
-	--print("Placeable id " .. self.Instance.Name .. " initialized")
-	--print(self.Instance)
-	--print(self.Instance.Name)
-	self:Place()
 end
 
 -- params: X(x position on the screen), Y(y position on the screen), IgnoreList(List of objects to ignore when making raycast)
@@ -60,19 +51,18 @@ function Placeable:getMousePoint(X, Y)
 	return raycastResult.Instance, raycastResult.Position
 end
 
-function Placeable:Place()
-	--print("Placing " .. self.Instance.Name)
-
+function Placeable:Init()
 	local placeEvent = ReplicatedStorage:WaitForChild('Place') -- RemoteEvent to tell server to place object
 	local hasPlaced = false
-
 	local Placing
 	local Stepped
+	local debounce = false
 
 	-- Place on click
 	Placing = UIS.InputBegan:Connect(function(i)
-		if i.UserInputType == Enum.UserInputType.MouseButton1 then
-			hasPlaced = self:PlacePosition(self.placeable, true, placeEvent, self.IgnoreList)
+		if i.UserInputType == Enum.UserInputType.MouseButton1 and not debounce then
+			debounce = true
+			hasPlaced = self:PlacePosition(true, placeEvent)
 
 			-- Verify it was actually placed, above fires on invalid positions still
 			if hasPlaced then
@@ -80,47 +70,42 @@ function Placeable:Place()
 				Placing:Disconnect()
 				Stepped:Disconnect()
 			end
+
+			debounce = false
 		end
 	end)
 
 	-- Move ghost with mouse
 	-- RenderStepped will run every frame for the client (60ish times a second)
 	Stepped = RunService.RenderStepped:Connect(function()
-		self:PlacePosition(self.placeable, false, placeEvent, self.IgnoreList)
+		self:PlacePosition(false, placeEvent)
 	end)
 end
 
-function Placeable:PlacePosition(placeable, toPlace, placeEvent)
+function Placeable:PlacePosition(toPlace, placeEvent)
 	local mouseLocation = UIS:GetMouseLocation()
 	local target, position = self:getMousePoint(mouseLocation.X, mouseLocation.Y, self.IgnoreList)
 
-	if placeable.Parent ~= self.Tycoon.Model then
-		placeable.Parent = self.Tycoon.Model
+	if self.placeable.Parent ~= self.Tycoon.Model then
+		self.placeable.Parent = self.Tycoon.Model
 	end
 
 	-- Move ghost to client target
 	if target and target.Name == "Base" and position then
 		-- Position sinks into ground by half of the primary parts height, add to y
-		position = CFrame.new(position + Vector3.new(0,.1,0))
-		placeable.PrimaryPart.CFrame = position
+		local yOffset = self.placeable.PrimaryPart.Size.Y / 2
+		position = CFrame.new(position + Vector3.new(0, yOffset, 0))
+		self.placeable.PrimaryPart.CFrame = position
 		
 		if toPlace then
 			-- Pass desired position and id of desired placeable
-			placeEvent:FireServer(position, self.PlaceableID, self.Tycoon.Model)
-			-- Remove client placeable
-			placeable:Destroy()
+			placeEvent:FireServer(position, self.placeableID, self.Tycoon.Model)
+			self.placeable:Destroy() -- Remove placeable ghost on client
 			return true
 		else
 			return false
 		end
 	end
 end
-
-function Placeable:Kill()
-	-- Destroy the cloned, ghost model
-	
-end
-
-
 
 return Placeable
