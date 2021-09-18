@@ -5,6 +5,8 @@ local StarterGui = game:GetService("StarterGui")
 local Players = game:GetService("Players")
 local tycoonStorage = game:GetService("ServerStorage").TycoonStorage
 local playerManager = require(script.Parent.PlayerManager)
+local ReplicatedStorage = game:GetService('ReplicatedStorage') -- to define the RemoteEvent
+local placeablesFolder = ReplicatedStorage.Placeables
 
 -- print("Hello")
 
@@ -63,8 +65,71 @@ function Tycoon:Init()
 	self:LockAll()
 	self:LoadUnlocks()
 	self:WaitForExit()
+
+	self:BuildPlacedItemsData()
 	
 	print("Tycoon initialized")
+end
+
+-- On join, fetch PlacedItems data and build them
+function Tycoon:BuildPlacedItemsData()
+	local data = playerManager.GetPlacedItems(self.Owner)
+	local placeEvent = ReplicatedStorage:WaitForChild('Place')
+
+	for index = 1, #data do
+		print(index)
+		-- Always use 1 as the index: since we remove the item each iteration
+		-- the next item is moved into index 1
+		local itemId = data[1][1]
+		local uuid = data[1][2]
+		local relX = data[1][3]
+		local relZ = data[1][4]
+
+		-- Remove this piece of data before placing (placement will re-add it)
+		print("Removing " .. uuid)
+		playerManager.RemovePlacedItem(self.Owner, uuid)
+
+		-- Build the item again
+		-- placeEvent:FireServer(position, self.placeableID, self.Tycoon, self.uuid)
+		self:BuildSavedItem(itemId, uuid, relX, relZ)
+	end
+end
+
+function Tycoon:BuildSavedItem(itemId, uuid, relX, relZ)
+	-- Check PlacedItems data to ensure id + uuid aren't already placed
+	local data = playerManager.GetPlacedItems(self.Owner)
+
+	for _, itemArray in ipairs(data) do
+		if table.find(itemArray, uuid) then 
+			error("Item " .. uuid .. "already placed")
+			return 
+		end
+	end
+	print("UUID unique, placing saved part...")
+
+	print(self.Owner.Name .. " placed Id " .. itemId .. " at ", relX, relZ)
+
+	local Placeable = placeablesFolder:FindFirstChild(itemId)
+
+	-- Get real position to place at
+	local basePosition = self.Model.Base.Position
+	local baseSize = self.Model.Base.Size
+	local baseXMin = basePosition.X - baseSize.X / 2
+	local baseZMin = basePosition.Z - baseSize.Z / 2
+	local baseY = basePosition.Y + baseSize.Y / 2
+	local realPos = CFrame.new(baseXMin + relX, baseY + Placeable.NoCollide.Hitbox.Size.Y / 2, baseZMin + relZ)
+
+	local PlaceableClone = Placeable:Clone()
+	PlaceableClone.PrimaryPart.CFrame = realPos
+
+	-- Place inside of template group
+	PlaceableClone.Parent = self.Model
+
+	-- Store in PlayerManager data that this has been placed
+	-- Since we use this data to place these items on join also, make sure to remove
+	-- the item from data before placing it again
+	-- Passes relative pos, not real pos
+	playerManager.AddPlacedItem(self.Owner, itemId, uuid, relX, relZ)
 end
 
 -- on join, load saved unlocks

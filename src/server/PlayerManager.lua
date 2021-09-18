@@ -81,11 +81,11 @@ function PlayerManager.OnPlayerAdded(player)
 	}
 
 	-- Do this for each in case successful load, but mising new data piece
-	-- if not sessionData[player.UserId].placedItems then 
-	-- 	sessionData[player.UserId].placedItems = {}
-	-- end
+	if not sessionData[player.UserId].placedItems then 
+		sessionData[player.UserId].placedItems = {}
+	end
 	-- TESTING TESTING TESTING TESTING TESTING
-	sessionData[player.UserId].placedItems = {}
+	--sessionData[player.UserId].placedItems = {}
 	
 	local leaderstats = LeaderboardSetup(PlayerManager.GetMoney(player))
 	leaderstats.Parent = player
@@ -169,7 +169,7 @@ end
 
 
 
-
+-- TODO: Add rotation
 -- When an item is placed down, store it in sessionData with the id and relative coords
 function PlayerManager.AddPlacedItem(player, itemId, uuid, relX, relZ)
 	local data = sessionData[player.UserId]
@@ -182,6 +182,20 @@ end
 
 function PlayerManager.GetPlacedItems(player)
 	return sessionData[player.UserId].placedItems
+end
+
+function PlayerManager.RemovePlacedItem(player, uuid)
+	print(sessionData[player.UserId].placedItems)
+	for index, itemArray in ipairs(sessionData[player.UserId].placedItems) do
+		if table.find(itemArray, uuid) then 
+			print("Removing " .. uuid .. " from PlacedItems")
+			table.remove(sessionData[player.UserId].placedItems, index)
+			print(sessionData[player.UserId].placedItems)
+			print("\n\n\n")
+			return
+		end
+	end
+	print("UUID NOT FOUND")
 end
 
 

@@ -34,10 +34,9 @@ ReplicatedStorage:WaitForChild('Place').OnServerEvent:Connect(function(player, p
 		if table.find(itemArray, uuid) then 
 			error("Item " .. uuid .. "already placed")
 			return 
-		else
-			print("UUID uniqe, placing...")
 		end
 	end
+	print("UUID uniqe, placing...")
 
 	-- if data and table.find(data.placedItems, uuid) then
 	-- 	error("Item " .. uuid .. "already placed")
