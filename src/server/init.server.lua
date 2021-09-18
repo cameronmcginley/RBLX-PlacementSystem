@@ -25,7 +25,25 @@ end)
 -- Waiting for client to fire RemoteEvent
 
 -- placePosition is position relative to min x and min z of the base
-ReplicatedStorage:WaitForChild('Place').OnServerEvent:Connect(function(player, placePosition, placeableId, tycoon)
+ReplicatedStorage:WaitForChild('Place').OnServerEvent:Connect(function(player, placePosition, placeableId, tycoon, uuid)
+	-- Check PlacedItems data to ensure id + uuid aren't already placed
+	local data = PlayerManager.GetPlacedItems(player)
+	print(data)
+
+	for _, itemArray in ipairs(data) do
+		if table.find(itemArray, uuid) then 
+			error("Item " .. uuid .. "already placed")
+			return 
+		else
+			print("UUID uniqe, placing...")
+		end
+	end
+
+	-- if data and table.find(data.placedItems, uuid) then
+	-- 	error("Item " .. uuid .. "already placed")
+	-- 	return
+	-- end
+
 	print(player.Name .. " placed Id " .. placeableId .. " at ", placePosition)
 
 	-- Get real position to place at
@@ -41,4 +59,10 @@ ReplicatedStorage:WaitForChild('Place').OnServerEvent:Connect(function(player, p
 
 	-- Place inside of template group
 	PlaceableClone.Parent = tycoon.Model
+
+	-- Store in PlayerManager data that this has been placed
+	-- Since we use this data to place these items on join also, make sure to remove
+	-- the item from data before placing it again
+	-- Passes relative pos, not real pos
+	PlayerManager.AddPlacedItem(player, placeableId, uuid, placePosition.X, placePosition.Z)
 end)

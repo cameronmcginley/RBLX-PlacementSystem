@@ -3,6 +3,7 @@ local PlayerManager = require(script.Parent.Parent.PlayerManager)
 --local placeablesFolder = ReplicatedStorage.Placeables
 local componentFolder = script.Parent
 local ReplicatedStorage = game:GetService('ReplicatedStorage') -- to define the RemoteEvent
+local HttpService = game:GetService("HttpService")
 
 local GuiButton = {}
 
@@ -35,8 +36,11 @@ function GuiButton:Press(player)
 		print(player.Name .. " purchased ButtonId: " .. id)
 		PlayerManager.SetMoney(player, money - cost)
 
+		-- Generate uuid for the item
+		local uuid = HttpService:GenerateGUID(false)
+
 		local selectEvent = ReplicatedStorage:WaitForChild('Select') -- tell client to run module
-		selectEvent:FireClient(self.Tycoon.Owner, self.Tycoon, id, cost)
+		selectEvent:FireClient(self.Tycoon.Owner, self.Tycoon, id, uuid, cost)
 	end
 end
 

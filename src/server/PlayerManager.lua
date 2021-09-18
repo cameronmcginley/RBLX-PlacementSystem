@@ -79,6 +79,13 @@ function PlayerManager.OnPlayerAdded(player)
 		UnlockIds = {},
 		placedItems = {}
 	}
+
+	-- Do this for each in case successful load, but mising new data piece
+	-- if not sessionData[player.UserId].placedItems then 
+	-- 	sessionData[player.UserId].placedItems = {}
+	-- end
+	-- TESTING TESTING TESTING TESTING TESTING
+	sessionData[player.UserId].placedItems = {}
 	
 	local leaderstats = LeaderboardSetup(PlayerManager.GetMoney(player))
 	leaderstats.Parent = player
@@ -163,18 +170,18 @@ end
 
 
 
-
-function PlayerManager.AddPlacedItem(player, id, coords)
+-- When an item is placed down, store it in sessionData with the id and relative coords
+function PlayerManager.AddPlacedItem(player, itemId, uuid, relX, relZ)
 	local data = sessionData[player.UserId]
 	
 	-- checks for repeats
-	if not table.find(data.UnlockIds, {id, coords}) then
-		table.insert(data.UnlockIds, {id, coords})
+	if not table.find(data.placedItems, {itemId, uuid, relX, relZ}) then
+		table.insert(data.placedItems, {itemId, uuid, relX, relZ})
 	end
 end
 
 function PlayerManager.GetPlacedItems(player)
-	return sessionData[player.UserId].UnlockIds
+	return sessionData[player.UserId].placedItems
 end
 
 

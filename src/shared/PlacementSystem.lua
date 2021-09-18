@@ -8,10 +8,11 @@ local PlacementSystem = {}
 
 PlacementSystem.__index = PlacementSystem
 
-function PlacementSystem.new(tycoon, id, cost)
+function PlacementSystem.new(tycoon, id, uuid, cost)
 	local self = setmetatable({}, PlacementSystem)
 	self.Tycoon = tycoon
 
+	self.uuid = uuid
 	self.placeableID = id
 	local placeableOriginal = placeablesFolder:FindFirstChild(id)
 
@@ -119,7 +120,7 @@ function PlacementSystem:PlacePosition(toPlace, placeEvent)
 		if toPlace then
 			-- Pass position relative to base (corner = (0,y,0))
 			position = self:GetRelPos(position)
-			placeEvent:FireServer(position, self.placeableID, self.Tycoon)
+			placeEvent:FireServer(position, self.placeableID, self.Tycoon, self.uuid)
 			self.placeable:Destroy() -- Remove placeable ghost on client
 			return true
 		else
