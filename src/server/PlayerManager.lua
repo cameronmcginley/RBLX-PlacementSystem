@@ -76,7 +76,8 @@ function PlayerManager.OnPlayerAdded(player)
 	-- if success, then return data (or new table for default data)
 	sessionData[player.UserId] = success and data or {
 		Money = 0,
-		UnlockIds = {}
+		UnlockIds = {},
+		placedItems = {}
 	}
 	
 	local leaderstats = LeaderboardSetup(PlayerManager.GetMoney(player))
@@ -157,5 +158,31 @@ function PlayerManager.OnClose()
 		coroutine.wrap(PlayerManager.OnPlayerRemoving(player))()
 	end
 end
+
+
+
+
+
+
+function PlayerManager.AddPlacedItem(player, id, coords)
+	local data = sessionData[player.UserId]
+	
+	-- checks for repeats
+	if not table.find(data.UnlockIds, {id, coords}) then
+		table.insert(data.UnlockIds, {id, coords})
+	end
+end
+
+function PlayerManager.GetPlacedItems(player)
+	return sessionData[player.UserId].UnlockIds
+end
+
+
+
+
+
+
+
+
 
 return PlayerManager

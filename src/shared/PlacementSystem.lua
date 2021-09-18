@@ -117,8 +117,9 @@ function PlacementSystem:PlacePosition(toPlace, placeEvent)
 		self.placeable.PrimaryPart.CFrame = position
 		
 		if toPlace then
-			-- Pass desired position and id of desired placeable
-			placeEvent:FireServer(position, self.placeableID, self.Tycoon.Model)
+			-- Pass position relative to base (corner = (0,y,0))
+			position = self:GetRelPos(position)
+			placeEvent:FireServer(position, self.placeableID, self.Tycoon)
 			self.placeable:Destroy() -- Remove placeable ghost on client
 			return true
 		else
@@ -141,6 +142,17 @@ function PlacementSystem:InBounds(placePosition)
 	local zMin = placePosition.Z - hitboxSize.Z / 2 >= basePosition.Z - baseSize.Z / 2
 
 	return xMax and xMin and zMax and zMin
+end
+
+-- Take in actual position, return position relative to (minx, minz)
+function PlacementSystem:GetRelPos(placePosition)
+	local basePosition = self.Tycoon.Model.Base.Position
+	local baseSize = self.Tycoon.Model.Base.Size
+
+	local baseXMin = basePosition.X - baseSize.X / 2
+	local baseZMin = basePosition.Z - baseSize.Z / 2
+
+	return CFrame.new(placePosition.X - baseXMin, placePosition.Y, placePosition.Z - baseZMin)
 end
 
 --[[**

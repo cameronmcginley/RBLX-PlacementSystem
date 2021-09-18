@@ -165,15 +165,6 @@ end
 
 
 
-function Tycoon:Place(instance, id)
-	-- When unlocking object, add it to to table of unlocked ids
-	--playerManager.AddUnlockId(self.Owner, id)
-	
-	CollectionService:RemoveTag(instance, "Placeable")
-	self:AddComponents(instance)
-	instance.Parent = self.Model
-end
-
 
 
 
