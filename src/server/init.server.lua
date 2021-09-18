@@ -25,7 +25,9 @@ end)
 -- Waiting for client to fire RemoteEvent
 ReplicatedStorage:WaitForChild('Place').OnServerEvent:Connect(function(player, placePosition, placeableID, placeableParent)
 	--print(player, placePosition, placeObject, placeTarget)
-	print(player, placePosition, placeableID)
+	print(player)
+	print(placePosition)
+	print(placeableID)
 
 	local Placeable = placeablesFolder:FindFirstChild(placeableID)
 	local PlaceableClone = Placeable:Clone()

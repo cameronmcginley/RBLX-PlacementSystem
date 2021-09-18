@@ -107,6 +107,8 @@ function Placeable:PlacePosition(placeable, toPlace, placeEvent)
 		if toPlace then
 			-- Pass desired position and id of desired placeable
 			placeEvent:FireServer(position, self.PlaceableID, self.Tycoon.Model)
+			-- Remove client placeable
+			placeable:Destroy()
 			return true
 		else
 			return false

@@ -73,27 +73,27 @@
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>-17.1483688</X>
-					<Y>27.2547798</Y>
-					<Z>-70.8603668</Z>
-					<R00>-0.978946388</R00>
-					<R01>-0.111012675</R01>
-					<R02>0.171289757</R02>
+					<X>-21.0092602</X>
+					<Y>13.27005</Y>
+					<Z>-88.1637192</Z>
+					<R00>-0.933419526</R00>
+					<R01>-0.118470386</R01>
+					<R02>0.33866331</R02>
 					<R10>-0</R10>
-					<R11>0.839171886</R11>
-					<R12>0.543866277</R12>
-					<R20>-0.204117596</R20>
-					<R21>0.532415926</R21>
-					<R22>-0.821504295</R22>
+					<R11>0.943912089</R11>
+					<R12>0.330197066</R12>
+					<R20>-0.358786911</R20>
+					<R21>0.308212399</R21>
+					<R22>-0.881065905</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
 				<float name="FieldOfView">70</float>
 				<token name="FieldOfViewMode">0</token>
 				<CoordinateFrame name="Focus">
-					<X>-24</X>
-					<Y>5.50000095</Y>
-					<Z>-38</Z>
+					<X>-21.6865864</X>
+					<Y>12.6096563</Y>
+					<Z>-86.4015884</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -1158,122 +1158,18 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 						<Content name="LinkedSource"><null></null></Content>
 						<string name="Name">ClientPlacing</string>
 						<string name="ScriptGuid">{4B042CF2-B582-4BE2-8180-28D64684734F}</string>
-						<ProtectedString name="Source"><![CDATA[-- print("Client placer")
-
--- -- Ignore list
--- -- Everything inside template model + user
-
--- -- Define player objects
--- local player = game.Players.LocalPlayer
--- local camera = workspace.CurrentCamera
-
--- -- Define services needed
--- local UIS = game:GetService("UserInputService") -- for mouse input
--- local RunService = game:GetService('RunService') -- for RenderStepped / live input from the user 
--- local ReplicatedStorage = game:GetService('ReplicatedStorage') -- to define the RemoteEvent
-
--- local placeEvent = ReplicatedStorage:WaitForChild('Place') -- RemoteEvent to tell server to place object
-
--- --local bed = workspace:WaitForChild('Bed') -- object  being used
--- local bed = game.ReplicatedStorage.PlacingParts:WaitForChild('DemoPart') -- object  being used
-
--- -- params: X(x position on the screen), Y(y position on the screen), IgnoreList(List of objects to ignore when making raycast)
--- -- returns: Instance(object that the player's mouse is on), Vector3(position that the player's mouse is on)
--- function getMousePoint(X, Y, IgnoreList)
-
--- 	-- Create a new set of Raycast Parameters
--- 	local raycastParams = RaycastParams.new()
--- 	raycastParams.FilterType = Enum.RaycastFilterType.Blacklist -- have the mouse ignore objects
--- 	raycastParams.FilterDescendantsInstances = {bed} -- have the mouse ignore the bed
--- 	raycastParams.IgnoreWater = true
-
--- 	local camray = camera:ScreenPointToRay(X, Y) -- get the position on the world relative to the mouse's screen position(x,y)
-
--- 	-- Draw the ray in the world, pointing at wherever the mouse is
--- 	local raycastResult = workspace:Raycast(camray.Origin, camray.Direction * 2048, raycastParams)
-
--- 	-- If the draw failed, or the mouse is pointing at the sky, return nil
--- 	if not raycastResult then return nil end
-
-
--- 	-- Otherwise, return the part and position the mouse is over
--- 	return raycastResult.Instance, raycastResult.Position
--- end
-
--- -- [TIP] this was the old way to get the mouse, THIS SHOULD NO LONGER BE USED
--- local Mouse = game.Players.LocalPlayer:GetMouse()
--- -- [END OF TIP]
-
--- UIS.InputBegan:Connect(function(i)
--- 	-- When the user clicks (left mouse button)
--- 	if i.UserInputType == Enum.UserInputType.MouseButton1 then
--- 		-- Get the mouse location using the User Input Service
--- 		local mouseLocation = UIS:GetMouseLocation()
-
--- 		-- Get the target object and position
--- 		local target, position = getMousePoint(mouseLocation.X, mouseLocation.Y, {bed})
-
--- 		-- If the target object and position BOTH exist
--- 		if target.Name == "Base" and position then
--- 			-- Set the bed there for the client, and tell the server
--- 			bed.PrimaryPart.CFrame = CFrame.new(position + Vector3.new(0,.1,0))
--- 			placeEvent:FireServer(position + Vector3.new(0,.1,0), bed, target)
--- 		end
--- 	end
--- end)
-
--- -- RenderStepped will run every frame for the client (60ish times a second)
--- RunService.RenderStepped:Connect(function()
--- 	-- Get the mouse location using the User Input Service
--- 	local mouseLocation = UIS:GetMouseLocation()
--- 	-- Get the target object and position
-
--- 	local target, position = getMousePoint(mouseLocation.X, mouseLocation.Y, {bed})
-
--- 	bed.Parent = game.Workspace
-
--- 	-- If the target object and position BOTH exist
--- 	if target.Name == "Base" and position then
--- 		-- Set the bed there for the client
--- 		bed.PrimaryPart.CFrame = CFrame.new(position + Vector3.new(0,.1,0))
--- 	end
--- end)
-
-local UIS = game:GetService("UserInputService") -- for mouse input
-local RunService = game:GetService('RunService') -- for RenderStepped / live input from the user 
-local ReplicatedStorage = game:GetService('ReplicatedStorage') -- to define the RemoteEvent
+						<ProtectedString name="Source"><![CDATA[local ReplicatedStorage = game:GetService('ReplicatedStorage') -- to define the RemoteEvent
 --local componentFolder = game:GetService('ServerScriptService').Server.Components
 
-ReplicatedStorage:WaitForChild('Select').OnClientEvent:Connect(function(player, tycoon, id, cost)
+-- Don't put player here, OnClienTevent only needs the other parameters
+-- including player first will mess things up
+ReplicatedStorage:WaitForChild('Select').OnClientEvent:Connect(function(tycoon, id, cost)
     -- local module = require(componentFolder:FindFirstChild("Placeable"))
     local module = require(game.ReplicatedStorage.Common:FindFirstChild("Placeable"))
 
     local newComp = module.new(tycoon, id, cost)
     newComp:Init()
-end)
-
--- -- Waiting for module to fire "Select" event
--- ReplicatedStorage:WaitForChild('Place').OnServerEvent:Connect(function(player, placePosition, placeObject, placeTarget)
--- 	print(player, placePosition, placeObject, placeTarget)
-
--- 	local objClone = placeObject:Clone()
--- 	objClone.PrimaryPart.CFrame = CFrame.new(placePosition)
-
--- 	-- Place inside of template group
--- 	objClone.Parent = placeTarget.Parent
--- end)
-
--- UIS.InputBegan:Connect(function(i)
---     -- When the user clicks (left mouse button)
---     if i.UserInputType == Enum.UserInputType.MouseButton1 then
---         self:PlacePosition(placeable)
---     end
--- end)
-
--- -- RenderStepped will run every frame for the client (60ish times a second)
--- RunService.RenderStepped:Connect(function()
---     self:PlacePosition(placeable)
--- end)]]></ProtectedString>
+end)]]></ProtectedString>
 						<int64 name="SourceAssetId">-1</int64>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
@@ -1636,6 +1532,7 @@ end)
 				<ProtectedString name="Source"><![CDATA[local Tycoon = require(script.Tycoon)
 local PlayerManager = require(script.PlayerManager)
 local ReplicatedStorage = game:GetService('ReplicatedStorage')
+local placeablesFolder = ReplicatedStorage.Placeables
 
 local function FindSpawn()
 	-- loop through parts in spawns folder
@@ -1657,14 +1554,18 @@ end)
 
 -- Object placement
 -- Waiting for client to fire RemoteEvent
-ReplicatedStorage:WaitForChild('Place').OnServerEvent:Connect(function(player, placePosition, placeObject, placeTarget)
-	print(player, placePosition, placeObject, placeTarget)
+ReplicatedStorage:WaitForChild('Place').OnServerEvent:Connect(function(player, placePosition, placeableID, placeableParent)
+	--print(player, placePosition, placeObject, placeTarget)
+	print(player)
+	print(placePosition)
+	print(placeableID)
 
-	local objClone = placeObject:Clone()
-	objClone.PrimaryPart.CFrame = CFrame.new(placePosition)
+	local Placeable = placeablesFolder:FindFirstChild(placeableID)
+	local PlaceableClone = Placeable:Clone()
+	PlaceableClone.PrimaryPart.CFrame = placePosition
 
 	-- Place inside of template group
-	objClone.Parent = placeTarget.Parent
+	PlaceableClone.Parent = placeableParent
 end)]]></ProtectedString>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
@@ -2453,6 +2354,18 @@ end
 
 return Tycoon
 ]]></ProtectedString>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
+			<Item class="Script" referent="RBXF38CF3E5643140088551DE2D1A6679C3">
+				<Properties>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<bool name="Disabled">false</bool>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">testing</string>
+					<string name="ScriptGuid">{04F17041-EC2E-4DD7-8546-6D99E0729341}</string>
+					<ProtectedString name="Source">print(&quot;test&quot;)</ProtectedString>
 					<int64 name="SourceAssetId">-1</int64>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
@@ -4426,27 +4339,40 @@ Placeable.__index = Placeable
 function Placeable.new(tycoon, id, cost)
 	local self = setmetatable({}, Placeable)
 	self.Tycoon = tycoon
+
+	self.PlaceableID = id
 	self.Instance = placeablesFolder:FindFirstChild(id)
-	
+
+	-- Cloned via client, CAN NOT PASS THIS TO SERVER
+	-- Pass its id instead, then clone new one from serverstorage
+	self.placeable = placeablesFolder:WaitForChild(self.Instance.Name):clone()
+
+	-- Ignore list
+	-- Everything inside template model + user
+	 self.IgnoreList = self.Tycoon.Model:GetDescendants()
+	table.insert(self.IgnoreList, self.placeable)
+	table.remove(self.IgnoreList, table.find(self.IgnoreList, self.Tycoon.Model.Base))
+	print(self.IgnoreList)
+
 	return self
 end
 
 function Placeable:Init()
 	--print("Placeable id " .. self.Instance.Name .. " initialized")
-	print(self.Instance)
-	print(self.Instance.Name)
+	--print(self.Instance)
+	--print(self.Instance.Name)
 	self:Place()
 end
 
 -- params: X(x position on the screen), Y(y position on the screen), IgnoreList(List of objects to ignore when making raycast)
 -- returns: Instance(object that the player's mouse is on), Vector3(position that the player's mouse is on)
-function Placeable:getMousePoint(X, Y, IgnoreList)
+function Placeable:getMousePoint(X, Y)
 	local camera = workspace.CurrentCamera
 
 	-- Create a new set of Raycast Parameters
 	local raycastParams = RaycastParams.new()
 	raycastParams.FilterType = Enum.RaycastFilterType.Blacklist -- have the mouse ignore objects
-	raycastParams.FilterDescendantsInstances = IgnoreList -- have the mouse ignore the bed
+	raycastParams.FilterDescendantsInstances = self.IgnoreList -- have the mouse ignore the bed
 	raycastParams.IgnoreWater = true
 
 	local camray = camera:ScreenPointToRay(X, Y) -- get the position on the world relative to the mouse's screen position(x,y)
@@ -4457,7 +4383,6 @@ function Placeable:getMousePoint(X, Y, IgnoreList)
 	-- If the draw failed, or the mouse is pointing at the sky, return nil
 	if not raycastResult then return nil end
 
-
 	-- Otherwise, return the part and position the mouse is over
 	return raycastResult.Instance, raycastResult.Position
 end
@@ -4465,58 +4390,62 @@ end
 function Placeable:Place()
 	--print("Placing " .. self.Instance.Name)
 
-	-- Ignore list
-	-- Everything inside template model + user
-
-	-- Define player objects
-	--local player = game.Players.LocalPlayer
-	--local player = self.Tycoon.Owner
-	--local camera = workspace.CurrentCamera
-
 	local placeEvent = ReplicatedStorage:WaitForChild('Place') -- RemoteEvent to tell server to place object
+	local hasPlaced = false
 
-	--local bed = workspace:WaitForChild('Bed') -- object  being used
-	local placeable = placeablesFolder:WaitForChild(self.Instance.Name) -- object  being used
-	print(placeable)
+	local Placing
+	local Stepped
 
-	-- [TIP] this was the old way to get the mouse, THIS SHOULD NO LONGER BE USED
-	-- local Mouse = game.Players.LocalPlayer:GetMouse()
-	-- [END OF TIP]
-
-	--Run these on local script
-	UIS.InputBegan:Connect(function(i)
-		-- When the user clicks (left mouse button)
+	-- Place on click
+	Placing = UIS.InputBegan:Connect(function(i)
 		if i.UserInputType == Enum.UserInputType.MouseButton1 then
-			self:PlacePosition(placeable, true, placeEvent)
+			hasPlaced = self:PlacePosition(self.placeable, true, placeEvent, self.IgnoreList)
+
+			-- Verify it was actually placed, above fires on invalid positions still
+			if hasPlaced then
+				-- Faster we disconnect placing the better, don't want duplicate placements
+				Placing:Disconnect()
+				Stepped:Disconnect()
+			end
 		end
 	end)
 
+	-- Move ghost with mouse
 	-- RenderStepped will run every frame for the client (60ish times a second)
-	RunService.RenderStepped:Connect(function()
-		self:PlacePosition(placeable, false, placeEvent)
+	Stepped = RunService.RenderStepped:Connect(function()
+		self:PlacePosition(self.placeable, false, placeEvent, self.IgnoreList)
 	end)
 end
 
 function Placeable:PlacePosition(placeable, toPlace, placeEvent)
-	-- Get the mouse location using the User Input Service
 	local mouseLocation = UIS:GetMouseLocation()
-	-- Get the target object and position
+	local target, position = self:getMousePoint(mouseLocation.X, mouseLocation.Y, self.IgnoreList)
 
-	local target, position = self:getMousePoint(mouseLocation.X, mouseLocation.Y, {placeable})
-
-	if placeable.Parent ~= self.Tycoon then
-		placeable.Parent = self.Tycoon
+	if placeable.Parent ~= self.Tycoon.Model then
+		placeable.Parent = self.Tycoon.Model
 	end
 
-	-- If the target object and position BOTH exist
-	if target.Name == "Base" and position then
-		-- Set the bed there for the client
-		placeable.PrimaryPart.CFrame = CFrame.new(position + Vector3.new(0,.1,0))
+	-- Move ghost to client target
+	if target and target.Name == "Base" and position then
+		-- Position sinks into ground by half of the primary parts height, add to y
+		position = CFrame.new(position + Vector3.new(0,.1,0))
+		placeable.PrimaryPart.CFrame = position
 		
 		if toPlace then
-			placeEvent:FireServer(position, placeable, target)
+			-- Pass desired position and id of desired placeable
+			placeEvent:FireServer(position, self.PlaceableID, self.Tycoon.Model)
+			-- Remove client placeable
+			placeable:Destroy()
+			return true
+		else
+			return false
 		end
 	end
+end
+
+function Placeable:Kill()
+	-- Destroy the cloned, ghost model
+	
 end
 
 
