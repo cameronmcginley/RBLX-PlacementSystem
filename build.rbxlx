@@ -73,18 +73,18 @@
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>-56.9368477</X>
-					<Y>55.1805458</Y>
-					<Z>-77.7958298</Z>
-					<R00>-0.922112167</R00>
-					<R01>0.341372967</R01>
-					<R02>-0.18213658</R02>
+					<X>-57.124073</X>
+					<Y>55.124073</Y>
+					<Z>-77.8099136</Z>
+					<R00>-0.847949743</R00>
+					<R01>0.452707052</R01>
+					<R02>-0.275749326</R02>
 					<R10>-0</R10>
-					<R11>0.470731139</R11>
-					<R12>0.882276773</R12>
-					<R20>0.386922777</R20>
-					<R21>0.813558161</R21>
-					<R22>-0.434066862</R22>
+					<R11>0.520206511</R11>
+					<R12>0.854040563</R12>
+					<R20>0.530076742</R20>
+					<R21>0.7241835</R21>
+					<R22>-0.441108912</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
@@ -1027,7 +1027,7 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 	<Item class="Players" referent="RBX4266EAB0F7154DAAAC79AA3A8FD8CED0">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
-			<bool name="CharacterAutoLoads">true</bool>
+			<bool name="CharacterAutoLoads">false</bool>
 			<int name="MaxPlayersInternal">12</int>
 			<string name="Name">Players</string>
 			<int name="PreferredPlayersInternal">0</int>
