@@ -73,27 +73,27 @@
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>-3.8831861</X>
-					<Y>11.5103426</Y>
-					<Z>-60.6089706</Z>
-					<R00>-0.603889525</R00>
-					<R01>-0.46630916</R01>
-					<R02>0.646431267</R02>
+					<X>-56.9368477</X>
+					<Y>55.1805458</Y>
+					<Z>-77.7958298</Z>
+					<R00>-0.922112167</R00>
+					<R01>0.341372967</R01>
+					<R02>-0.18213658</R02>
 					<R10>-0</R10>
-					<R11>0.811011434</R11>
-					<R12>0.585030496</R12>
-					<R20>-0.797068119</R20>
-					<R21>0.353293777</R21>
-					<R22>-0.489761293</R22>
+					<R11>0.470731139</R11>
+					<R12>0.882276773</R12>
+					<R20>0.386922777</R20>
+					<R21>0.813558161</R21>
+					<R22>-0.434066862</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
 				<float name="FieldOfView">70</float>
 				<token name="FieldOfViewMode">0</token>
 				<CoordinateFrame name="Focus">
-					<X>-5.17604876</X>
-					<Y>10.3402815</Y>
-					<Z>-59.6294479</Z>
+					<X>-56.5725746</X>
+					<Y>53.4159927</Y>
+					<Z>-76.9276962</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -319,100 +319,6 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="Part" referent="RBX8BDFC0D1026A445FBEF3144290BD3313">
-				<Properties>
-					<bool name="Anchored">true</bool>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<float name="BackParamA">-0.5</float>
-					<float name="BackParamB">0.5</float>
-					<token name="BackSurface">0</token>
-					<token name="BackSurfaceInput">0</token>
-					<float name="BottomParamA">-0.5</float>
-					<float name="BottomParamB">0.5</float>
-					<token name="BottomSurface">0</token>
-					<token name="BottomSurfaceInput">0</token>
-					<CoordinateFrame name="CFrame">
-						<X>-58.5</X>
-						<Y>0.5</Y>
-						<Z>-25.5</Z>
-						<R00>1</R00>
-						<R01>0</R01>
-						<R02>0</R02>
-						<R10>0</R10>
-						<R11>1</R11>
-						<R12>0</R12>
-						<R20>0</R20>
-						<R21>0</R21>
-						<R22>1</R22>
-					</CoordinateFrame>
-					<bool name="CanCollide">true</bool>
-					<bool name="CanQuery">true</bool>
-					<bool name="CanTouch">true</bool>
-					<bool name="CastShadow">true</bool>
-					<int name="CollisionGroupId">0</int>
-					<Color3uint8 name="Color3uint8">4291045404</Color3uint8>
-					<PhysicalProperties name="CustomPhysicalProperties">
-						<CustomPhysics>false</CustomPhysics>
-					</PhysicalProperties>
-					<float name="FrontParamA">-0.5</float>
-					<float name="FrontParamB">0.5</float>
-					<token name="FrontSurface">0</token>
-					<token name="FrontSurfaceInput">0</token>
-					<float name="LeftParamA">-0.5</float>
-					<float name="LeftParamB">0.5</float>
-					<token name="LeftSurface">0</token>
-					<token name="LeftSurfaceInput">0</token>
-					<bool name="Locked">false</bool>
-					<bool name="Massless">false</bool>
-					<token name="Material">256</token>
-					<Ref name="MaterialVariant">null</Ref>
-					<string name="Name">Part</string>
-					<CoordinateFrame name="PivotOffset">
-						<X>0</X>
-						<Y>0</Y>
-						<Z>0</Z>
-						<R00>1</R00>
-						<R01>0</R01>
-						<R02>0</R02>
-						<R10>0</R10>
-						<R11>1</R11>
-						<R12>0</R12>
-						<R20>0</R20>
-						<R21>0</R21>
-						<R22>1</R22>
-					</CoordinateFrame>
-					<float name="Reflectance">0</float>
-					<float name="RightParamA">-0.5</float>
-					<float name="RightParamB">0.5</float>
-					<token name="RightSurface">0</token>
-					<token name="RightSurfaceInput">0</token>
-					<int name="RootPriority">0</int>
-					<Vector3 name="RotVelocity">
-						<X>0</X>
-						<Y>0</Y>
-						<Z>0</Z>
-					</Vector3>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-					<float name="TopParamA">-0.5</float>
-					<float name="TopParamB">0.5</float>
-					<token name="TopSurface">0</token>
-					<token name="TopSurfaceInput">0</token>
-					<float name="Transparency">0</float>
-					<Vector3 name="Velocity">
-						<X>0</X>
-						<Y>0</Y>
-						<Z>0</Z>
-					</Vector3>
-					<token name="formFactorRaw">1</token>
-					<token name="shape">1</token>
-					<Vector3 name="size">
-						<X>1</X>
-						<Y>1</Y>
-						<Z>1</Z>
-					</Vector3>
-				</Properties>
-			</Item>
 			<Item class="Part" referent="RBX564D1A1C63064335B515DE1BD5BA3DF7">
 				<Properties>
 					<bool name="Anchored">true</bool>
@@ -426,9 +332,9 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 					<token name="BottomSurface">0</token>
 					<token name="BottomSurfaceInput">0</token>
 					<CoordinateFrame name="CFrame">
-						<X>-8.5</X>
+						<X>-24</X>
 						<Y>0.5</Y>
-						<Z>-28.5</Z>
+						<Z>-38</Z>
 						<R00>1</R00>
 						<R01>0</R01>
 						<R02>0</R02>
@@ -439,9 +345,9 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 						<R21>0</R21>
 						<R22>1</R22>
 					</CoordinateFrame>
-					<bool name="CanCollide">true</bool>
+					<bool name="CanCollide">false</bool>
 					<bool name="CanQuery">true</bool>
-					<bool name="CanTouch">true</bool>
+					<bool name="CanTouch">false</bool>
 					<bool name="CastShadow">true</bool>
 					<int name="CollisionGroupId">0</int>
 					<Color3uint8 name="Color3uint8">4291045404</Color3uint8>
@@ -492,7 +398,7 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 					<float name="TopParamB">0.5</float>
 					<token name="TopSurface">0</token>
 					<token name="TopSurfaceInput">0</token>
-					<float name="Transparency">0</float>
+					<float name="Transparency">1</float>
 					<Vector3 name="Velocity">
 						<X>0</X>
 						<Y>0</Y>
@@ -501,9 +407,103 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 					<token name="formFactorRaw">1</token>
 					<token name="shape">1</token>
 					<Vector3 name="size">
-						<X>1</X>
+						<X>40</X>
 						<Y>1</Y>
-						<Z>1</Z>
+						<Z>36</Z>
+					</Vector3>
+				</Properties>
+			</Item>
+			<Item class="Part" referent="RBX2FF19F7A492E4B36B13E27983119A214">
+				<Properties>
+					<bool name="Anchored">true</bool>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<float name="BackParamA">-0.5</float>
+					<float name="BackParamB">0.5</float>
+					<token name="BackSurface">0</token>
+					<token name="BackSurfaceInput">0</token>
+					<float name="BottomParamA">-0.5</float>
+					<float name="BottomParamB">0.5</float>
+					<token name="BottomSurface">0</token>
+					<token name="BottomSurfaceInput">0</token>
+					<CoordinateFrame name="CFrame">
+						<X>-68</X>
+						<Y>0.5</Y>
+						<Z>-38</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<bool name="CanCollide">false</bool>
+					<bool name="CanQuery">true</bool>
+					<bool name="CanTouch">false</bool>
+					<bool name="CastShadow">true</bool>
+					<int name="CollisionGroupId">0</int>
+					<Color3uint8 name="Color3uint8">4291045404</Color3uint8>
+					<PhysicalProperties name="CustomPhysicalProperties">
+						<CustomPhysics>false</CustomPhysics>
+					</PhysicalProperties>
+					<float name="FrontParamA">-0.5</float>
+					<float name="FrontParamB">0.5</float>
+					<token name="FrontSurface">0</token>
+					<token name="FrontSurfaceInput">0</token>
+					<float name="LeftParamA">-0.5</float>
+					<float name="LeftParamB">0.5</float>
+					<token name="LeftSurface">0</token>
+					<token name="LeftSurfaceInput">0</token>
+					<bool name="Locked">false</bool>
+					<bool name="Massless">false</bool>
+					<token name="Material">256</token>
+					<Ref name="MaterialVariant">null</Ref>
+					<string name="Name">Part</string>
+					<CoordinateFrame name="PivotOffset">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+						<R00>1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>1</R22>
+					</CoordinateFrame>
+					<float name="Reflectance">0</float>
+					<float name="RightParamA">-0.5</float>
+					<float name="RightParamB">0.5</float>
+					<token name="RightSurface">0</token>
+					<token name="RightSurfaceInput">0</token>
+					<int name="RootPriority">0</int>
+					<Vector3 name="RotVelocity">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+					<float name="TopParamA">-0.5</float>
+					<float name="TopParamB">0.5</float>
+					<token name="TopSurface">0</token>
+					<token name="TopSurfaceInput">0</token>
+					<float name="Transparency">1</float>
+					<Vector3 name="Velocity">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<token name="formFactorRaw">1</token>
+					<token name="shape">1</token>
+					<Vector3 name="size">
+						<X>40</X>
+						<Y>1</Y>
+						<Z>36</Z>
 					</Vector3>
 				</Properties>
 			</Item>
@@ -2724,7 +2724,7 @@ bGUDAQ==]]></BinaryString>
 						<float name="StudsPerTileV">8</float>
 						<BinaryString name="Tags"></BinaryString>
 						<Content name="Texture"><url>rbxassetid://6372755229</url></Content>
-						<float name="Transparency">0.800000012</float>
+						<float name="Transparency">1</float>
 						<int name="ZIndex">1</int>
 					</Properties>
 				</Item>
@@ -4320,12 +4320,12 @@ local RunService = game:GetService('RunService') -- for RenderStepped / live inp
 local ReplicatedStorage = game:GetService('ReplicatedStorage') -- to define the RemoteEvent
 local placeablesFolder = ReplicatedStorage.Placeables
 
-local Placeable = {}
+local PlacementSystem = {}
 
-Placeable.__index = Placeable
+PlacementSystem.__index = PlacementSystem
 
-function Placeable.new(tycoon, id, cost)
-	local self = setmetatable({}, Placeable)
+function PlacementSystem.new(tycoon, id, cost)
+	local self = setmetatable({}, PlacementSystem)
 	self.Tycoon = tycoon
 
 	self.placeableID = id
@@ -4346,7 +4346,7 @@ end
 
 -- params: X(x position on the screen), Y(y position on the screen), IgnoreList(List of objects to ignore when making raycast)
 -- returns: Instance(object that the player's mouse is on), Vector3(position that the player's mouse is on)
-function Placeable:getMousePoint(X, Y)
+function PlacementSystem:getMousePoint(X, Y)
 	local camera = workspace.CurrentCamera
 
 	-- Create a new set of Raycast Parameters
@@ -4363,11 +4363,17 @@ function Placeable:getMousePoint(X, Y)
 	-- If the draw failed, or the mouse is pointing at the sky, return nil
 	if not raycastResult then return nil end
 
-	-- Otherwise, return the part and position the mouse is over
-	return raycastResult.Instance, raycastResult.Position
+	-- Round position to nearest 1 stud for grid system
+	local rawPosition = raycastResult.Position
+	local roundedPosition = Vector3.new(
+		math.round(rawPosition.X), 
+		math.round(rawPosition.Y), 
+		math.round(rawPosition.Z))
+
+	return raycastResult.Instance, roundedPosition
 end
 
-function Placeable:Init()
+function PlacementSystem:Init()
 	local placeEvent = ReplicatedStorage:WaitForChild('Place') -- RemoteEvent to tell server to place object
 	local hasPlaced = false
 	local Placing
@@ -4388,6 +4394,7 @@ function Placeable:Init()
 				-- Faster we disconnect placing the better, don't want duplicate placements
 				Placing:Disconnect()
 				Stepped:Disconnect()
+				self:Cleanup()
 			end
 
 			debounce = false
@@ -4401,9 +4408,9 @@ function Placeable:Init()
 	end)
 end
 
-function Placeable:PlacePosition(toPlace, placeEvent)
+function PlacementSystem:PlacePosition(toPlace, placeEvent)
 	local mouseLocation = UIS:GetMouseLocation()
-	local target, position = self:getMousePoint(mouseLocation.X, mouseLocation.Y, self.IgnoreList)
+	local target, position = self:getMousePoint(mouseLocation.X, mouseLocation.Y)
 
 	if self.placeable.Parent ~= self.Tycoon.Model then
 		self.placeable.Parent = self.Tycoon.Model
@@ -4427,14 +4434,21 @@ function Placeable:PlacePosition(toPlace, placeEvent)
 	end
 end
 
-function Placeable:TextureBase()
+function PlacementSystem:TextureBase()
 	local base = self.Tycoon.Model.Base
 
 	base.Texture.Transparency = 0.8
 	base.Material = Enum.Material.SmoothPlastic
 end
 
-return Placeable
+function PlacementSystem:Cleanup()
+	local base = self.Tycoon.Model.Base
+
+	base.Texture.Transparency = 1
+	base.Material = Enum.Material.Slate
+end
+
+return PlacementSystem
 ]]></ProtectedString>
 					<int64 name="SourceAssetId">-1</int64>
 					<BinaryString name="Tags"></BinaryString>

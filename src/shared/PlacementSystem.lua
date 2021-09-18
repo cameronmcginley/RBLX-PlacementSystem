@@ -4,12 +4,12 @@ local RunService = game:GetService('RunService') -- for RenderStepped / live inp
 local ReplicatedStorage = game:GetService('ReplicatedStorage') -- to define the RemoteEvent
 local placeablesFolder = ReplicatedStorage.Placeables
 
-local Placeable = {}
+local PlacementSystem = {}
 
-Placeable.__index = Placeable
+PlacementSystem.__index = PlacementSystem
 
-function Placeable.new(tycoon, id, cost)
-	local self = setmetatable({}, Placeable)
+function PlacementSystem.new(tycoon, id, cost)
+	local self = setmetatable({}, PlacementSystem)
 	self.Tycoon = tycoon
 
 	self.placeableID = id
@@ -30,7 +30,7 @@ end
 
 -- params: X(x position on the screen), Y(y position on the screen), IgnoreList(List of objects to ignore when making raycast)
 -- returns: Instance(object that the player's mouse is on), Vector3(position that the player's mouse is on)
-function Placeable:getMousePoint(X, Y)
+function PlacementSystem:getMousePoint(X, Y)
 	local camera = workspace.CurrentCamera
 
 	-- Create a new set of Raycast Parameters
@@ -47,11 +47,17 @@ function Placeable:getMousePoint(X, Y)
 	-- If the draw failed, or the mouse is pointing at the sky, return nil
 	if not raycastResult then return nil end
 
-	-- Otherwise, return the part and position the mouse is over
-	return raycastResult.Instance, raycastResult.Position
+	-- Round position to nearest 1 stud for grid system
+	local rawPosition = raycastResult.Position
+	local roundedPosition = Vector3.new(
+		math.round(rawPosition.X), 
+		math.round(rawPosition.Y), 
+		math.round(rawPosition.Z))
+
+	return raycastResult.Instance, roundedPosition
 end
 
-function Placeable:Init()
+function PlacementSystem:Init()
 	local placeEvent = ReplicatedStorage:WaitForChild('Place') -- RemoteEvent to tell server to place object
 	local hasPlaced = false
 	local Placing
@@ -86,9 +92,9 @@ function Placeable:Init()
 	end)
 end
 
-function Placeable:PlacePosition(toPlace, placeEvent)
+function PlacementSystem:PlacePosition(toPlace, placeEvent)
 	local mouseLocation = UIS:GetMouseLocation()
-	local target, position = self:getMousePoint(mouseLocation.X, mouseLocation.Y, self.IgnoreList)
+	local target, position = self:getMousePoint(mouseLocation.X, mouseLocation.Y)
 
 	if self.placeable.Parent ~= self.Tycoon.Model then
 		self.placeable.Parent = self.Tycoon.Model
@@ -112,18 +118,18 @@ function Placeable:PlacePosition(toPlace, placeEvent)
 	end
 end
 
-function Placeable:TextureBase()
+function PlacementSystem:TextureBase()
 	local base = self.Tycoon.Model.Base
 
 	base.Texture.Transparency = 0.8
 	base.Material = Enum.Material.SmoothPlastic
 end
 
-function Placeable:Cleanup()
+function PlacementSystem:Cleanup()
 	local base = self.Tycoon.Model.Base
 
 	base.Texture.Transparency = 1
 	base.Material = Enum.Material.Slate
 end
 
-return Placeable
+return PlacementSystem
