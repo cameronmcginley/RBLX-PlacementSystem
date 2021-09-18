@@ -73,27 +73,27 @@
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>-21.0092602</X>
-					<Y>13.27005</Y>
-					<Z>-88.1637192</Z>
-					<R00>-0.933419526</R00>
-					<R01>-0.118470386</R01>
-					<R02>0.33866331</R02>
+					<X>-3.8831861</X>
+					<Y>11.5103426</Y>
+					<Z>-60.6089706</Z>
+					<R00>-0.603889525</R00>
+					<R01>-0.46630916</R01>
+					<R02>0.646431267</R02>
 					<R10>-0</R10>
-					<R11>0.943912089</R11>
-					<R12>0.330197066</R12>
-					<R20>-0.358786911</R20>
-					<R21>0.308212399</R21>
-					<R22>-0.881065905</R22>
+					<R11>0.811011434</R11>
+					<R12>0.585030496</R12>
+					<R20>-0.797068119</R20>
+					<R21>0.353293777</R21>
+					<R22>-0.489761293</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
 				<float name="FieldOfView">70</float>
 				<token name="FieldOfViewMode">0</token>
 				<CoordinateFrame name="Focus">
-					<X>-21.6865864</X>
-					<Y>12.6096563</Y>
-					<Z>-86.4015884</Z>
+					<X>-5.17604876</X>
+					<Y>10.3402815</Y>
+					<Z>-59.6294479</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -1159,14 +1159,12 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 						<string name="Name">ClientPlacing</string>
 						<string name="ScriptGuid">{4B042CF2-B582-4BE2-8180-28D64684734F}</string>
 						<ProtectedString name="Source"><![CDATA[local ReplicatedStorage = game:GetService('ReplicatedStorage') -- to define the RemoteEvent
---local componentFolder = game:GetService('ServerScriptService').Server.Components
 
--- Don't put player here, OnClienTevent only needs the other parameters
--- including player first will mess things up
+-- Wait for message from Select remote event, triggered by guibutton
 ReplicatedStorage:WaitForChild('Select').OnClientEvent:Connect(function(tycoon, id, cost)
-    -- local module = require(componentFolder:FindFirstChild("Placeable"))
-    local module = require(game.ReplicatedStorage.Common:FindFirstChild("Placeable"))
+    local module = require(game.ReplicatedStorage.Common:FindFirstChild("PlacementSystem"))
 
+    -- Run placement system module
     local newComp = module.new(tycoon, id, cost)
     newComp:Init()
 end)]]></ProtectedString>
@@ -1554,13 +1552,10 @@ end)
 
 -- Object placement
 -- Waiting for client to fire RemoteEvent
-ReplicatedStorage:WaitForChild('Place').OnServerEvent:Connect(function(player, placePosition, placeableID, placeableParent)
-	--print(player, placePosition, placeObject, placeTarget)
-	print(player)
-	print(placePosition)
-	print(placeableID)
+ReplicatedStorage:WaitForChild('Place').OnServerEvent:Connect(function(player, placePosition, placeableId, placeableParent)
+	print(player.Name .. " placed Id " .. placeableId .. " at ", placePosition)
 
-	local Placeable = placeablesFolder:FindFirstChild(placeableID)
+	local Placeable = placeablesFolder:FindFirstChild(placeableId)
 	local PlaceableClone = Placeable:Clone()
 	PlaceableClone.PrimaryPart.CFrame = placePosition
 
@@ -1963,27 +1958,13 @@ end
 function GuiButton:Press(player)
 	local id = self.Instance:GetAttribute("Id")
 	local cost = self.Instance:GetAttribute("Cost")
-
-	print(player)
 	local money = PlayerManager.GetMoney(player)
 
 	if player == self.Tycoon.Owner and money >= cost then
 		print(player.Name .. " purchased ButtonId: " .. id)
 		PlayerManager.SetMoney(player, money - cost)
 
-		-- publish button id to topic, all placeables listening will check if it
-		-- matches their id
-		--self.Tycoon:PublishTopic("GuiButton", id)	
-
-		-- Get the placeable from the storage
-		--local placeable = placeablesFolder:FindFirstChild(id)
-		-- local compModule = require(componentFolder:FindFirstChild("Placeable"))
-		-- local newComp = compModule.new(self, placeable, cost)
-		-- newComp:Init()
-
-
 		local selectEvent = ReplicatedStorage:WaitForChild('Select') -- tell client to run module
-		print(id)
 		selectEvent:FireClient(self.Tycoon.Owner, self.Tycoon, id, cost)
 	end
 end
@@ -2489,6 +2470,104 @@ return Tycoon
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
 		</Item>
+		<Item class="Folder" referent="RBX8F06A26060274612A95C13DCDF528C27">
+			<Properties>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<string name="Name">TagList</string>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+			<Item class="Configuration" referent="RBX61FEE5B3364D453C9A236C2083015642">
+				<Properties>
+					<BinaryString name="AttributesSerialize"><![CDATA[BgAAAAsAAABBbHdheXNPblRvcAMABQAAAENvbG9yDw/cKD+ZGaQ8xPe7PggAAABEcmF3VHlw
+ZQIDAAAAQm94BQAAAEdyb3VwAgAAAAAEAAAASWNvbgIJAAAAdGFnX2dyZWVuBwAAAFZpc2li
+bGUDAQ==]]></BinaryString>
+					<string name="Name">Bank</string>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
+			<Item class="Configuration" referent="RBXB6E1E53E7E6C4FF2B59403F31B59C16F">
+				<Properties>
+					<BinaryString name="AttributesSerialize"><![CDATA[BgAAAAsAAABBbHdheXNPblRvcAMABQAAAENvbG9yDxmzTD/S70g9CEVXPggAAABEcmF3VHlw
+ZQIDAAAAQm94BQAAAEdyb3VwAgAAAAAEAAAASWNvbgIJAAAAdGFnX2dyZWVuBwAAAFZpc2li
+bGUDAQ==]]></BinaryString>
+					<string name="Name">Despawn</string>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
+			<Item class="Configuration" referent="RBX512E44C9A8F643598A0F242481DCD00C">
+				<Properties>
+					<BinaryString name="AttributesSerialize"><![CDATA[BgAAAAsAAABBbHdheXNPblRvcAMABQAAAENvbG9yDz1woz7rw50+1z7APQgAAABEcmF3VHlw
+ZQIDAAAAQm94BQAAAEdyb3VwAgAAAAAEAAAASWNvbgIJAAAAdGFnX2dyZWVuBwAAAFZpc2li
+bGUDAQ==]]></BinaryString>
+					<string name="Name">Conveyor</string>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
+			<Item class="Configuration" referent="RBX9DACB5B1848A4309A655C3EAA773FA29">
+				<Properties>
+					<BinaryString name="AttributesSerialize"><![CDATA[BgAAAAsAAABBbHdheXNPblRvcAMABQAAAENvbG9yD7ZlMj1+Shc/IXVwPggAAABEcmF3VHlw
+ZQIDAAAAQm94BQAAAEdyb3VwAgAAAAAEAAAASWNvbgIJAAAAdGFnX2dyZWVuBwAAAFZpc2li
+bGUDAQ==]]></BinaryString>
+					<string name="Name">Dropper</string>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
+			<Item class="Configuration" referent="RBX3B03C9F1E6FE463BB0227BCD7F386C52">
+				<Properties>
+					<BinaryString name="AttributesSerialize"><![CDATA[BgAAAAsAAABBbHdheXNPblRvcAMABQAAAENvbG9yD5eWFj+Oqz0+coJNPggAAABEcmF3VHlw
+ZQIDAAAAQm94BQAAAEdyb3VwAgAAAAAEAAAASWNvbgIJAAAAdGFnX2dyZWVuBwAAAFZpc2li
+bGUDAQ==]]></BinaryString>
+					<string name="Name">Unlockable</string>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
+			<Item class="Configuration" referent="RBX4D578E0DC70C4A0FA79CBD9BA55137FE">
+				<Properties>
+					<BinaryString name="AttributesSerialize"><![CDATA[BgAAAAsAAABBbHdheXNPblRvcAMABQAAAENvbG9yD3qFxj4owVo/1C3LPQgAAABEcmF3VHlw
+ZQIDAAAAQm94BQAAAEdyb3VwAgAAAAAEAAAASWNvbgIJAAAAdGFnX2dyZWVuBwAAAFZpc2li
+bGUDAQ==]]></BinaryString>
+					<string name="Name">Button</string>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
+			<Item class="Configuration" referent="RBX93A42E9551A44F0998B06619E0408C80">
+				<Properties>
+					<BinaryString name="AttributesSerialize"><![CDATA[BgAAAAsAAABBbHdheXNPblRvcAMABQAAAENvbG9yD5efjD58fHw/ekW7PggAAABEcmF3VHlw
+ZQIDAAAAQm94BQAAAEdyb3VwAgAAAAAEAAAASWNvbgIJAAAAdGFnX2dyZWVuBwAAAFZpc2li
+bGUDAQ==]]></BinaryString>
+					<string name="Name">Collector</string>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
+			<Item class="Configuration" referent="RBX5E9496EAB9C2457C93157960ECD81F92">
+				<Properties>
+					<BinaryString name="AttributesSerialize"><![CDATA[BgAAAAsAAABBbHdheXNPblRvcAMABQAAAENvbG9yD94XbD3Ew8M+2R1VPggAAABEcmF3VHlw
+ZQIDAAAAQm94BQAAAEdyb3VwAgAAAAAEAAAASWNvbgIJAAAAdGFnX2dyZWVuBwAAAFZpc2li
+bGUDAQ==]]></BinaryString>
+					<string name="Name">GuiButton</string>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
+			<Item class="Configuration" referent="RBX49A5E6CBC93E404EA95EFFFA4279C646">
+				<Properties>
+					<BinaryString name="AttributesSerialize"><![CDATA[BgAAAAsAAABBbHdheXNPblRvcAMABQAAAENvbG9yD4EaND8LSS4/n4CSPggAAABEcmF3VHlw
+ZQIDAAAAQm94BQAAAEdyb3VwAgAAAAAEAAAASWNvbgIJAAAAdGFnX2dyZWVuBwAAAFZpc2li
+bGUDAQ==]]></BinaryString>
+					<string name="Name">Placeable</string>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
+		</Item>
 		<Item class="Model" referent="RBX56B2F5B39AF2423CB2E63942F167F152">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
@@ -2628,6 +2707,27 @@ return Tycoon
 						<Z>36</Z>
 					</Vector3>
 				</Properties>
+				<Item class="Texture" referent="RBX008173DCE234493CA778124A034AEBE0">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Color3 name="Color3">
+							<R>0</R>
+							<G>0</G>
+							<B>0</B>
+						</Color3>
+						<token name="Face">1</token>
+						<string name="Name">Texture</string>
+						<float name="OffsetStudsU">0</float>
+						<float name="OffsetStudsV">0</float>
+						<int64 name="SourceAssetId">-1</int64>
+						<float name="StudsPerTileU">8</float>
+						<float name="StudsPerTileV">8</float>
+						<BinaryString name="Tags"></BinaryString>
+						<Content name="Texture"><url>rbxassetid://6372755229</url></Content>
+						<float name="Transparency">0.800000012</float>
+						<int name="ZIndex">1</int>
+					</Properties>
+				</Item>
 			</Item>
 			<Item class="Part" referent="RBXCED8403650064FFE9656D9C08C75D30B">
 				<Properties>
@@ -4193,104 +4293,6 @@ AElkAg0AAABDb3BwZXJEcm9wcGVy]]></BinaryString>
 				</Item>
 			</Item>
 		</Item>
-		<Item class="Folder" referent="RBX8F06A26060274612A95C13DCDF528C27">
-			<Properties>
-				<BinaryString name="AttributesSerialize"></BinaryString>
-				<string name="Name">TagList</string>
-				<int64 name="SourceAssetId">-1</int64>
-				<BinaryString name="Tags"></BinaryString>
-			</Properties>
-			<Item class="Configuration" referent="RBX61FEE5B3364D453C9A236C2083015642">
-				<Properties>
-					<BinaryString name="AttributesSerialize"><![CDATA[BgAAAAsAAABBbHdheXNPblRvcAMABQAAAENvbG9yDw/cKD+ZGaQ8xPe7PggAAABEcmF3VHlw
-ZQIDAAAAQm94BQAAAEdyb3VwAgAAAAAEAAAASWNvbgIJAAAAdGFnX2dyZWVuBwAAAFZpc2li
-bGUDAQ==]]></BinaryString>
-					<string name="Name">Bank</string>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="Configuration" referent="RBXB6E1E53E7E6C4FF2B59403F31B59C16F">
-				<Properties>
-					<BinaryString name="AttributesSerialize"><![CDATA[BgAAAAsAAABBbHdheXNPblRvcAMABQAAAENvbG9yDxmzTD/S70g9CEVXPggAAABEcmF3VHlw
-ZQIDAAAAQm94BQAAAEdyb3VwAgAAAAAEAAAASWNvbgIJAAAAdGFnX2dyZWVuBwAAAFZpc2li
-bGUDAQ==]]></BinaryString>
-					<string name="Name">Despawn</string>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="Configuration" referent="RBX512E44C9A8F643598A0F242481DCD00C">
-				<Properties>
-					<BinaryString name="AttributesSerialize"><![CDATA[BgAAAAsAAABBbHdheXNPblRvcAMABQAAAENvbG9yDz1woz7rw50+1z7APQgAAABEcmF3VHlw
-ZQIDAAAAQm94BQAAAEdyb3VwAgAAAAAEAAAASWNvbgIJAAAAdGFnX2dyZWVuBwAAAFZpc2li
-bGUDAQ==]]></BinaryString>
-					<string name="Name">Conveyor</string>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="Configuration" referent="RBX9DACB5B1848A4309A655C3EAA773FA29">
-				<Properties>
-					<BinaryString name="AttributesSerialize"><![CDATA[BgAAAAsAAABBbHdheXNPblRvcAMABQAAAENvbG9yD7ZlMj1+Shc/IXVwPggAAABEcmF3VHlw
-ZQIDAAAAQm94BQAAAEdyb3VwAgAAAAAEAAAASWNvbgIJAAAAdGFnX2dyZWVuBwAAAFZpc2li
-bGUDAQ==]]></BinaryString>
-					<string name="Name">Dropper</string>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="Configuration" referent="RBX3B03C9F1E6FE463BB0227BCD7F386C52">
-				<Properties>
-					<BinaryString name="AttributesSerialize"><![CDATA[BgAAAAsAAABBbHdheXNPblRvcAMABQAAAENvbG9yD5eWFj+Oqz0+coJNPggAAABEcmF3VHlw
-ZQIDAAAAQm94BQAAAEdyb3VwAgAAAAAEAAAASWNvbgIJAAAAdGFnX2dyZWVuBwAAAFZpc2li
-bGUDAQ==]]></BinaryString>
-					<string name="Name">Unlockable</string>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="Configuration" referent="RBX4D578E0DC70C4A0FA79CBD9BA55137FE">
-				<Properties>
-					<BinaryString name="AttributesSerialize"><![CDATA[BgAAAAsAAABBbHdheXNPblRvcAMABQAAAENvbG9yD3qFxj4owVo/1C3LPQgAAABEcmF3VHlw
-ZQIDAAAAQm94BQAAAEdyb3VwAgAAAAAEAAAASWNvbgIJAAAAdGFnX2dyZWVuBwAAAFZpc2li
-bGUDAQ==]]></BinaryString>
-					<string name="Name">Button</string>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="Configuration" referent="RBX93A42E9551A44F0998B06619E0408C80">
-				<Properties>
-					<BinaryString name="AttributesSerialize"><![CDATA[BgAAAAsAAABBbHdheXNPblRvcAMABQAAAENvbG9yD5efjD58fHw/ekW7PggAAABEcmF3VHlw
-ZQIDAAAAQm94BQAAAEdyb3VwAgAAAAAEAAAASWNvbgIJAAAAdGFnX2dyZWVuBwAAAFZpc2li
-bGUDAQ==]]></BinaryString>
-					<string name="Name">Collector</string>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="Configuration" referent="RBX5E9496EAB9C2457C93157960ECD81F92">
-				<Properties>
-					<BinaryString name="AttributesSerialize"><![CDATA[BgAAAAsAAABBbHdheXNPblRvcAMABQAAAENvbG9yD94XbD3Ew8M+2R1VPggAAABEcmF3VHlw
-ZQIDAAAAQm94BQAAAEdyb3VwAgAAAAAEAAAASWNvbgIJAAAAdGFnX2dyZWVuBwAAAFZpc2li
-bGUDAQ==]]></BinaryString>
-					<string name="Name">GuiButton</string>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="Configuration" referent="RBX49A5E6CBC93E404EA95EFFFA4279C646">
-				<Properties>
-					<BinaryString name="AttributesSerialize"><![CDATA[BgAAAAsAAABBbHdheXNPblRvcAMABQAAAENvbG9yD4EaND8LSS4/n4CSPggAAABEcmF3VHlw
-ZQIDAAAAQm94BQAAAEdyb3VwAgAAAAAEAAAASWNvbgIJAAAAdGFnX2dyZWVuBwAAAFZpc2li
-bGUDAQ==]]></BinaryString>
-					<string name="Name">Placeable</string>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-		</Item>
 	</Item>
 	<Item class="ReplicatedStorage" referent="1">
 		<Properties>
@@ -4306,25 +4308,12 @@ bGUDAQ==]]></BinaryString>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="ModuleScript" referent="3">
+			<Item class="ModuleScript" referent="RBX8072EF46CA80432597DAEE4C47EE2479">
 				<Properties>
 					<BinaryString name="AttributesSerialize"></BinaryString>
 					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">Hello</string>
-					<string name="ScriptGuid">{35426720-E329-4A89-A4EA-7C34728CD3CF}</string>
-					<ProtectedString name="Source"><![CDATA[return function()
-	print("Hello, world!")
-end]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="ModuleScript" referent="RBX9FAD6187D19441CE9C3788F9CD59FDBA">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">Placeable</string>
-					<string name="ScriptGuid">{F36A04B9-B6E6-4874-9D93-349DF48D4889}</string>
+					<string name="Name">PlacementSystem</string>
+					<string name="ScriptGuid">{28CF8CCE-4AE3-4E90-8005-8E8E72FB89B6}</string>
 					<ProtectedString name="Source"><![CDATA[local Players = game:GetService("Players")
 local UIS = game:GetService("UserInputService") -- for mouse input
 local RunService = game:GetService('RunService') -- for RenderStepped / live input from the user 
@@ -4335,33 +4324,24 @@ local Placeable = {}
 
 Placeable.__index = Placeable
 
--- instance is the object
 function Placeable.new(tycoon, id, cost)
 	local self = setmetatable({}, Placeable)
 	self.Tycoon = tycoon
 
-	self.PlaceableID = id
-	self.Instance = placeablesFolder:FindFirstChild(id)
+	self.placeableID = id
+	local placeableOriginal = placeablesFolder:FindFirstChild(id)
 
 	-- Cloned via client, CAN NOT PASS THIS TO SERVER
 	-- Pass its id instead, then clone new one from serverstorage
-	self.placeable = placeablesFolder:WaitForChild(self.Instance.Name):clone()
+	self.placeable = placeablesFolder:WaitForChild(placeableOriginal.Name):clone()
 
 	-- Ignore list
-	-- Everything inside template model + user
-	 self.IgnoreList = self.Tycoon.Model:GetDescendants()
+	-- Everything inside tycoon model + user
+	self.IgnoreList = self.Tycoon.Model:GetDescendants()
 	table.insert(self.IgnoreList, self.placeable)
 	table.remove(self.IgnoreList, table.find(self.IgnoreList, self.Tycoon.Model.Base))
-	print(self.IgnoreList)
 
 	return self
-end
-
-function Placeable:Init()
-	--print("Placeable id " .. self.Instance.Name .. " initialized")
-	--print(self.Instance)
-	--print(self.Instance.Name)
-	self:Place()
 end
 
 -- params: X(x position on the screen), Y(y position on the screen), IgnoreList(List of objects to ignore when making raycast)
@@ -4387,19 +4367,21 @@ function Placeable:getMousePoint(X, Y)
 	return raycastResult.Instance, raycastResult.Position
 end
 
-function Placeable:Place()
-	--print("Placing " .. self.Instance.Name)
-
+function Placeable:Init()
 	local placeEvent = ReplicatedStorage:WaitForChild('Place') -- RemoteEvent to tell server to place object
 	local hasPlaced = false
-
 	local Placing
 	local Stepped
+	local debounce = false
+
+	-- Texture the base
+	self:TextureBase()
 
 	-- Place on click
 	Placing = UIS.InputBegan:Connect(function(i)
-		if i.UserInputType == Enum.UserInputType.MouseButton1 then
-			hasPlaced = self:PlacePosition(self.placeable, true, placeEvent, self.IgnoreList)
+		if i.UserInputType == Enum.UserInputType.MouseButton1 and not debounce then
+			debounce = true
+			hasPlaced = self:PlacePosition(true, placeEvent)
 
 			-- Verify it was actually placed, above fires on invalid positions still
 			if hasPlaced then
@@ -4407,35 +4389,37 @@ function Placeable:Place()
 				Placing:Disconnect()
 				Stepped:Disconnect()
 			end
+
+			debounce = false
 		end
 	end)
 
 	-- Move ghost with mouse
 	-- RenderStepped will run every frame for the client (60ish times a second)
 	Stepped = RunService.RenderStepped:Connect(function()
-		self:PlacePosition(self.placeable, false, placeEvent, self.IgnoreList)
+		self:PlacePosition(false, placeEvent)
 	end)
 end
 
-function Placeable:PlacePosition(placeable, toPlace, placeEvent)
+function Placeable:PlacePosition(toPlace, placeEvent)
 	local mouseLocation = UIS:GetMouseLocation()
 	local target, position = self:getMousePoint(mouseLocation.X, mouseLocation.Y, self.IgnoreList)
 
-	if placeable.Parent ~= self.Tycoon.Model then
-		placeable.Parent = self.Tycoon.Model
+	if self.placeable.Parent ~= self.Tycoon.Model then
+		self.placeable.Parent = self.Tycoon.Model
 	end
 
 	-- Move ghost to client target
 	if target and target.Name == "Base" and position then
 		-- Position sinks into ground by half of the primary parts height, add to y
-		position = CFrame.new(position + Vector3.new(0,.1,0))
-		placeable.PrimaryPart.CFrame = position
+		local yOffset = self.placeable.PrimaryPart.Size.Y / 2
+		position = CFrame.new(position + Vector3.new(0, yOffset, 0))
+		self.placeable.PrimaryPart.CFrame = position
 		
 		if toPlace then
 			-- Pass desired position and id of desired placeable
-			placeEvent:FireServer(position, self.PlaceableID, self.Tycoon.Model)
-			-- Remove client placeable
-			placeable:Destroy()
+			placeEvent:FireServer(position, self.placeableID, self.Tycoon.Model)
+			self.placeable:Destroy() -- Remove placeable ghost on client
 			return true
 		else
 			return false
@@ -4443,12 +4427,12 @@ function Placeable:PlacePosition(placeable, toPlace, placeEvent)
 	end
 end
 
-function Placeable:Kill()
-	-- Destroy the cloned, ghost model
-	
+function Placeable:TextureBase()
+	local base = self.Tycoon.Model.Base
+
+	base.Texture.Transparency = 0.8
+	base.Material = Enum.Material.SmoothPlastic
 end
-
-
 
 return Placeable
 ]]></ProtectedString>

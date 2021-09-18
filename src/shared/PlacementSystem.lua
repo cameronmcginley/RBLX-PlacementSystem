@@ -58,6 +58,9 @@ function Placeable:Init()
 	local Stepped
 	local debounce = false
 
+	-- Texture the base
+	self:TextureBase()
+
 	-- Place on click
 	Placing = UIS.InputBegan:Connect(function(i)
 		if i.UserInputType == Enum.UserInputType.MouseButton1 and not debounce then
@@ -69,6 +72,7 @@ function Placeable:Init()
 				-- Faster we disconnect placing the better, don't want duplicate placements
 				Placing:Disconnect()
 				Stepped:Disconnect()
+				self:Cleanup()
 			end
 
 			debounce = false
@@ -106,6 +110,20 @@ function Placeable:PlacePosition(toPlace, placeEvent)
 			return false
 		end
 	end
+end
+
+function Placeable:TextureBase()
+	local base = self.Tycoon.Model.Base
+
+	base.Texture.Transparency = 0.8
+	base.Material = Enum.Material.SmoothPlastic
+end
+
+function Placeable:Cleanup()
+	local base = self.Tycoon.Model.Base
+
+	base.Texture.Transparency = 1
+	base.Material = Enum.Material.Slate
 end
 
 return Placeable
