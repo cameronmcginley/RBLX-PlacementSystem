@@ -100,16 +100,14 @@ function PlacementSystem:PlacePosition(toPlace, placeEvent)
 		self.placeable.Parent = self.Tycoon.Model
 	end
 
-	-- Only placeable on top face of base
-	if normal then
-		local face = PlacementSystem:NormalToFace(normal, self.Tycoon.Model.Base)
-		if face ~= Enum.NormalId.Top then return end
-	else
-		return
-	end
-
 	-- Move ghost to client target
-	if target and target.Name == "Base" and position then
+	if target and normal and target.Name == "Base" and position then
+		-- Check if inbounds
+		if not self:InBounds(position) then return end
+
+		-- Check if top face
+		if PlacementSystem:NormalToFace(normal, self.Tycoon.Model.Base) ~= Enum.NormalId.Top then return end
+
 		-- Position sinks into ground by half of the primary parts height, add to y
 		local yOffset = self.placeable.PrimaryPart.Size.Y / 2
 		position = CFrame.new(position + Vector3.new(0, yOffset, 0))
@@ -124,6 +122,22 @@ function PlacementSystem:PlacePosition(toPlace, placeEvent)
 			return false
 		end
 	end
+end
+
+-- Verify the hitbox of the placeable is within base
+function PlacementSystem:InBounds(placePosition)
+	local hitboxSize = self.placeable.NoCollide.Hitbox.Size
+	local basePosition = self.Tycoon.Model.Base.Position
+	local baseSize = self.Tycoon.Model.Base.Size
+
+	-- position +- half of size to get max/min coord
+	local xMax = placePosition.X + hitboxSize.X / 2 <= basePosition.X + baseSize.X / 2
+	local xMin = placePosition.X - hitboxSize.X / 2 >= basePosition.X - baseSize.X / 2
+
+	local zMax = placePosition.Z + hitboxSize.Z / 2 <= basePosition.Z + baseSize.Z / 2
+	local zMin = placePosition.Z - hitboxSize.Z / 2 >= basePosition.Z - baseSize.Z / 2
+
+	return xMax and xMin and zMax and zMin
 end
 
 --[[**
