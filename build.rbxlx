@@ -73,18 +73,18 @@
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>15.8669119</X>
-					<Y>4.9529705</Y>
-					<Z>-94.3699493</Z>
-					<R00>-0.235834852</R00>
-					<R01>0.768252015</R01>
-					<R02>-0.595122576</R02>
-					<R10>-7.45058149e-09</R10>
-					<R11>0.612396419</R11>
-					<R12>0.790550888</R12>
-					<R20>0.971793234</R20>
-					<R21>0.186439455</R21>
-					<R22>-0.144424394</R22>
+					<X>15.2928677</X>
+					<Y>3.89320183</Y>
+					<Z>-94.8656311</Z>
+					<R00>-0.406312227</R00>
+					<R01>0.238180369</R01>
+					<R02>-0.882145464</R02>
+					<R10>-7.45057971e-09</R10>
+					<R11>0.965428829</R11>
+					<R12>0.260666996</R12>
+					<R20>0.913734257</R20>
+					<R21>0.105912194</R21>
+					<R22>-0.392265558</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
@@ -1684,6 +1684,10 @@ ReplicatedStorage:WaitForChild('Place').OnServerEvent:Connect(function(player, p
 	-- the item from data before placing it again
 	-- Passes relative pos, not real pos
 	PlayerManager.AddPlacedItem(player, placeableId, uuid, placePosition.X, placePosition.Z)
+
+	-- Tell the button that the object has been placed, buton can be re-enabled
+	local bindableEvent = game.ServerStorage.ServerToButton
+	bindableEvent:Fire()
 end)]]></ProtectedString>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
@@ -2065,6 +2069,8 @@ function GuiButton.new(tycoon, part)
 	local self = setmetatable({}, GuiButton)
 	self.Tycoon = tycoon
 	self.Instance = part
+	self.ButtonId = self.Instance:GetAttribute("Id")
+	self.Cost = self.Instance:GetAttribute("Cost")
 	
 	return self
 end
@@ -2072,28 +2078,76 @@ end
 function GuiButton:Init()
 	print("GuiButton init")
 
-	-- MB1Click doesn't auto pass player
-	local player = self.Tycoon.Owner
-	self.Instance.MouseButton1Click:Connect(function()
-		self:Press(player)
-	end)
+	local debounce = false
+	local lastClick = 0
+
+	local function onClick()
+		-- Immediately disconnect to prevent multiple firing
+		self.clickDetect:Disconnect()
+
+		-- Get current time of click, compare it to last click
+		-- if too close together (<1 ms), close
+		local thisClick = tick()
+		if thisClick - lastClick < 1 then
+			warn("Autoclicking")
+			lastClick = thisClick
+			return
+		end
+		lastClick = thisClick
+
+		if not debounce then 
+			print(tick())
+			debounce = true
+			self:Press(self.Tycoon.Owner)
+		end
+
+		debounce = false
+		self.clickDetect = self.Instance.MouseButton1Click:Connect(onClick)
+	end
+
+	self.clickDetect = self.Instance.MouseButton1Click:Connect(onClick)
+
+	-- self.Subscription = self.Tycoon:SubscribeTopic("Placement", function(...)
+	-- 	self:OnItemPlaced(...)	
+	-- end)
 end
 
-function GuiButton:Press(player)
-	local id = self.Instance:GetAttribute("Id")
-	local cost = self.Instance:GetAttribute("Cost")
-	local money = PlayerManager.GetMoney(player)
+function GuiButton:Press(player, debounce)
+	local debounce = false
+	if not debounce then
+		debounce = true
 
-	if player == self.Tycoon.Owner and money >= cost then
-		print(player.Name .. " purchased ButtonId: " .. id)
-		PlayerManager.SetMoney(player, money - cost)
+		local money = PlayerManager.GetMoney(player)
 
-		-- Generate uuid for the item
-		local uuid = HttpService:GenerateGUID(false)
+		if player == self.Tycoon.Owner and money >= self.Cost then
+			-- Lock button
+			self:DisableButton()
 
-		local selectEvent = ReplicatedStorage:WaitForChild('Select') -- tell client to run module
-		selectEvent:FireClient(self.Tycoon.Owner, self.Tycoon, id, uuid, cost)
+			print(player.Name .. " purchased ButtonId: " .. self.ButtonId)
+			PlayerManager.SetMoney(player, money - self.Cost)
+
+			-- Generate uuid for the item
+			local uuid = HttpService:GenerateGUID(false)
+
+			local selectEvent = ReplicatedStorage:WaitForChild('Select') -- tell client to run module
+			selectEvent:FireClient(self.Tycoon.Owner, self.Tycoon, self.ButtonId, uuid, self.Cost)
+
+			-- Unlock button
+			local bindableEvent = game.ServerStorage.ServerToButton
+			bindableEvent.Event:Connect(function()
+				print("Button has heard the event")
+				self:EnableButton()
+			end)
+		end
 	end
+end
+
+function GuiButton:DisableButton()
+	self.Instance.Visible = false
+end
+
+function GuiButton:EnableButton()
+	self.Instance.Visible = true
 end
 
 return GuiButton
@@ -4524,6 +4578,14 @@ AElkAg0AAABDb3BwZXJEcm9wcGVy]]></BinaryString>
 				</Item>
 			</Item>
 		</Item>
+		<Item class="BindableEvent" referent="RBXD9718F294EF34514BA147C22C6C888C5">
+			<Properties>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<string name="Name">ServerToButton</string>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
 	</Item>
 	<Item class="ReplicatedStorage" referent="1">
 		<Properties>
@@ -4724,11 +4786,11 @@ function PlacementSystem:IsColliding()
 
 	for _, obj in ipairs(results) do
 		if obj.Name == "CollisionDetector" then
-			self.placeable.Hitbox.Color = Color3.new(255,0,0)
+			self.placeable.Hitbox.BrickColor = BrickColor.new(255,0,0)
 			return true
 		end
 	end
-	self.placeable.Hitbox.Color = Color3.new(0, 255,0)
+	self.placeable.Hitbox.BrickColor = BrickColor.new(0, 255,0)
 	return false
 end
 

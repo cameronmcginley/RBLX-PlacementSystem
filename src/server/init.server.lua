@@ -2,6 +2,7 @@ local Tycoon = require(script.Tycoon)
 local PlayerManager = require(script.PlayerManager)
 local ReplicatedStorage = game:GetService('ReplicatedStorage')
 local placeablesFolder = ReplicatedStorage.Placeables
+local bindableEvent = game.ServerStorage.ServerToButton
 
 local function FindSpawn()
 	local debounce = false
@@ -74,4 +75,9 @@ ReplicatedStorage:WaitForChild('Place').OnServerEvent:Connect(function(player, p
 	-- the item from data before placing it again
 	-- Passes relative pos, not real pos
 	PlayerManager.AddPlacedItem(player, placeableId, uuid, placePosition.X, placePosition.Z)
+
+	-- Tell the button that the object has been placed, buton can be re-enabled
+	-- local bindableEvent = game.ServerStorage.ServerToButton
+	print("Firing event")
+	bindableEvent:Fire()
 end)
