@@ -4,13 +4,23 @@ local ReplicatedStorage = game:GetService('ReplicatedStorage')
 local placeablesFolder = ReplicatedStorage.Placeables
 
 local function FindSpawn()
+	local debounce = false
+
+	repeat wait() until not debounce
+	debounce = true
+
 	-- loop through parts in spawns folder
 	-- no failsafe for more players than spawns
 	for _, spawnPoint in ipairs(workspace.Spawns:GetChildren()) do
 		if not spawnPoint:GetAttribute("Occupied") then
+			print(spawnPoint.Name)
+			debounce = false
 			return spawnPoint
 		end
 	end
+
+	warn("No unoccupied spawns")
+	debounce = false
 end
 
 PlayerManager.Start()
