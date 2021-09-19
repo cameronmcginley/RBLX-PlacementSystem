@@ -177,11 +177,11 @@ function PlacementSystem:IsColliding()
 
 	for _, obj in ipairs(results) do
 		if obj.Name == "CollisionDetector" then
-			self.placeable.Hitbox.Color = Color3.new(255,0,0)
+			self.placeable.Hitbox.BrickColor = BrickColor.new(255,0,0)
 			return true
 		end
 	end
-	self.placeable.Hitbox.Color = Color3.new(0, 255,0)
+	self.placeable.Hitbox.BrickColor = BrickColor.new(0, 255,0)
 	return false
 end
 

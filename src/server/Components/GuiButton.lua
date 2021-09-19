@@ -45,5 +45,4 @@ function GuiButton:Press(player)
 end
 
 
-
 return GuiButton
