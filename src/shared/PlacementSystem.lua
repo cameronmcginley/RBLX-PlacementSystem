@@ -171,20 +171,29 @@ end
 function PlacementSystem:IsColliding()
 	-- This is an extra hitbox for the object, but .2 smaller on each side
 	-- since GetTouchingParts will get side-by-side parts so hitbox won't work
-	local collisionDetector = self.placeable.CollisionDetector
+	-- Can contain many collision detectors
+	local collisionDetectors = self.placeable.CollisionDetectors:GetChildren()
 
-	-- https://devforum.roblox.com/t/simple-trick-to-make-gettouchingparts-work-with-non-cancollide-parts/177450
-	-- GetTouchingParts only works with cancollide, this connection bypasses that
-	local connection = collisionDetector.Touched:Connect(function() end)
-	local results = collisionDetector:GetTouchingParts()
-	connection:Disconnect()
+	-- Each detector puts a table of its touched parts into this
+	local allTouching = {}
 
-	for _, obj in ipairs(results) do
-		if obj.Name == "CollisionDetector" then
-			-- Red if collision
-			-- self.placeable.Hitbox.BrickColor = BrickColor.new(255,0,0)
-			self:PartTexture(false, Color3.new(1,0,0))
-			return true
+	for i = 1, #collisionDetectors do
+		-- https://devforum.roblox.com/t/simple-trick-to-make-gettouchingparts-work-with-non-cancollide-parts/177450
+		-- GetTouchingParts only works with cancollide, this connection bypasses that
+		local connection = collisionDetectors[i].Touched:Connect(function() end)
+		local results = collisionDetectors[i]:GetTouchingParts()
+		connection:Disconnect()
+		table.insert(allTouching, results)
+	end
+
+	for _, collisionAry in ipairs(allTouching) do
+		for _, obj in ipairs(collisionAry) do
+			if obj.Name == "CollisionDetector" then
+				-- Red if collision
+				-- self.placeable.Hitbox.BrickColor = BrickColor.new(255,0,0)
+				self:PartTexture(false, Color3.new(1,0,0))
+				return true
+			end
 		end
 	end
 
