@@ -20,6 +20,10 @@ function PlacementSystem.new(tycoon, id, uuid, cost)
 	-- Pass its id instead, then clone new one from serverstorage
 	self.placeable = placeablesFolder:WaitForChild(placeableOriginal.Name):clone()
 
+	-- Add textures to every face of the placeable, these will tint green/red
+	-- on valid position
+	self:PartTexture(true, Color3.new(0,0,0))
+
 	-- Ignore list
 	-- Everything inside tycoon model + user
 	self.IgnoreList = self.Tycoon.Model:GetDescendants()
@@ -177,12 +181,51 @@ function PlacementSystem:IsColliding()
 
 	for _, obj in ipairs(results) do
 		if obj.Name == "CollisionDetector" then
-			self.placeable.Hitbox.BrickColor = BrickColor.new(255,0,0)
+			-- Red if collision
+			-- self.placeable.Hitbox.BrickColor = BrickColor.new(255,0,0)
+			self:PartTexture(false, Color3.new(1,0,0))
 			return true
 		end
 	end
-	self.placeable.Hitbox.BrickColor = BrickColor.new(0, 255,0)
+
+	-- self.placeable.Hitbox.BrickColor = BrickColor.new(0, 255,0)
+	self:PartTexture(false, Color3.new(0, 1, 0))
 	return false
+end
+
+function PlacementSystem:PartTexture(createTextures, color)
+	local faces = {"Top", "Bottom", "Left", "Right", "Back", "Front"}
+	local textureSurfaceGui
+	local textureFrame
+
+	if createTextures then
+		textureSurfaceGui = Instance.new("SurfaceGui")
+		textureFrame = Instance.new("Frame")
+		textureFrame.Size = UDim2.new(1,0,1,0)
+		textureFrame.BorderSizePixel = 0
+		textureFrame.BackgroundTransparency = 0.8
+		textureFrame.Parent = textureSurfaceGui
+	end
+
+	-- loop through parts in Placeable.Model, apply textureSurfaceGui to every face on every part
+	for _, part in ipairs(self.placeable.Model:GetDescendants()) do
+		if part:IsA("Part") then
+			-- Apply the texture to every face (only on init)
+			if createTextures then
+				for i = 1, #faces do
+					local newTextureGui
+					newTextureGui = textureSurfaceGui:Clone()
+					newTextureGui.Face = faces[i]
+					newTextureGui.Parent = part
+				end
+			end
+
+			-- Change color for frame on each face
+			for _, textureGui in ipairs(part:GetChildren()) do
+				textureGui.Frame.BackgroundColor3 = color
+			end
+		end
+	end
 end
 
 --[[**
