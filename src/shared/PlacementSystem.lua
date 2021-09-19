@@ -77,7 +77,7 @@ function PlacementSystem:Init()
 			debounce = true
 			hasPlaced = self:PlacePosition(true, placeEvent)
 
-			-- Verify it was actually placed, above fires on invalid positions still
+			-- Verify it was actually placed
 			if hasPlaced then
 				-- Faster we disconnect placing the better, don't want duplicate placements
 				Placing:Disconnect()
@@ -112,12 +112,20 @@ function PlacementSystem:PlacePosition(toPlace, placeEvent)
 		-- Check if top face
 		if PlacementSystem:NormalToFace(normal, self.Tycoon.Model.Base) ~= Enum.NormalId.Top then return end
 
+		-- Check for collision/overlap with other items
+		-- Can still move the part, but track this in case user tries to place here
+		local isColliding = self:IsColliding()
+
 		-- Position sinks into ground by half of the primary parts height, add to y
 		local yOffset = self.placeable.PrimaryPart.Size.Y / 2
 		position = CFrame.new(position + Vector3.new(0, yOffset, 0))
 		self.placeable.PrimaryPart.CFrame = position
 		
 		if toPlace then
+			if isColliding then
+				print("Invalid placement location")
+				return false
+			end
 			-- Pass position relative to base (corner = (0,y,0))
 			position = self:GetRelPos(position)
 			placeEvent:FireServer(position, self.placeableID, self.Tycoon, self.uuid)
@@ -154,6 +162,27 @@ function PlacementSystem:GetRelPos(placePosition)
 	local baseZMin = basePosition.Z - baseSize.Z / 2
 
 	return CFrame.new(placePosition.X - baseXMin, placePosition.Y, placePosition.Z - baseZMin)
+end
+
+function PlacementSystem:IsColliding()
+	-- This is an extra hitbox for the object, but .2 smaller on each side
+	-- since GetTouchingParts will get side-by-side parts so hitbox won't work
+	local collisionDetector = self.placeable.CollisionDetector
+
+	-- https://devforum.roblox.com/t/simple-trick-to-make-gettouchingparts-work-with-non-cancollide-parts/177450
+	-- GetTouchingParts only works with cancollide, this connection bypasses that
+	local connection = collisionDetector.Touched:Connect(function() end)
+	local results = collisionDetector:GetTouchingParts()
+	connection:Disconnect()
+
+	for _, obj in ipairs(results) do
+		if obj.Name == "CollisionDetector" then
+			self.placeable.Hitbox.Color = Color3.new(255,0,0)
+			return true
+		end
+	end
+	self.placeable.Hitbox.Color = Color3.new(0, 255,0)
+	return false
 end
 
 --[[**
