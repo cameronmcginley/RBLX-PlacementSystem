@@ -131,7 +131,7 @@ end
 
 -- Verify the hitbox of the placeable is within base
 function PlacementSystem:InBounds(placePosition)
-	local hitboxSize = self.placeable.NoCollide.Hitbox.Size
+	local hitboxSize = self.placeable.Hitbox.Size
 	local basePosition = self.Tycoon.Model.Base.Position
 	local baseSize = self.Tycoon.Model.Base.Size
 

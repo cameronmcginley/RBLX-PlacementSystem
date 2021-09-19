@@ -117,7 +117,7 @@ function Tycoon:BuildSavedItem(itemId, uuid, relX, relZ)
 	local baseXMin = basePosition.X - baseSize.X / 2
 	local baseZMin = basePosition.Z - baseSize.Z / 2
 	local baseY = basePosition.Y + baseSize.Y / 2
-	local realPos = CFrame.new(baseXMin + relX, baseY + Placeable.NoCollide.Hitbox.Size.Y / 2, baseZMin + relZ)
+	local realPos = CFrame.new(baseXMin + relX, baseY + Placeable.Hitbox.Size.Y / 2, baseZMin + relZ)
 
 	local PlaceableClone = Placeable:Clone()
 	PlaceableClone.PrimaryPart.CFrame = realPos

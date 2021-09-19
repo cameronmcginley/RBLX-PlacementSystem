@@ -43,7 +43,7 @@ ReplicatedStorage:WaitForChild('Place').OnServerEvent:Connect(function(player, p
 	-- 	return
 	-- end
 
-	print(player.Name .. " placed Id " .. placeableId .. " at ", placePosition)
+	print(player.Name .. " placed Id " .. placeableId .. " at ", placePosition, " (relative)")
 
 	-- Get real position to place at
 	local basePosition = tycoon.Model.Base.Position

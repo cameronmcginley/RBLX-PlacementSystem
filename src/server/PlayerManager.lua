@@ -85,7 +85,7 @@ function PlayerManager.OnPlayerAdded(player)
 		sessionData[player.UserId].placedItems = {}
 	end
 	-- TESTING TESTING TESTING TESTING TESTING
-	--sessionData[player.UserId].placedItems = {}
+	sessionData[player.UserId].placedItems = {}
 	
 	local leaderstats = LeaderboardSetup(PlayerManager.GetMoney(player))
 	leaderstats.Parent = player

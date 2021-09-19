@@ -73,27 +73,27 @@
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>23.9501934</X>
-					<Y>6.06393147</Y>
-					<Z>-103.078972</Z>
-					<R00>-0.455364138</R00>
-					<R01>-0.423044026</R01>
-					<R02>0.783375561</R02>
-					<R10>-0</R10>
-					<R11>0.879895449</R11>
-					<R12>0.475167394</R12>
-					<R20>-0.890305281</R20>
-					<R21>0.216374189</R21>
-					<R22>-0.400672823</R22>
+					<X>60.4682312</X>
+					<Y>33.282402</Y>
+					<Z>-146.048187</Z>
+					<R00>-0.969348967</R00>
+					<R01>-0.125117972</R01>
+					<R02>0.211443156</R02>
+					<R10>-1.49011612e-08</R10>
+					<R11>0.86061579</R11>
+					<R12>0.509254932</R12>
+					<R20>-0.24568826</R20>
+					<R21>0.493645757</R21>
+					<R22>-0.83423692</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
 				<float name="FieldOfView">70</float>
 				<token name="FieldOfViewMode">0</token>
 				<CoordinateFrame name="Focus">
-					<X>22.3834419</X>
-					<Y>5.11359644</Y>
-					<Z>-102.277626</Z>
+					<X>60.0453453</X>
+					<Y>32.2638931</Y>
+					<Z>-144.379715</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -2438,8 +2438,6 @@ function Tycoon:BuildSavedItem(itemId, uuid, relX, relZ)
 	local baseXMin = basePosition.X - baseSize.X / 2
 	local baseZMin = basePosition.Z - baseSize.Z / 2
 	local baseY = basePosition.Y + baseSize.Y / 2
-	warn(baseY)
-	warn(Placeable.NoCollide.Hitbox.Size.Y / 2)
 	local realPos = CFrame.new(baseXMin + relX, baseY + Placeable.NoCollide.Hitbox.Size.Y / 2, baseZMin + relZ)
 
 	local PlaceableClone = Placeable:Clone()
