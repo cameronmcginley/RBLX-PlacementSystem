@@ -111,9 +111,10 @@ function PlacementSystem:Init()
 			rotateCounter += 1
 
 			-- In degrees
-			local rotationAmount = 34
+			local rotationAmount = 90
 
 			self.rotation = CFrame.Angles(0, rotateCounter * math.rad(rotationAmount), 0)
+			self.totalRotation = rotateCounter * rotationAmount
 
 			debounce = false
 		end
@@ -160,7 +161,7 @@ function PlacementSystem:PlacePosition(toPlace, placeEvent)
 			end
 			-- Pass position relative to base (corner = (0,y,0))
 			position = self:GetRelPos(position)
-			placeEvent:FireServer(position, self.rotation, self.placeableID, self.Tycoon, self.uuid)
+			placeEvent:FireServer(position, self.rotation, self.totalRotation, self.placeableID, self.Tycoon, self.uuid)
 			self.placeable:Destroy() -- Remove placeable ghost on client
 			return true
 		else

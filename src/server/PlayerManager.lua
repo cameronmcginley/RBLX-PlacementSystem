@@ -85,7 +85,7 @@ function PlayerManager.OnPlayerAdded(player)
 		sessionData[player.UserId].placedItems = {}
 	end
 	-- TESTING TESTING TESTING TESTING TESTING
-	sessionData[player.UserId].placedItems = {}
+	--sessionData[player.UserId].placedItems = {}
 	
 	local leaderstats = LeaderboardSetup(PlayerManager.GetMoney(player))
 	leaderstats.Parent = player
@@ -171,12 +171,12 @@ end
 
 -- TODO: Add rotation
 -- When an item is placed down, store it in sessionData with the id and relative coords
-function PlayerManager.AddPlacedItem(player, itemId, uuid, relX, relZ)
+function PlayerManager.AddPlacedItem(player, itemId, uuid, relX, relZ,rotY)
 	local data = sessionData[player.UserId]
 	
 	-- checks for repeats
-	if not table.find(data.placedItems, {itemId, uuid, relX, relZ}) then
-		table.insert(data.placedItems, {itemId, uuid, relX, relZ})
+	if not table.find(data.placedItems, {itemId, uuid, relX, relZ, rotY}) then
+		table.insert(data.placedItems, {itemId, uuid, relX, relZ, rotY})
 	end
 end
 

@@ -84,6 +84,10 @@ function Tycoon:BuildPlacedItemsData()
 		local uuid = data[1][2]
 		local relX = data[1][3]
 		local relZ = data[1][4]
+		local rotY = data[1][5]
+
+		-- In case not saved
+		if not rotY then rotY = 0 end
 
 		-- Remove this piece of data before placing (placement will re-add it)
 		print("Removing " .. uuid)
@@ -91,11 +95,11 @@ function Tycoon:BuildPlacedItemsData()
 
 		-- Build the item again
 		-- placeEvent:FireServer(position, self.placeableID, self.Tycoon, self.uuid)
-		self:BuildSavedItem(itemId, uuid, relX, relZ)
+		self:BuildSavedItem(itemId, uuid, relX, relZ, rotY)
 	end
 end
 
-function Tycoon:BuildSavedItem(itemId, uuid, relX, relZ)
+function Tycoon:BuildSavedItem(itemId, uuid, relX, relZ, rotY)
 	-- Check PlacedItems data to ensure id + uuid aren't already placed
 	local data = playerManager.GetPlacedItems(self.Owner)
 
@@ -118,6 +122,7 @@ function Tycoon:BuildSavedItem(itemId, uuid, relX, relZ)
 	local baseZMin = basePosition.Z - baseSize.Z / 2
 	local baseY = basePosition.Y + baseSize.Y / 2
 	local realPos = CFrame.new(baseXMin + relX, baseY + Placeable.Hitbox.Size.Y / 2, baseZMin + relZ)
+	local realPos = realPos * CFrame.Angles(0, math.rad(rotY), 0)
 
 	local PlaceableClone = Placeable:Clone()
 	PlaceableClone.PrimaryPart.CFrame = realPos
@@ -129,7 +134,7 @@ function Tycoon:BuildSavedItem(itemId, uuid, relX, relZ)
 	-- Since we use this data to place these items on join also, make sure to remove
 	-- the item from data before placing it again
 	-- Passes relative pos, not real pos
-	playerManager.AddPlacedItem(self.Owner, itemId, uuid, relX, relZ)
+	playerManager.AddPlacedItem(self.Owner, itemId, uuid, relX, relZ, rotY)
 end
 
 -- on join, load saved unlocks

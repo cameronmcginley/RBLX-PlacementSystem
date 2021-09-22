@@ -36,7 +36,7 @@ end)
 -- Waiting for client to fire RemoteEvent
 
 -- placePosition is position relative to min x and min z of the base
-ReplicatedStorage:WaitForChild('Place').OnServerEvent:Connect(function(player, placePosition, rotation, placeableId, tycoon, uuid)
+ReplicatedStorage:WaitForChild('Place').OnServerEvent:Connect(function(player, placePosition, rotation, totalRotation, placeableId, tycoon, uuid)
 	-- Check PlacedItems data to ensure id + uuid aren't already placed
 	local data = PlayerManager.GetPlacedItems(player)
 	print(data)
@@ -74,7 +74,8 @@ ReplicatedStorage:WaitForChild('Place').OnServerEvent:Connect(function(player, p
 	-- Since we use this data to place these items on join also, make sure to remove
 	-- the item from data before placing it again
 	-- Passes relative pos, not real pos
-	PlayerManager.AddPlacedItem(player, placeableId, uuid, placePosition.X, placePosition.Z)
+	print(rotation.Y)
+	PlayerManager.AddPlacedItem(player, placeableId, uuid, placePosition.X, placePosition.Z, totalRotation)
 
 	-- Tell the button that the object has been placed, buton can be re-enabled
 	-- local bindableEvent = game.ServerStorage.ServerToButton

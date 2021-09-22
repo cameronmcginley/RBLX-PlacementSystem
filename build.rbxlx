@@ -1729,7 +1729,7 @@ end)
 -- Waiting for client to fire RemoteEvent
 
 -- placePosition is position relative to min x and min z of the base
-ReplicatedStorage:WaitForChild('Place').OnServerEvent:Connect(function(player, placePosition, placeableId, tycoon, uuid)
+ReplicatedStorage:WaitForChild('Place').OnServerEvent:Connect(function(player, placePosition, rotation, placeableId, tycoon, uuid)
 	-- Check PlacedItems data to ensure id + uuid aren't already placed
 	local data = PlayerManager.GetPlacedItems(player)
 	print(data)
@@ -1754,7 +1754,7 @@ ReplicatedStorage:WaitForChild('Place').OnServerEvent:Connect(function(player, p
 	local baseSize = tycoon.Model.Base.Size
 	local baseXMin = basePosition.X - baseSize.X / 2
 	local baseZMin = basePosition.Z - baseSize.Z / 2
-	local realPos = CFrame.new(baseXMin + placePosition.X, placePosition.Y, baseZMin + placePosition.Z)
+	local realPos = CFrame.new(baseXMin + placePosition.X, placePosition.Y, baseZMin + placePosition.Z) * rotation
 
 	local Placeable = placeablesFolder:FindFirstChild(placeableId)
 	local PlaceableClone = Placeable:Clone()
@@ -2338,7 +2338,7 @@ function PlayerManager.OnPlayerAdded(player)
 		sessionData[player.UserId].placedItems = {}
 	end
 	-- TESTING TESTING TESTING TESTING TESTING
-	sessionData[player.UserId].placedItems = {}
+	--sessionData[player.UserId].placedItems = {}
 	
 	local leaderstats = LeaderboardSetup(PlayerManager.GetMoney(player))
 	leaderstats.Parent = player
@@ -4787,6 +4787,7 @@ function PlacementSystem:Init()
 			if hasPlaced then
 				-- Faster we disconnect placing the better, don't want duplicate placements
 				Placing:Disconnect()
+				Rotating:Disconnect()
 				Stepped:Disconnect()
 				self:Cleanup()
 			end
@@ -4795,23 +4796,22 @@ function PlacementSystem:Init()
 		end
 	end)
 
+	local rotateCounter = 0
+
 	-- Rotate on r press
+	-- Modifies self.rotation
 	Rotating = UIS.InputBegan:Connect(function(input)
 		if input.KeyCode.Name == "R" 
 		and input.UserInputType == Enum.UserInputType.Keyboard 
 		and not debounce then
 			debounce = true
-			--print("R pressed")
-			--print(self.placeable.PrimaryPart.CFrame)
+			rotateCounter += 1
 
-			-- local initPosition = self.placeable.PrimaryPart.CFrame
-			-- local rotation = CFrame.Angles(0, math.rad(45), 0)
-			-- self.placeable.PrimaryPart.CFrame = rotation * initPosition
+			-- In degrees
+			local rotationAmount = 90
 
-			self.rotation = CFrame.Angles(self.rotation.X, self.rotation.Y + math.rad(45), self.rotation.Z)
-			--print(self.rotation)
-			--print(self.placeable.PrimaryPart.CFrame)
-			--print("\n")
+			self.rotation = CFrame.Angles(0, rotateCounter * math.rad(rotationAmount), 0)
+
 			debounce = false
 		end
 	end)
@@ -4827,12 +4827,6 @@ end
 function PlacementSystem:PlacePosition(toPlace, placeEvent)
 	local mouseLocation = UIS:GetMouseLocation()
 	local target, position, normal = self:getMousePoint(mouseLocation.X, mouseLocation.Y)
-
-	--local rotation = CFrame.Angles(0,0,0)
-
-	print(self.rotation)
-	if position then position = CFrame.new(position) * self.rotation end
-	print(position)
 
 	if self.placeable.Parent ~= self.Tycoon.Model then
 		self.placeable.Parent = self.Tycoon.Model
@@ -4852,9 +4846,7 @@ function PlacementSystem:PlacePosition(toPlace, placeEvent)
 
 		-- Position sinks into ground by half of the primary parts height, add to y
 		local yOffset = self.placeable.PrimaryPart.Size.Y / 2
-		--position = CFrame.new(position + CFrame.new(0, yOffset, 0))
-		--position.Y = position.Y + yOffset
-		position = CFrame.new(position.X, position.Y + yOffset, position.Z)
+		position = CFrame.new(position.X, position.Y + yOffset, position.Z) * self.rotation
 
 		self.placeable.PrimaryPart.CFrame = position
 		
@@ -4865,7 +4857,7 @@ function PlacementSystem:PlacePosition(toPlace, placeEvent)
 			end
 			-- Pass position relative to base (corner = (0,y,0))
 			position = self:GetRelPos(position)
-			placeEvent:FireServer(position, self.placeableID, self.Tycoon, self.uuid)
+			placeEvent:FireServer(position, self.rotation, self.placeableID, self.Tycoon, self.uuid)
 			self.placeable:Destroy() -- Remove placeable ghost on client
 			return true
 		else
@@ -4898,7 +4890,7 @@ function PlacementSystem:GetRelPos(placePosition)
 	local baseXMin = basePosition.X - baseSize.X / 2
 	local baseZMin = basePosition.Z - baseSize.Z / 2
 
-	return CFrame.new(placePosition.X - baseXMin, placePosition.Y, placePosition.Z - baseZMin)
+	return CFrame.new(placePosition.X - baseXMin, placePosition.Y, placePosition.Z - baseZMin) * self.rotation
 end
 
 function PlacementSystem:IsColliding()
@@ -6022,7 +6014,7 @@ return PlacementSystem
 						<float name="TopParamB">0.5</float>
 						<token name="TopSurface">0</token>
 						<token name="TopSurfaceInput">0</token>
-						<float name="Transparency">0.5</float>
+						<float name="Transparency">1</float>
 						<Vector3 name="Velocity">
 							<X>0</X>
 							<Y>0</Y>
@@ -6033,7 +6025,7 @@ return PlacementSystem
 						<Vector3 name="size">
 							<X>4</X>
 							<Y>2</Y>
-							<Z>5</Z>
+							<Z>4</Z>
 						</Vector3>
 					</Properties>
 					<Item class="Motor6D" referent="RBXBEF303FAB15F461EAAC5898BAD871CEC">
