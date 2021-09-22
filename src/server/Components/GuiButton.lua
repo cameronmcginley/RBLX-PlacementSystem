@@ -75,14 +75,16 @@ function GuiButton:Press(player, debounce)
 
 			local selectEvent = ReplicatedStorage:WaitForChild('Select') -- tell client to run module
 			selectEvent:FireClient(self.Tycoon.Owner, self.Tycoon, self.ButtonId, uuid, self.Cost)
-
-			-- Unlock button
-			self.bindableEvent.Event:Connect(function()
-				print("Button has heard the event")
-				self:EnableButton()
-			end)
 		end
 	end
+
+	-- Unlock button
+	local unlockButton
+	unlockButton = self.bindableEvent.Event:Connect(function()
+		print("Button has heard the event")
+		self:EnableButton()
+		unlockButton:Disconnect()
+	end)
 end
 
 function GuiButton:DisableButton()
