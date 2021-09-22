@@ -36,7 +36,7 @@ end)
 -- Waiting for client to fire RemoteEvent
 
 -- placePosition is position relative to min x and min z of the base
-ReplicatedStorage:WaitForChild('Place').OnServerEvent:Connect(function(player, placePosition, placeableId, tycoon, uuid)
+ReplicatedStorage:WaitForChild('Place').OnServerEvent:Connect(function(player, placePosition, rotation, placeableId, tycoon, uuid)
 	-- Check PlacedItems data to ensure id + uuid aren't already placed
 	local data = PlayerManager.GetPlacedItems(player)
 	print(data)
@@ -61,7 +61,7 @@ ReplicatedStorage:WaitForChild('Place').OnServerEvent:Connect(function(player, p
 	local baseSize = tycoon.Model.Base.Size
 	local baseXMin = basePosition.X - baseSize.X / 2
 	local baseZMin = basePosition.Z - baseSize.Z / 2
-	local realPos = CFrame.new(baseXMin + placePosition.X, placePosition.Y, baseZMin + placePosition.Z)
+	local realPos = CFrame.new(baseXMin + placePosition.X, placePosition.Y, baseZMin + placePosition.Z) * rotation
 
 	local Placeable = placeablesFolder:FindFirstChild(placeableId)
 	local PlaceableClone = Placeable:Clone()

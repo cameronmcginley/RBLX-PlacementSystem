@@ -73,27 +73,27 @@
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>-25.4577312</X>
-					<Y>5.58279133</Y>
-					<Z>-45.5149612</Z>
-					<R00>-0.565549135</R00>
-					<R01>0.435063958</R01>
-					<R02>-0.700623691</R02>
-					<R10>-0</R10>
-					<R11>0.84953475</R11>
-					<R12>0.527532697</R12>
-					<R20>0.824714661</R20>
-					<R21>0.298345655</R21>
-					<R22>-0.48045361</R22>
+					<X>-64.4136124</X>
+					<Y>31.2037487</Y>
+					<Z>-104.260223</Z>
+					<R00>-0.565548599</R00>
+					<R01>0.435063869</R01>
+					<R02>-0.700624228</R02>
+					<R10>-1.49011594e-08</R10>
+					<R11>0.849534988</R11>
+					<R12>0.527532399</R12>
+					<R20>0.824714959</R20>
+					<R21>0.298345208</R21>
+					<R22>-0.480453312</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
 				<float name="FieldOfView">70</float>
 				<token name="FieldOfViewMode">0</token>
 				<CoordinateFrame name="Focus">
-					<X>-24.0564842</X>
-					<Y>4.52772617</Y>
-					<Z>-44.5540543</Z>
+					<X>-63.0123634</X>
+					<Y>30.1486835</Y>
+					<Z>-103.299316</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -1166,8 +1166,8 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 			<bool name="EnableScriptCollabByDefaultOnLoad">false</bool>
 			<string name="Name">StudioData</string>
 			<int64 name="SourceAssetId">-1</int64>
-			<int64 name="SrcPlaceId">7448481901</int64>
-			<int64 name="SrcUniverseId">2901564081</int64>
+			<int64 name="SrcPlaceId">7484506162</int64>
+			<int64 name="SrcUniverseId">2914187972</int64>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
@@ -2216,14 +2216,16 @@ function GuiButton:Press(player, debounce)
 
 			local selectEvent = ReplicatedStorage:WaitForChild('Select') -- tell client to run module
 			selectEvent:FireClient(self.Tycoon.Owner, self.Tycoon, self.ButtonId, uuid, self.Cost)
-
-			-- Unlock button
-			self.bindableEvent.Event:Connect(function()
-				print("Button has heard the event")
-				self:EnableButton()
-			end)
 		end
 	end
+
+	-- Unlock button
+	local unlockButton
+	unlockButton = self.bindableEvent.Event:Connect(function()
+		print("Button has heard the event")
+		self:EnableButton()
+		unlockButton:Disconnect()
+	end)
 end
 
 function GuiButton:DisableButton()
@@ -4711,6 +4713,8 @@ function PlacementSystem.new(tycoon, id, uuid, cost)
 	self.placeableID = id
 	local placeableOriginal = placeablesFolder:FindFirstChild(id)
 
+	self.rotation = CFrame.Angles(0,0,0)
+
 	-- Cloned via client, CAN NOT PASS THIS TO SERVER
 	-- Pass its id instead, then clone new one from serverstorage
 	self.placeable = placeablesFolder:WaitForChild(placeableOriginal.Name):clone()
@@ -4764,15 +4768,18 @@ function PlacementSystem:Init()
 	local placeEvent = ReplicatedStorage:WaitForChild('Place') -- RemoteEvent to tell server to place object
 	local hasPlaced = false
 	local Placing
+	local Rotating
 	local Stepped
+
+	-- Debounce affects click AND key press, don't want to execute both at once
 	local debounce = false
 
 	-- Texture the base
 	self:TextureBase()
 
 	-- Place on click
-	Placing = UIS.InputBegan:Connect(function(i)
-		if i.UserInputType == Enum.UserInputType.MouseButton1 and not debounce then
+	Placing = UIS.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 and not debounce then
 			debounce = true
 			hasPlaced = self:PlacePosition(true, placeEvent)
 
@@ -4788,16 +4795,44 @@ function PlacementSystem:Init()
 		end
 	end)
 
+	-- Rotate on r press
+	Rotating = UIS.InputBegan:Connect(function(input)
+		if input.KeyCode.Name == "R" 
+		and input.UserInputType == Enum.UserInputType.Keyboard 
+		and not debounce then
+			debounce = true
+			--print("R pressed")
+			--print(self.placeable.PrimaryPart.CFrame)
+
+			-- local initPosition = self.placeable.PrimaryPart.CFrame
+			-- local rotation = CFrame.Angles(0, math.rad(45), 0)
+			-- self.placeable.PrimaryPart.CFrame = rotation * initPosition
+
+			self.rotation = CFrame.Angles(self.rotation.X, self.rotation.Y + math.rad(45), self.rotation.Z)
+			--print(self.rotation)
+			--print(self.placeable.PrimaryPart.CFrame)
+			--print("\n")
+			debounce = false
+		end
+	end)
+
 	-- Move ghost with mouse
 	-- RenderStepped will run every frame for the client (60ish times a second)
 	Stepped = RunService.RenderStepped:Connect(function()
 		self:PlacePosition(false, placeEvent)
+		--print(self.placeable.PrimaryPart.CFrame)
 	end)
 end
 
 function PlacementSystem:PlacePosition(toPlace, placeEvent)
 	local mouseLocation = UIS:GetMouseLocation()
 	local target, position, normal = self:getMousePoint(mouseLocation.X, mouseLocation.Y)
+
+	--local rotation = CFrame.Angles(0,0,0)
+
+	print(self.rotation)
+	if position then position = CFrame.new(position) * self.rotation end
+	print(position)
 
 	if self.placeable.Parent ~= self.Tycoon.Model then
 		self.placeable.Parent = self.Tycoon.Model
@@ -4817,7 +4852,10 @@ function PlacementSystem:PlacePosition(toPlace, placeEvent)
 
 		-- Position sinks into ground by half of the primary parts height, add to y
 		local yOffset = self.placeable.PrimaryPart.Size.Y / 2
-		position = CFrame.new(position + Vector3.new(0, yOffset, 0))
+		--position = CFrame.new(position + CFrame.new(0, yOffset, 0))
+		--position.Y = position.Y + yOffset
+		position = CFrame.new(position.X, position.Y + yOffset, position.Z)
+
 		self.placeable.PrimaryPart.CFrame = position
 		
 		if toPlace then
@@ -5984,7 +6022,7 @@ return PlacementSystem
 						<float name="TopParamB">0.5</float>
 						<token name="TopSurface">0</token>
 						<token name="TopSurfaceInput">0</token>
-						<float name="Transparency">1</float>
+						<float name="Transparency">0.5</float>
 						<Vector3 name="Velocity">
 							<X>0</X>
 							<Y>0</Y>
@@ -5995,7 +6033,7 @@ return PlacementSystem
 						<Vector3 name="size">
 							<X>4</X>
 							<Y>2</Y>
-							<Z>4</Z>
+							<Z>5</Z>
 						</Vector3>
 					</Properties>
 					<Item class="Motor6D" referent="RBXBEF303FAB15F461EAAC5898BAD871CEC">

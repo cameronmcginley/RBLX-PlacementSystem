@@ -16,6 +16,8 @@ function PlacementSystem.new(tycoon, id, uuid, cost)
 	self.placeableID = id
 	local placeableOriginal = placeablesFolder:FindFirstChild(id)
 
+	self.rotation = CFrame.Angles(0,0,0)
+
 	-- Cloned via client, CAN NOT PASS THIS TO SERVER
 	-- Pass its id instead, then clone new one from serverstorage
 	self.placeable = placeablesFolder:WaitForChild(placeableOriginal.Name):clone()
@@ -69,15 +71,18 @@ function PlacementSystem:Init()
 	local placeEvent = ReplicatedStorage:WaitForChild('Place') -- RemoteEvent to tell server to place object
 	local hasPlaced = false
 	local Placing
+	local Rotating
 	local Stepped
+
+	-- Debounce affects click AND key press, don't want to execute both at once
 	local debounce = false
 
 	-- Texture the base
 	self:TextureBase()
 
 	-- Place on click
-	Placing = UIS.InputBegan:Connect(function(i)
-		if i.UserInputType == Enum.UserInputType.MouseButton1 and not debounce then
+	Placing = UIS.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 and not debounce then
 			debounce = true
 			hasPlaced = self:PlacePosition(true, placeEvent)
 
@@ -85,9 +90,30 @@ function PlacementSystem:Init()
 			if hasPlaced then
 				-- Faster we disconnect placing the better, don't want duplicate placements
 				Placing:Disconnect()
+				Rotating:Disconnect()
 				Stepped:Disconnect()
 				self:Cleanup()
 			end
+
+			debounce = false
+		end
+	end)
+
+	local rotateCounter = 0
+
+	-- Rotate on r press
+	-- Modifies self.rotation
+	Rotating = UIS.InputBegan:Connect(function(input)
+		if input.KeyCode.Name == "R" 
+		and input.UserInputType == Enum.UserInputType.Keyboard 
+		and not debounce then
+			debounce = true
+			rotateCounter += 1
+
+			-- In degrees
+			local rotationAmount = 34
+
+			self.rotation = CFrame.Angles(0, rotateCounter * math.rad(rotationAmount), 0)
 
 			debounce = false
 		end
@@ -97,6 +123,7 @@ function PlacementSystem:Init()
 	-- RenderStepped will run every frame for the client (60ish times a second)
 	Stepped = RunService.RenderStepped:Connect(function()
 		self:PlacePosition(false, placeEvent)
+		--print(self.placeable.PrimaryPart.CFrame)
 	end)
 end
 
@@ -122,7 +149,8 @@ function PlacementSystem:PlacePosition(toPlace, placeEvent)
 
 		-- Position sinks into ground by half of the primary parts height, add to y
 		local yOffset = self.placeable.PrimaryPart.Size.Y / 2
-		position = CFrame.new(position + Vector3.new(0, yOffset, 0))
+		position = CFrame.new(position.X, position.Y + yOffset, position.Z) * self.rotation
+
 		self.placeable.PrimaryPart.CFrame = position
 		
 		if toPlace then
@@ -132,7 +160,7 @@ function PlacementSystem:PlacePosition(toPlace, placeEvent)
 			end
 			-- Pass position relative to base (corner = (0,y,0))
 			position = self:GetRelPos(position)
-			placeEvent:FireServer(position, self.placeableID, self.Tycoon, self.uuid)
+			placeEvent:FireServer(position, self.rotation, self.placeableID, self.Tycoon, self.uuid)
 			self.placeable:Destroy() -- Remove placeable ghost on client
 			return true
 		else
@@ -165,7 +193,7 @@ function PlacementSystem:GetRelPos(placePosition)
 	local baseXMin = basePosition.X - baseSize.X / 2
 	local baseZMin = basePosition.Z - baseSize.Z / 2
 
-	return CFrame.new(placePosition.X - baseXMin, placePosition.Y, placePosition.Z - baseZMin)
+	return CFrame.new(placePosition.X - baseXMin, placePosition.Y, placePosition.Z - baseZMin) * self.rotation
 end
 
 function PlacementSystem:IsColliding()
