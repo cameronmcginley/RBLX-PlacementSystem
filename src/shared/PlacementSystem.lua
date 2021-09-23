@@ -1,3 +1,5 @@
+-- Consolidate into ClientPlacing.client.lua ------------
+
 local Players = game:GetService("Players")
 local UIS = game:GetService("UserInputService") -- for mouse input
 local RunService = game:GetService('RunService') -- for RenderStepped / live input from the user 
@@ -21,6 +23,8 @@ function PlacementSystem.new(tycoon, id, uuid, cost)
 	-- Cloned via client, CAN NOT PASS THIS TO SERVER
 	-- Pass its id instead, then clone new one from serverstorage
 	self.placeable = placeablesFolder:WaitForChild(placeableOriginal.Name):clone()
+
+	-- Disable collision on the cloned copy
 	for _, part in ipairs(self.placeable.Model:GetDescendants()) do
 		if part:IsA("BasePart") then
 			part.CanCollide = false
