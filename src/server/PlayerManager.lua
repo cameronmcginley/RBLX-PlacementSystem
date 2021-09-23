@@ -84,8 +84,10 @@ function PlayerManager.OnPlayerAdded(player)
 	if not sessionData[player.UserId].placedItems then 
 		sessionData[player.UserId].placedItems = {}
 	end
+	
 	-- TESTING TESTING TESTING TESTING TESTING
-	--sessionData[player.UserId].placedItems = {}
+	-- Deleted placed item save data
+	sessionData[player.UserId].placedItems = {}
 	
 	local leaderstats = LeaderboardSetup(PlayerManager.GetMoney(player))
 	leaderstats.Parent = player
