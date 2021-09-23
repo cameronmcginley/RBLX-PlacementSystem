@@ -84,10 +84,16 @@ function PlayerManager.OnPlayerAdded(player)
 	if not sessionData[player.UserId].placedItems then 
 		sessionData[player.UserId].placedItems = {}
 	end
-	
+
 	-- TESTING TESTING TESTING TESTING TESTING
-	-- Deleted placed item save data
-	sessionData[player.UserId].placedItems = {}
+	-- Deletes placed item save data
+	-- sessionData[player.UserId].placedItems = {}
+	-- Deletes all data
+	-- sessionData[player.UserId] = {
+	-- 	Money = 0,
+	-- 	UnlockIds = {},
+	-- 	placedItems = {}
+	-- }
 	
 	local leaderstats = LeaderboardSetup(PlayerManager.GetMoney(player))
 	leaderstats.Parent = player
@@ -109,18 +115,6 @@ end
 
 -- leaderstats is responive to our session data, it doesnt define the session data
 function PlayerManager.GetMoney(player)
-	--local leaderstats = player:FindFirstChild("leaderstats")
-	
-	--if leaderstats then
-	--	local money = leaderstats:FindFirstChild("Money")
-		
-	--	if money then
-	--		return money.Value
-	--	end
-	--end
-	
-	--return 0
-	
 	return sessionData[player.UserId].Money
 end
 
