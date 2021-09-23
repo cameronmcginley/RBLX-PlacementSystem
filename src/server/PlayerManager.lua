@@ -76,8 +76,18 @@ function PlayerManager.OnPlayerAdded(player)
 	-- if success, then return data (or new table for default data)
 	sessionData[player.UserId] = success and data or {
 		Money = 0,
-		UnlockIds = {}
+		UnlockIds = {},
+		placedItems = {}
 	}
+
+	-- Do this for each in case successful load, but mising new data piece
+	if not sessionData[player.UserId].placedItems then 
+		sessionData[player.UserId].placedItems = {}
+	end
+	
+	-- TESTING TESTING TESTING TESTING TESTING
+	-- Deleted placed item save data
+	sessionData[player.UserId].placedItems = {}
 	
 	local leaderstats = LeaderboardSetup(PlayerManager.GetMoney(player))
 	leaderstats.Parent = player
@@ -157,5 +167,45 @@ function PlayerManager.OnClose()
 		coroutine.wrap(PlayerManager.OnPlayerRemoving(player))()
 	end
 end
+
+
+
+
+-- TODO: Add rotation
+-- When an item is placed down, store it in sessionData with the id and relative coords
+function PlayerManager.AddPlacedItem(player, itemId, uuid, relX, relZ,rotY)
+	local data = sessionData[player.UserId]
+	
+	-- checks for repeats
+	if not table.find(data.placedItems, {itemId, uuid, relX, relZ, rotY}) then
+		table.insert(data.placedItems, {itemId, uuid, relX, relZ, rotY})
+	end
+end
+
+function PlayerManager.GetPlacedItems(player)
+	return sessionData[player.UserId].placedItems
+end
+
+function PlayerManager.RemovePlacedItem(player, uuid)
+	print(sessionData[player.UserId].placedItems)
+	for index, itemArray in ipairs(sessionData[player.UserId].placedItems) do
+		if table.find(itemArray, uuid) then 
+			print("Removing " .. uuid .. " from PlacedItems")
+			table.remove(sessionData[player.UserId].placedItems, index)
+			print(sessionData[player.UserId].placedItems)
+			print("\n\n\n")
+			return
+		end
+	end
+	print("UUID NOT FOUND")
+end
+
+
+
+
+
+
+
+
 
 return PlayerManager

@@ -8,16 +8,28 @@ local PlacementSystem = {}
 
 PlacementSystem.__index = PlacementSystem
 
-function PlacementSystem.new(tycoon, id, cost)
+function PlacementSystem.new(tycoon, id, uuid, cost)
 	local self = setmetatable({}, PlacementSystem)
 	self.Tycoon = tycoon
 
+	self.uuid = uuid
 	self.placeableID = id
 	local placeableOriginal = placeablesFolder:FindFirstChild(id)
+
+	self.rotation = CFrame.Angles(0,0,0)
 
 	-- Cloned via client, CAN NOT PASS THIS TO SERVER
 	-- Pass its id instead, then clone new one from serverstorage
 	self.placeable = placeablesFolder:WaitForChild(placeableOriginal.Name):clone()
+	for _, part in ipairs(self.placeable.Model:GetDescendants()) do
+		if part:IsA("BasePart") then
+			part.CanCollide = false
+		end
+	end
+
+	-- Add textures to every face of the placeable, these will tint green/red
+	-- on valid position
+	self:PartTexture(true, Color3.new(0,0,0))
 
 	-- Ignore list
 	-- Everything inside tycoon model + user
@@ -64,25 +76,50 @@ function PlacementSystem:Init()
 	local placeEvent = ReplicatedStorage:WaitForChild('Place') -- RemoteEvent to tell server to place object
 	local hasPlaced = false
 	local Placing
+	local Rotating
 	local Stepped
+
+	-- Debounce affects click AND key press, don't want to execute both at once
 	local debounce = false
 
 	-- Texture the base
 	self:TextureBase()
 
 	-- Place on click
-	Placing = UIS.InputBegan:Connect(function(i)
-		if i.UserInputType == Enum.UserInputType.MouseButton1 and not debounce then
+	Placing = UIS.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 and not debounce then
 			debounce = true
 			hasPlaced = self:PlacePosition(true, placeEvent)
 
-			-- Verify it was actually placed, above fires on invalid positions still
+			-- Verify it was actually placed
 			if hasPlaced then
 				-- Faster we disconnect placing the better, don't want duplicate placements
 				Placing:Disconnect()
+				Rotating:Disconnect()
 				Stepped:Disconnect()
 				self:Cleanup()
 			end
+
+			debounce = false
+		end
+	end)
+
+	local rotateCounter = 0
+
+	-- Rotate on r press
+	-- Modifies self.rotation
+	Rotating = UIS.InputBegan:Connect(function(input)
+		if input.KeyCode.Name == "R" 
+		and input.UserInputType == Enum.UserInputType.Keyboard 
+		and not debounce then
+			debounce = true
+			rotateCounter += 1
+
+			-- In degrees
+			local rotationAmount = 90
+
+			self.rotation = CFrame.Angles(0, rotateCounter * math.rad(rotationAmount), 0)
+			self.totalRotation = rotateCounter * rotationAmount
 
 			debounce = false
 		end
@@ -111,14 +148,24 @@ function PlacementSystem:PlacePosition(toPlace, placeEvent)
 		-- Check if top face
 		if PlacementSystem:NormalToFace(normal, self.Tycoon.Model.Base) ~= Enum.NormalId.Top then return end
 
+		-- Check for collision/overlap with other items
+		-- Can still move the part, but track this in case user tries to place here
+		local isColliding = self:IsColliding()
+
 		-- Position sinks into ground by half of the primary parts height, add to y
 		local yOffset = self.placeable.PrimaryPart.Size.Y / 2
-		position = CFrame.new(position + Vector3.new(0, yOffset, 0))
+		position = CFrame.new(position.X, position.Y + yOffset, position.Z) * self.rotation
+
 		self.placeable.PrimaryPart.CFrame = position
 		
 		if toPlace then
-			-- Pass desired position and id of desired placeable
-			placeEvent:FireServer(position, self.placeableID, self.Tycoon.Model)
+			if isColliding then
+				print("Invalid placement location")
+				return false
+			end
+			-- Pass position relative to base (corner = (0,y,0))
+			position = self:GetRelPos(position)
+			placeEvent:FireServer(position, self.rotation, self.totalRotation, self.placeableID, self.Tycoon, self.uuid)
 			self.placeable:Destroy() -- Remove placeable ghost on client
 			return true
 		else
@@ -129,7 +176,7 @@ end
 
 -- Verify the hitbox of the placeable is within base
 function PlacementSystem:InBounds(placePosition)
-	local hitboxSize = self.placeable.NoCollide.Hitbox.Size
+	local hitboxSize = self.placeable.Hitbox.Size
 	local basePosition = self.Tycoon.Model.Base.Position
 	local baseSize = self.Tycoon.Model.Base.Size
 
@@ -141,6 +188,86 @@ function PlacementSystem:InBounds(placePosition)
 	local zMin = placePosition.Z - hitboxSize.Z / 2 >= basePosition.Z - baseSize.Z / 2
 
 	return xMax and xMin and zMax and zMin
+end
+
+-- Take in actual position, return position relative to (minx, minz)
+function PlacementSystem:GetRelPos(placePosition)
+	local basePosition = self.Tycoon.Model.Base.Position
+	local baseSize = self.Tycoon.Model.Base.Size
+
+	local baseXMin = basePosition.X - baseSize.X / 2
+	local baseZMin = basePosition.Z - baseSize.Z / 2
+
+	return CFrame.new(placePosition.X - baseXMin, placePosition.Y, placePosition.Z - baseZMin) * self.rotation
+end
+
+function PlacementSystem:IsColliding()
+	-- This is an extra hitbox for the object, but .2 smaller on each side
+	-- since GetTouchingParts will get side-by-side parts so hitbox won't work
+	-- Can contain many collision detectors
+	local collisionDetectors = self.placeable.CollisionDetectors:GetChildren()
+
+	-- Each detector puts a table of its touched parts into this
+	local allTouching = {}
+
+	for i = 1, #collisionDetectors do
+		-- https://devforum.roblox.com/t/simple-trick-to-make-gettouchingparts-work-with-non-cancollide-parts/177450
+		-- GetTouchingParts only works with cancollide, this connection bypasses that
+		local connection = collisionDetectors[i].Touched:Connect(function() end)
+		local results = collisionDetectors[i]:GetTouchingParts()
+		connection:Disconnect()
+		table.insert(allTouching, results)
+	end
+
+	for _, collisionAry in ipairs(allTouching) do
+		for _, obj in ipairs(collisionAry) do
+			if obj.Name == "CollisionDetector" then
+				-- Red if collision
+				-- self.placeable.Hitbox.BrickColor = BrickColor.new(255,0,0)
+				self:PartTexture(false, Color3.new(1,0,0))
+				return true
+			end
+		end
+	end
+
+	-- self.placeable.Hitbox.BrickColor = BrickColor.new(0, 255,0)
+	self:PartTexture(false, Color3.new(0, 1, 0))
+	return false
+end
+
+function PlacementSystem:PartTexture(createTextures, color)
+	local faces = {"Top", "Bottom", "Left", "Right", "Back", "Front"}
+	local textureSurfaceGui
+	local textureFrame
+
+	if createTextures then
+		textureSurfaceGui = Instance.new("SurfaceGui")
+		textureFrame = Instance.new("Frame")
+		textureFrame.Size = UDim2.new(1,0,1,0)
+		textureFrame.BorderSizePixel = 0
+		textureFrame.BackgroundTransparency = 0.8
+		textureFrame.Parent = textureSurfaceGui
+	end
+
+	-- loop through parts in Placeable.Model, apply textureSurfaceGui to every face on every part
+	for _, part in ipairs(self.placeable.Model:GetDescendants()) do
+		if part:IsA("Part") then
+			-- Apply the texture to every face (only on init)
+			if createTextures then
+				for i = 1, #faces do
+					local newTextureGui
+					newTextureGui = textureSurfaceGui:Clone()
+					newTextureGui.Face = faces[i]
+					newTextureGui.Parent = part
+				end
+			end
+
+			-- Change color for frame on each face
+			for _, textureGui in ipairs(part:GetChildren()) do
+				textureGui.Frame.BackgroundColor3 = color
+			end
+		end
+	end
 end
 
 --[[**
