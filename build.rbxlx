@@ -1169,7 +1169,7 @@ end)]]></ProtectedString>
 					<UDim2 name="Position">
 						<XS>0.0683760718</XS>
 						<XO>0</XO>
-						<YS>0.0826636031</YS>
+						<YS>0.664753199</YS>
 						<YO>0</YO>
 					</UDim2>
 					<Ref name="RootLocalizationTable">null</Ref>
@@ -1329,6 +1329,83 @@ end)]]></ProtectedString>
 						<token name="Style">0</token>
 						<BinaryString name="Tags">R3VpQnV0dG9u</BinaryString>
 						<string name="Text">Even Part</string>
+						<Color3 name="TextColor3">
+							<R>0</R>
+							<G>0</G>
+							<B>0</B>
+						</Color3>
+						<bool name="TextScaled">false</bool>
+						<float name="TextSize">14</float>
+						<Color3 name="TextStrokeColor3">
+							<R>0</R>
+							<G>0</G>
+							<B>0</B>
+						</Color3>
+						<float name="TextStrokeTransparency">1</float>
+						<float name="TextTransparency">0</float>
+						<token name="TextTruncate">0</token>
+						<bool name="TextWrapped">false</bool>
+						<token name="TextXAlignment">2</token>
+						<token name="TextYAlignment">1</token>
+						<bool name="Visible">true</bool>
+						<int name="ZIndex">1</int>
+					</Properties>
+				</Item>
+				<Item class="TextLabel" referent="RBX905D2B892A644C74A69E800BA363DE55">
+					<Properties>
+						<bool name="Active">false</bool>
+						<Vector2 name="AnchorPoint">
+							<X>0</X>
+							<Y>0</Y>
+						</Vector2>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<bool name="AutoLocalize">true</bool>
+						<token name="AutomaticSize">0</token>
+						<Color3 name="BackgroundColor3">
+							<R>1</R>
+							<G>1</G>
+							<B>1</B>
+						</Color3>
+						<float name="BackgroundTransparency">0</float>
+						<Color3 name="BorderColor3">
+							<R>0.105882362</R>
+							<G>0.164705887</G>
+							<B>0.207843155</B>
+						</Color3>
+						<token name="BorderMode">0</token>
+						<int name="BorderSizePixel">0</int>
+						<bool name="ClipsDescendants">false</bool>
+						<bool name="Draggable">false</bool>
+						<token name="Font">3</token>
+						<int name="LayoutOrder">0</int>
+						<float name="LineHeight">1</float>
+						<int name="MaxVisibleGraphemes">-1</int>
+						<string name="Name">TextLabel</string>
+						<Ref name="NextSelectionDown">null</Ref>
+						<Ref name="NextSelectionLeft">null</Ref>
+						<Ref name="NextSelectionRight">null</Ref>
+						<Ref name="NextSelectionUp">null</Ref>
+						<UDim2 name="Position">
+							<XS>0.105527639</XS>
+							<XO>0</XO>
+							<YS>1.08000004</YS>
+							<YO>0</YO>
+						</UDim2>
+						<bool name="RichText">false</bool>
+						<Ref name="RootLocalizationTable">null</Ref>
+						<float name="Rotation">0</float>
+						<bool name="Selectable">false</bool>
+						<Ref name="SelectionImageObject">null</Ref>
+						<UDim2 name="Size">
+							<XS>0</XS>
+							<XO>157</XO>
+							<YS>0</YS>
+							<YO>19</YO>
+						</UDim2>
+						<token name="SizeConstraint">0</token>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+						<string name="Text">Press R to rotate while placing</string>
 						<Color3 name="TextColor3">
 							<R>0</R>
 							<G>0</G>
@@ -1620,355 +1697,6 @@ end)]]></ProtectedString>
 					<int64 name="SourceAssetId">-1</int64>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="ModuleScript" referent="RBX67337FB909BA4244B5B0EDF70A016902">
-					<Properties>
-						<BinaryString name="AttributesSerialize"></BinaryString>
-						<Content name="LinkedSource"><null></null></Content>
-						<string name="Name">Bank</string>
-						<string name="ScriptGuid">{15D8CF16-95B1-40E7-898B-78620A46EBE9}</string>
-						<ProtectedString name="Source"><![CDATA[local PlayerManager = require(script.Parent.Parent.PlayerManager)
-local Bank = {}
-Bank.__index = Bank
-
-function Bank.new(tycoon, instance)
-	local self = setmetatable({}, Bank)
-	self.Tycoon = tycoon
-	self.Instance = instance
-	self.Balance = 0
-
-	return self
-end
-
-function Bank:Init()
-	self.Tycoon:SubscribeTopic("WorthChange", function(...)
-		self:OnWorthChange(...)
-	end)
-	
-	self.Instance.Pad.Touched:Connect(function(...)
-		self:OnTouched(...)
-	end)
-end
-
-function Bank:OnWorthChange(worth)
-	self.Balance += worth
-	self:SetDisplay("$" .. self.Balance)
-end
-
-function Bank:SetDisplay(str)
-	self.Instance.Display.Money.Text = str
-end
-
-function Bank:OnTouched(hitPart)
-	-- verify hitpart is player and owner
-	local character = hitPart:FindFirstAncestorWhichIsA("Model")
-	
-	if character then
-		local player = game:GetService("Players"):GetPlayerFromCharacter(character)
-		
-		if player and player == self.Tycoon.Owner then
-			local playerMoney = PlayerManager.GetMoney(player) + self.Balance
-			PlayerManager.SetMoney(player, playerMoney)
-			
-			-- reset after collection
-			self.Balance = 0
-			self:SetDisplay("$0")
-		end
-	end
-end
-
-return Bank
-]]></ProtectedString>
-						<int64 name="SourceAssetId">-1</int64>
-						<BinaryString name="Tags"></BinaryString>
-					</Properties>
-				</Item>
-				<Item class="ModuleScript" referent="RBXBA6D010907B34CF68E74B26ED1C2A0B2">
-					<Properties>
-						<BinaryString name="AttributesSerialize"></BinaryString>
-						<Content name="LinkedSource"><null></null></Content>
-						<string name="Name">Button</string>
-						<string name="ScriptGuid">{30D04DF9-2CAE-4E68-925D-EFDFD2983D8C}</string>
-						<ProtectedString name="Source"><![CDATA[local PlayerManager = require(script.Parent.Parent.PlayerManager)
-
-local Button = {}
-
-Button.__index = Button
-
-function Button.new(tycoon, part)
-	local self = setmetatable({}, Button)
-	self.Tycoon = tycoon
-	self.Instance = part
-	
-	return self
-end
-
-function Button:Init()
-	print("Button init")
-	self.Prompt = self:CreatePrompt()
-	self.Prompt.Triggered:Connect(function(...)
-		-- called when key held for duration, gives player as attr
-		self:Press(...)
-	end)
-end
-
--- proximity prompt
--- default is 'e' key
-function Button:CreatePrompt()
-	local prompt = Instance.new("ProximityPrompt")
-	
-	prompt.HoldDuration = 0.5
-	prompt.ActionText = self.Instance:GetAttribute("Display")
-	prompt.ObjectText = "$" .. self.Instance:GetAttribute("Cost")
-	prompt.Parent = self.Instance
-	
-	return prompt
-end
-
-function Button:Press(player)
-	-- unlocks everything with matching Id and UnlockId
-	local id = self.Instance:GetAttribute("Id")
-	local cost = self.Instance:GetAttribute("Cost")
-	local money = PlayerManager.GetMoney(player)
-	
-	if player == self.Tycoon.Owner and money >= cost then
-		print(player.Name .. " purchased ButtonId: " .. id)
-		PlayerManager.SetMoney(player, money - cost)
-		-- publish button id to topic, all unlockables listening will check it it
-		-- matches their id
-		self.Tycoon:PublishTopic("Button", id)
-		
-		-- Despawn component handles this
-		-- self.Instance:Destroy()		
-	end
-end
-
-return Button
-]]></ProtectedString>
-						<int64 name="SourceAssetId">-1</int64>
-						<BinaryString name="Tags"></BinaryString>
-					</Properties>
-				</Item>
-				<Item class="ModuleScript" referent="RBXCFFD6CBAD2344183A8173A4B1DF01B21">
-					<Properties>
-						<BinaryString name="AttributesSerialize"></BinaryString>
-						<Content name="LinkedSource"><null></null></Content>
-						<string name="Name">Collector</string>
-						<string name="ScriptGuid">{B4D73F86-3E85-457E-827B-7235B5FEB5C1}</string>
-						<ProtectedString name="Source"><![CDATA[local Collector = {}
-Collector.__index = Collector
-
-function Collector.new(tycoon, instance)
-	local self = setmetatable({}, Collector)
-	self.Tycoon = tycoon
-	self.Instance = instance
-
-	return self
-end
-
-function Collector:Init()
-	self.Instance.Collider.Touched:Connect(function(...)
-		self:OnTouched(...)
-	end)
-end
-
-function Collector:OnTouched(hitPart)
-	-- destroy part, verify it is an actual drop
-	-- "Worth" is unique to drops
-	local worth = hitPart:GetAttribute("Worth")
-	
-	if worth then
-		self.Tycoon:PublishTopic("WorthChange", worth)
-		hitPart:Destroy()
-	end
-end
-
-return Collector
-]]></ProtectedString>
-						<int64 name="SourceAssetId">-1</int64>
-						<BinaryString name="Tags"></BinaryString>
-					</Properties>
-				</Item>
-				<Item class="ModuleScript" referent="RBX4927CB0426A549F59F8EECC0DDEA8A71">
-					<Properties>
-						<BinaryString name="AttributesSerialize"></BinaryString>
-						<Content name="LinkedSource"><null></null></Content>
-						<string name="Name">Conveyor</string>
-						<string name="ScriptGuid">{833E1BA0-816E-480E-9567-94A9D688C062}</string>
-						<ProtectedString name="Source"><![CDATA[local Conveyor = {}
-Conveyor.__index = Conveyor
-
-function Conveyor.new(tycoon, instance)
-	local self = setmetatable({}, Conveyor)
-	self.Instance = instance
-	self.Speed = instance:GetAttribute("Speed")
-	
-	return self
-end
-
-function Conveyor:Init()
-	local belt = self.Instance.Belt
-	
-	-- Points toward front face, gives speed
-	belt.AssemblyLinearVelocity = belt.CFrame.LookVector * self.Speed
-end
-
-return Conveyor
-]]></ProtectedString>
-						<int64 name="SourceAssetId">-1</int64>
-						<BinaryString name="Tags"></BinaryString>
-					</Properties>
-				</Item>
-				<Item class="ModuleScript" referent="RBX25F59D5373334253B10942011D488DAA">
-					<Properties>
-						<BinaryString name="AttributesSerialize"></BinaryString>
-						<Content name="LinkedSource"><null></null></Content>
-						<string name="Name">Despawn</string>
-						<string name="ScriptGuid">{02420C21-58F9-496B-8560-803EA6F18234}</string>
-						<ProtectedString name="Source"><![CDATA[local Despawn = {}
-
-Despawn.__index = Despawn
-
-function Despawn.new(tycoon, part)
-	local self = setmetatable({}, Despawn)
-	self.Tycoon = tycoon
-	self.Instance = part
-
-	return self
-end
-
-function Despawn:Init()
-	self.Tycoon:SubscribeTopic("Button", function(id)
-		if id == self.Instance:GetAttribute("Id") then
-			self.Instance:Destroy()
-		end		
-	end)
-end
-
-return Despawn
-]]></ProtectedString>
-						<int64 name="SourceAssetId">-1</int64>
-						<BinaryString name="Tags"></BinaryString>
-					</Properties>
-				</Item>
-				<Item class="ModuleScript" referent="RBX37B0899394924B79AD9A82BE56659612">
-					<Properties>
-						<BinaryString name="AttributesSerialize"></BinaryString>
-						<Content name="LinkedSource"><null></null></Content>
-						<string name="Name">Dropper</string>
-						<string name="ScriptGuid">{470C7214-5C33-45C9-9927-8C566824A8E8}</string>
-						<ProtectedString name="Source"><![CDATA[local dropsFolder = game:GetService("ServerStorage").Drops
-local Debris = game:GetService("Debris")
-
-local Dropper = {}
-Dropper.__index = Dropper
-
-function Dropper.new(tycoon, instance)
-	local self = setmetatable({}, Dropper)
-	self.Tycoon = tycoon
-	self.Instance = instance
-	self.Rate = instance:GetAttribute("Rate")
-	self.DropTemplate = dropsFolder[instance:GetAttribute("Drop")]
-	self.DropSpawn = instance.Spout.Spawn
-	
-	return self
-end
-
-function Dropper:Init()
-	-- put paranthesis after coroutine, without its just creating it and not running
-	coroutine.wrap(function()
-		while self.Instance.Parent do
-			self:Drop()
-			wait(self.Rate)
-		end
-	end)()
-end
-
-function Dropper:Drop()
-	local drop = self.DropTemplate:Clone()
-	drop.Position = self.DropSpawn.WorldPosition
-	drop.Parent = self.Instance
-	
-	Debris:AddItem(drop, 10)
-end
-
-return Dropper
-]]></ProtectedString>
-						<int64 name="SourceAssetId">-1</int64>
-						<BinaryString name="Tags"></BinaryString>
-					</Properties>
-				</Item>
-				<Item class="ModuleScript" referent="RBXB71F50B989884F21884C6194504A557C">
-					<Properties>
-						<BinaryString name="AttributesSerialize"></BinaryString>
-						<Content name="LinkedSource"><null></null></Content>
-						<string name="Name">Test</string>
-						<string name="ScriptGuid">{82E5215C-3BBC-4501-B8A0-8DB497A57E4F}</string>
-						<ProtectedString name="Source"><![CDATA[local Test = {}
-
-Test.__index = Test
-
-function Test.new(tycoon, instance)
-	local self = setmetatable({}, Test)
-	self.Tycoon = tycoon
-	self.Instance = instance
-	
-	return self
-end
-
-function Test:Init()
-	print("Test initialized")
-end
-
-return Test
-]]></ProtectedString>
-						<int64 name="SourceAssetId">-1</int64>
-						<BinaryString name="Tags"></BinaryString>
-					</Properties>
-				</Item>
-				<Item class="ModuleScript" referent="RBXB882A4F88E414E0CBF034D8928A900E9">
-					<Properties>
-						<BinaryString name="AttributesSerialize"></BinaryString>
-						<Content name="LinkedSource"><null></null></Content>
-						<string name="Name">Unlockable</string>
-						<string name="ScriptGuid">{EF126963-93A4-4681-919C-0B7A6B100881}</string>
-						<ProtectedString name="Source"><![CDATA[local Unlockable = {}
-
-Unlockable.__index = Unlockable
-
--- instance is the object
-function Unlockable.new(tycoon, instance)
-	local self = setmetatable({}, Unlockable)
-	self.Tycoon = tycoon
-	self.Instance = instance
-	
-	return self
-end
-
-function Unlockable:Init()
-	-- Hook to topic
-	-- Could just pass id to function, but we don't really need to know info here
-	-- so just pass everything (even though just id)
-	self.Subscription = self.Tycoon:SubscribeTopic("Button", function(...)
-		self:OnButtonPressed(...)	
-	end)
-end
-
-function Unlockable:OnButtonPressed(id)
-	-- compare id given
-	if id == self.Instance:GetAttribute("UnlockId") then
-		self.Tycoon:Unlock(self.Instance, id)
-		
-		-- once unlocked, no point for unlockable to be subscribed to button topic
-		self.Subscription:Disconnect()
-	end
-end
-
-return Unlockable
-]]></ProtectedString>
-						<int64 name="SourceAssetId">-1</int64>
-						<BinaryString name="Tags"></BinaryString>
-					</Properties>
-				</Item>
 				<Item class="ModuleScript" referent="RBXEA86D6FD4B5D450AB4C4E58A66FF6EA4">
 					<Properties>
 						<BinaryString name="AttributesSerialize"></BinaryString>
@@ -2075,6 +1803,50 @@ function GuiButton:EnableButton()
 end
 
 return GuiButton
+]]></ProtectedString>
+						<int64 name="SourceAssetId">-1</int64>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="RBXB4FD04BE3B8F4429B9F1ECBED8E010D8">
+					<Properties>
+						<BinaryString name="AttributesSerialize"></BinaryString>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Unlockable</string>
+						<string name="ScriptGuid">{BB3D967C-DACA-4966-9A77-F36473D7D0A0}</string>
+						<ProtectedString name="Source"><![CDATA[local Unlockable = {}
+
+Unlockable.__index = Unlockable
+
+-- instance is the object
+function Unlockable.new(tycoon, instance)
+	local self = setmetatable({}, Unlockable)
+	self.Tycoon = tycoon
+	self.Instance = instance
+	
+	return self
+end
+
+function Unlockable:Init()
+	-- Hook to topic
+	-- Could just pass id to function, but we don't really need to know info here
+	-- so just pass everything (even though just id)
+	self.Subscription = self.Tycoon:SubscribeTopic("Button", function(...)
+		self:OnButtonPressed(...)	
+	end)
+end
+
+function Unlockable:OnButtonPressed(id)
+	-- compare id given
+	if id == self.Instance:GetAttribute("UnlockId") then
+		self.Tycoon:Unlock(self.Instance, id)
+		
+		-- once unlocked, no point for unlockable to be subscribed to button topic
+		self.Subscription:Disconnect()
+	end
+end
+
+return Unlockable
 ]]></ProtectedString>
 						<int64 name="SourceAssetId">-1</int64>
 						<BinaryString name="Tags"></BinaryString>
@@ -2545,18 +2317,6 @@ end
 
 return Tycoon
 ]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="Script" referent="RBXF38CF3E5643140088551DE2D1A6679C3">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<bool name="Disabled">false</bool>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">testing</string>
-					<string name="ScriptGuid">{04F17041-EC2E-4DD7-8546-6D99E0729341}</string>
-					<ProtectedString name="Source">print(&quot;test&quot;)</ProtectedString>
 					<int64 name="SourceAssetId">-1</int64>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
