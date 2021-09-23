@@ -124,13 +124,16 @@ function PlacementSystem:Init()
 	-- RenderStepped will run every frame for the client (60ish times a second)
 	Stepped = RunService.RenderStepped:Connect(function()
 		self:PlacePosition(false, placeEvent)
-		--print(self.placeable.PrimaryPart.CFrame)
 	end)
 end
 
 function PlacementSystem:PlacePosition(toPlace, placeEvent)
 	local mouseLocation = UIS:GetMouseLocation()
 	local target, position, normal = self:getMousePoint(mouseLocation.X, mouseLocation.Y)
+	
+	local finalXPos = position.X
+	local finalYPos = position.Y
+	local finalZPos = position.Z
 
 	if self.placeable.Parent ~= self.Tycoon.Model then
 		self.placeable.Parent = self.Tycoon.Model
@@ -138,6 +141,14 @@ function PlacementSystem:PlacePosition(toPlace, placeEvent)
 
 	-- Move ghost to client target
 	if target and normal and target.Name == "Base" and position then
+		-- Check if each axis is odd, if so: add .5 to axis position 
+		if self.placeable.Hitbox.Size.X % 2 ~= 0 then
+			finalXPos = position.X + 0.5
+		end
+		if self.placeable.Hitbox.Size.Z % 2 ~= 0 then
+			finalZPos = position.Z + 0.5
+		end
+
 		-- Check if inbounds
 		if not self:InBounds(position) then return end
 
@@ -150,7 +161,8 @@ function PlacementSystem:PlacePosition(toPlace, placeEvent)
 
 		-- Position sinks into ground by half of the primary parts height, add to y
 		local yOffset = self.placeable.PrimaryPart.Size.Y / 2
-		position = CFrame.new(position.X, position.Y + yOffset, position.Z) * self.rotation
+		finalYPos = position.Y + yOffset
+		position = CFrame.new(finalXPos, finalYPos, finalZPos) * self.rotation
 
 		self.placeable.PrimaryPart.CFrame = position
 		
