@@ -73,27 +73,27 @@
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>15.4990253</X>
-					<Y>6.58433723</Y>
-					<Z>-100.605255</Z>
-					<R00>-0.99311769</R00>
-					<R01>-0.0799608976</R01>
-					<R02>0.0855771005</R02>
-					<R10>-7.45057971e-09</R10>
-					<R11>0.730676413</R11>
-					<R12>0.682723999</R12>
-					<R20>-0.11712037</R20>
-					<R21>0.678025305</R21>
-					<R22>-0.725647748</R22>
+					<X>9.96950722</X>
+					<Y>69.413269</Y>
+					<Z>-141.222794</Z>
+					<R00>-0.99311775</R00>
+					<R01>-0.079960458</R01>
+					<R02>0.0855775028</R02>
+					<R10>3.72528985e-09</R10>
+					<R11>0.730679929</R11>
+					<R12>0.682720304</R12>
+					<R20>-0.117120378</R20>
+					<R21>0.678021669</R21>
+					<R22>-0.725651145</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
 				<float name="FieldOfView">70</float>
 				<token name="FieldOfViewMode">0</token>
 				<CoordinateFrame name="Focus">
-					<X>15.3278713</X>
-					<Y>5.21889067</Y>
-					<Z>-99.1539612</Z>
+					<X>9.7983532</X>
+					<Y>68.0478363</Y>
+					<Z>-139.7715</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -4887,6 +4887,11 @@ function PlacementSystem.new(tycoon, id, uuid, cost)
 	-- Cloned via client, CAN NOT PASS THIS TO SERVER
 	-- Pass its id instead, then clone new one from serverstorage
 	self.placeable = placeablesFolder:WaitForChild(placeableOriginal.Name):clone()
+	for _, part in ipairs(self.placeable.Model:GetDescendants()) do
+		if part:IsA("BasePart") then
+			part.CanCollide = false
+		end
+	end
 
 	-- Add textures to every face of the placeable, these will tint green/red
 	-- on valid position
@@ -4996,10 +5001,6 @@ end
 function PlacementSystem:PlacePosition(toPlace, placeEvent)
 	local mouseLocation = UIS:GetMouseLocation()
 	local target, position, normal = self:getMousePoint(mouseLocation.X, mouseLocation.Y)
-	
-	local finalXPos = position.X + 0.5
-	local finalYPos = position.Y
-	local finalZPos = position.Z + 0.5
 
 	if self.placeable.Parent ~= self.Tycoon.Model then
 		self.placeable.Parent = self.Tycoon.Model
@@ -5007,14 +5008,6 @@ function PlacementSystem:PlacePosition(toPlace, placeEvent)
 
 	-- Move ghost to client target
 	if target and normal and target.Name == "Base" and position then
-		-- Check if each axis is odd, if so: add .5 to axis position 
-		-- if self.placeable.Hitbox.Size.X % 2 ~= 0 then
-		-- 	finalXPos = position.X + 0.5
-		-- end
-		-- if self.placeable.Hitbox.Size.Z % 2 ~= 0 then
-		-- 	finalZPos = position.Z + 0.5
-		-- end
-
 		-- Check if inbounds
 		if not self:InBounds(position) then return end
 
@@ -5027,8 +5020,7 @@ function PlacementSystem:PlacePosition(toPlace, placeEvent)
 
 		-- Position sinks into ground by half of the primary parts height, add to y
 		local yOffset = self.placeable.PrimaryPart.Size.Y / 2
-		finalYPos = position.Y + yOffset
-		position = CFrame.new(finalXPos, finalYPos, finalZPos) * self.rotation
+		position = CFrame.new(position.X, position.Y + yOffset, position.Z) * self.rotation
 
 		self.placeable.PrimaryPart.CFrame = position
 		
@@ -7181,7 +7173,7 @@ return PlacementSystem
 								<R21>0</R21>
 								<R22>0</R22>
 							</CoordinateFrame>
-							<bool name="CanCollide">false</bool>
+							<bool name="CanCollide">true</bool>
 							<bool name="CanQuery">true</bool>
 							<bool name="CanTouch">true</bool>
 							<bool name="CastShadow">true</bool>
@@ -7275,7 +7267,7 @@ return PlacementSystem
 								<R21>0</R21>
 								<R22>1</R22>
 							</CoordinateFrame>
-							<bool name="CanCollide">false</bool>
+							<bool name="CanCollide">true</bool>
 							<bool name="CanQuery">true</bool>
 							<bool name="CanTouch">true</bool>
 							<bool name="CastShadow">true</bool>
@@ -8091,7 +8083,7 @@ return PlacementSystem
 								<R21>0</R21>
 								<R22>0</R22>
 							</CoordinateFrame>
-							<bool name="CanCollide">false</bool>
+							<bool name="CanCollide">true</bool>
 							<bool name="CanQuery">true</bool>
 							<bool name="CanTouch">true</bool>
 							<bool name="CastShadow">true</bool>
@@ -8185,7 +8177,7 @@ return PlacementSystem
 								<R21>0</R21>
 								<R22>1</R22>
 							</CoordinateFrame>
-							<bool name="CanCollide">false</bool>
+							<bool name="CanCollide">true</bool>
 							<bool name="CanQuery">true</bool>
 							<bool name="CanTouch">true</bool>
 							<bool name="CastShadow">true</bool>

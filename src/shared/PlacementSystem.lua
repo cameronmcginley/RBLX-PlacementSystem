@@ -21,6 +21,11 @@ function PlacementSystem.new(tycoon, id, uuid, cost)
 	-- Cloned via client, CAN NOT PASS THIS TO SERVER
 	-- Pass its id instead, then clone new one from serverstorage
 	self.placeable = placeablesFolder:WaitForChild(placeableOriginal.Name):clone()
+	for _, part in ipairs(self.placeable.Model:GetDescendants()) do
+		if part:IsA("BasePart") then
+			part.CanCollide = false
+		end
+	end
 
 	-- Add textures to every face of the placeable, these will tint green/red
 	-- on valid position
