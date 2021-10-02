@@ -68,7 +68,7 @@ ReplicatedStorage:WaitForChild('Place').OnServerEvent:Connect(function(player, p
 	PlaceableClone.PrimaryPart.CFrame = realPos
 
 	-- Place inside of template group
-	PlaceableClone.Parent = tycoon.Model
+	PlaceableClone.Parent = tycoon.Model.PlacedObjects
 
 	-- Store in PlayerManager data that this has been placed
 	-- Since we use this data to place these items on join also, make sure to remove

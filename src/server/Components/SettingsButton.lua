@@ -5,23 +5,23 @@ local componentFolder = script.Parent
 local ReplicatedStorage = game:GetService('ReplicatedStorage') -- to define the RemoteEvent
 local HttpService = game:GetService("HttpService")
 
-local GuiButton = {}
+local SettingsButton = {}
 
-GuiButton.__index = GuiButton
+SettingsButton.__index = SettingsButton
 
-function GuiButton.new(tycoon, part)
-	local self = setmetatable({}, GuiButton)
+function SettingsButton.new(tycoon, part)
+	local self = setmetatable({}, SettingsButton)
 	self.Tycoon = tycoon
 	self.Instance = part
 	self.ButtonId = self.Instance:GetAttribute("Id")
-	self.Cost = self.Instance:GetAttribute("Cost")
-	self.bindableEvent = game.ServerStorage.ServerToButton
-	
+	print("run")
+	print(self)
+	print("\n\n")
 	return self
 end
 
-function GuiButton:Init()
-	print("GuiButton init")
+function SettingsButton:Init()
+	print("SettingsButton init")
 
 	local debounce = false
 	local lastClick = 0
@@ -43,6 +43,7 @@ function GuiButton:Init()
 			end
 			lastClick = thisClick
 
+			print("Button press")
 			self:Press(self.Tycoon.Owner)
 			debounce = false
 			return
@@ -50,51 +51,54 @@ function GuiButton:Init()
 	end
 
 	self.clickDetect = self.Instance.MouseButton1Click:Connect(onClick)
-
-	-- self.Subscription = self.Tycoon:SubscribeTopic("Placement", function(...)
-	-- 	self:OnItemPlaced(...)	
-	-- end)
 end
 
-function GuiButton:Press(player, debounce)
+function SettingsButton:Press(player, debounce)
 	local debounce = false
 	if not debounce then
 		debounce = true
 
-		local money = PlayerManager.GetMoney(player)
 
-		if player == self.Tycoon.Owner and money >= self.Cost then
-			-- Lock button
-			self:DisableButton()
-
-			print(player.Name .. " purchased ButtonId: " .. self.ButtonId)
-			PlayerManager.SetMoney(player, money - self.Cost)
-
-			-- Generate uuid for the item
-			local uuid = HttpService:GenerateGUID(false)
-
-			local selectEvent = ReplicatedStorage:WaitForChild('Select') -- tell client to run module
-			selectEvent:FireClient(self.Tycoon.Owner, self.Tycoon, self.ButtonId, uuid, self.Cost)
+		if self.ButtonId == 0 then -- Clear placed objects
+			print("Clearing placed objects")
+			self:ClearPlacedObjects(player)
 		end
-	end
 
-	-- Unlock button
-	local unlockButton
-	unlockButton = self.bindableEvent.Event:Connect(function()
-		print("Button has heard the event")
-		self:EnableButton()
-		unlockButton:Disconnect()
-	end)
+		-- if player == self.Tycoon.Owner then
+			
+		-- end
+		debounce = false
+	end
 end
 
-function GuiButton:DisableButton()
+function SettingsButton:DisableButton()
 	print("Disabling button")
 	self.Instance.Visible = false
 end
 
-function GuiButton:EnableButton()
+function SettingsButton:EnableButton()
 	print("Enabling button")
 	self.Instance.Visible = true
 end
 
-return GuiButton
+function SettingsButton:ClearPlacedObjects(player)
+	local data = PlayerManager.GetPlacedItems(player)
+	local placedItemFolder = self.Tycoon.Model.PlacedObjects
+
+	-- Remove physical items
+	for _, item in ipairs(placedItemFolder:GetChildren()) do
+		item:Destroy()
+		print("Destroyed " .. item.Name)
+	end
+
+	-- Remove items from placed item data
+	for index = 1, #data do
+		-- Always use 1 as the index: since we remove the item each iteration
+		-- the next item is moved into index 1
+		local uuid = data[1][2]
+
+		PlayerManager.RemovePlacedItem(player, uuid)
+	end
+end
+
+return SettingsButton
