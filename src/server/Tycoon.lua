@@ -44,23 +44,19 @@ function Tycoon:Init()
 	self.Owner:LoadCharacter()
 	self._spawn:SetAttribute("Occupied", true)
 
-
-
-	-- Get Gui that was distributed by StarterGui
+	-- Get Guis that were distributed by StarterGui
 	self.PlayerGui = game:GetService('Players')[self.Owner.Name]:WaitForChild('PlayerGui')
 	self.ShopGui = self.PlayerGui.ShopGui
-	print(self.ShopGui)
+	self.SettingsGui = self.PlayerGui.SettingsGui
+
 	-- Initializite all GuiButtons in the ShopGui
 	for _, descendant in pairs(self.ShopGui:GetDescendants()) do
 		if descendant:IsA("TextButton") then
-			print(descendant)
-			local compModule = require(componentFolder:FindFirstChild("GuiButton"))
+			local compModule = require(componentFolder:FindFirstChild("PlaceableButton"))
 			local newComp = compModule.new(self, descendant)
 			newComp:Init()
 		end
 	end
-	
-
 	
 	self:LockAll()
 	self:LoadUnlocks()
@@ -128,7 +124,7 @@ function Tycoon:BuildSavedItem(itemId, uuid, relX, relZ, rotY)
 	PlaceableClone.PrimaryPart.CFrame = realPos
 
 	-- Place inside of template group
-	PlaceableClone.Parent = self.Model
+	PlaceableClone.Parent = self.Model.PlacedObjects
 
 	-- Store in PlayerManager data that this has been placed
 	-- Since we use this data to place these items on join also, make sure to remove

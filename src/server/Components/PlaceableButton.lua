@@ -5,12 +5,12 @@ local componentFolder = script.Parent
 local ReplicatedStorage = game:GetService('ReplicatedStorage') -- to define the RemoteEvent
 local HttpService = game:GetService("HttpService")
 
-local GuiButton = {}
+local PlaceableButton = {}
 
-GuiButton.__index = GuiButton
+PlaceableButton.__index = PlaceableButton
 
-function GuiButton.new(tycoon, part)
-	local self = setmetatable({}, GuiButton)
+function PlaceableButton.new(tycoon, part)
+	local self = setmetatable({}, PlaceableButton)
 	self.Tycoon = tycoon
 	self.Instance = part
 	self.ButtonId = self.Instance:GetAttribute("Id")
@@ -20,8 +20,8 @@ function GuiButton.new(tycoon, part)
 	return self
 end
 
-function GuiButton:Init()
-	print("GuiButton init")
+function PlaceableButton:Init()
+	print("PlaceableButton init")
 
 	local debounce = false
 	local lastClick = 0
@@ -56,7 +56,7 @@ function GuiButton:Init()
 	-- end)
 end
 
-function GuiButton:Press(player, debounce)
+function PlaceableButton:Press(player, debounce)
 	local debounce = false
 	if not debounce then
 		debounce = true
@@ -87,14 +87,14 @@ function GuiButton:Press(player, debounce)
 	end)
 end
 
-function GuiButton:DisableButton()
+function PlaceableButton:DisableButton()
 	print("Disabling button")
 	self.Instance.Visible = false
 end
 
-function GuiButton:EnableButton()
+function PlaceableButton:EnableButton()
 	print("Enabling button")
 	self.Instance.Visible = true
 end
 
-return GuiButton
+return PlaceableButton
