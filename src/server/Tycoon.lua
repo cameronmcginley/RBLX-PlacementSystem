@@ -57,6 +57,16 @@ function Tycoon:Init()
 			newComp:Init()
 		end
 	end
+
+	-- Initializite all GuiButtons in the SettingsGui
+	for _, descendant in pairs(self.SettingsGui:GetDescendants()) do
+		if descendant:IsA("TextButton") then
+			local compModule = require(componentFolder:FindFirstChild("SettingsButton"))
+			local newComp = compModule.new(self, descendant)
+			newComp:Init()
+			print(descendant)
+		end
+	end
 	
 	self:LockAll()
 	self:LoadUnlocks()
