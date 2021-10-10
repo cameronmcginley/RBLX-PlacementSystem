@@ -3,6 +3,8 @@ local PlayerManager = require(script.PlayerManager)
 local ReplicatedStorage = game:GetService('ReplicatedStorage')
 local placeablesFolder = ReplicatedStorage.Placeables
 local bindableEvent = game.ServerStorage.ServerToButton
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
 
 local function FindSpawn()
 	local debounce = false
@@ -26,11 +28,55 @@ end
 
 PlayerManager.Start()
 
+
+
+
+-- https://devforum.roblox.com/t/roblox-to-trello-guide/151887
+local TrelloAPI = require(game.ServerScriptService:WaitForChild("TrelloAPI"))
+
+--  Get Trello Board
+local BoardID = TrelloAPI:GetBoardID("RobloxPlacementSystemData")
+
+-- Use different list for studio/deployment
+local ListID
+if RunService:IsStudio() then
+	ListID = TrelloAPI:GetListID("Studio",BoardID)
+else
+	ListID = TrelloAPI:GetListID("Visitors",BoardID)
+end
+
+-- Adds name, date, join/leave to desired trello list
+local function StoreVisitInfo(playerName, joinOrLeave)
+	local dateTimeString = os.date("%x %X", os.time())
+
+	-- Create card in the list
+	local cardTitle = playerName .. "; " .. dateTimeString .. "; " .. joinOrLeave
+	local NewCard = TrelloAPI:AddCard(cardTitle, "", ListID)
+end
+
 -- Create new tycoon when player joins
 PlayerManager.PlayerAdded:Connect(function(player)
 	local tycoon = Tycoon.new(player, FindSpawn())
 	tycoon:Init()
+	StoreVisitInfo(player.Name, "Join")
 end)
+
+Players.PlayerRemoving:Connect(function(player)
+	StoreVisitInfo(player.Name, "Leave")
+end)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 -- Object placement
 -- Waiting for client to fire RemoteEvent

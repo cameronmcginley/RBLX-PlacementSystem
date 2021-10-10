@@ -1,14 +1,14 @@
 <roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
 	<External>null</External>
 	<External>nil</External>
-	<Item class="Workspace" referent="10">
+	<Item class="Workspace" referent="RBX1C70EE220A0C40E787DCF132C9FE5607">
 		<Properties>
 			<bool name="AllowThirdPartySales">false</bool>
 			<token name="AnimationWeightedBlendFix">0</token>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<token name="ClientAnimatorThrottling">0</token>
 			<string name="CollisionGroups">Default^0^-1</string>
-			<Ref name="CurrentCamera">RBX8B35711A71924C408CB5C99375D41645</Ref>
+			<Ref name="CurrentCamera">RBX0A6569B76F5F44B0BC8C67E135CD7169</Ref>
 			<double name="DistributedGameTime">0</double>
 			<bool name="ExplicitAutoJoints">true</bool>
 			<float name="FallenPartsDestroyHeight">-500</float>
@@ -69,31 +69,31 @@
 				</CFrame>
 			</OptionalCoordinateFrame>
 		</Properties>
-		<Item class="Camera" referent="RBX8B35711A71924C408CB5C99375D41645">
+		<Item class="Camera" referent="RBX0A6569B76F5F44B0BC8C67E135CD7169">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>10.8085108</X>
-					<Y>6.62717295</Y>
-					<Z>-104.559479</Z>
-					<R00>-0.898337066</R00>
-					<R01>0.226401165</R01>
-					<R02>-0.376474708</R02>
-					<R10>-0</R10>
-					<R11>0.856974006</R11>
-					<R12>0.5153597</R12>
-					<R20>0.439307094</R20>
-					<R21>0.46296671</R21>
-					<R22>-0.769851387</R22>
+					<X>-48.2709579</X>
+					<Y>32.0614052</Y>
+					<Z>-129.443878</Z>
+					<R00>-0.973273396</R00>
+					<R01>0.113408439</R01>
+					<R02>-0.199693561</R02>
+					<R10>-7.4505806e-09</R10>
+					<R11>0.869557202</R11>
+					<R12>0.49383229</R12>
+					<R20>0.229649723</R20>
+					<R21>0.480633825</R21>
+					<R22>-0.846316814</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
 				<float name="FieldOfView">70</float>
 				<token name="FieldOfViewMode">0</token>
 				<CoordinateFrame name="Focus">
-					<X>11.5614605</X>
-					<Y>5.59645319</Y>
-					<Z>-103.019775</Z>
+					<X>-47.8715706</X>
+					<Y>31.07374</Y>
+					<Z>-127.751244</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -111,7 +111,7 @@
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
 		</Item>
-		<Item class="Part" referent="11">
+		<Item class="Part" referent="RBXAB397CD05CEC442086AA2B23352A87C2">
 			<Properties>
 				<bool name="Anchored">true</bool>
 				<BinaryString name="AttributesSerialize"></BinaryString>
@@ -205,7 +205,7 @@
 				</Vector3>
 			</Properties>
 		</Item>
-		<Item class="Terrain" referent="RBXE2A6BA51FAAC44D9A332290CA8C0BB30">
+		<Item class="Terrain" referent="RBX3A52F1B5AACB454CB3B6CE8D4ED5CBD6">
 			<Properties>
 				<token name="AcquisitionMethod">0</token>
 				<bool name="Anchored">true</bool>
@@ -312,14 +312,14 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 				</Vector3>
 			</Properties>
 		</Item>
-		<Item class="Folder" referent="RBXCA65BC01B3C04C3B9D92D723DF19A856">
+		<Item class="Folder" referent="RBXB7A2965FB83846CE85908BFD9BA84DF5">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<string name="Name">Spawns</string>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="Part" referent="RBX564D1A1C63064335B515DE1BD5BA3DF7">
+			<Item class="Part" referent="RBX7E20BB9675704BE987C353CEBC0BE429">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<BinaryString name="AttributesSerialize"></BinaryString>
@@ -413,7 +413,7 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 					</Vector3>
 				</Properties>
 			</Item>
-			<Item class="Part" referent="RBX11637D34A1054E519FDD60AA9CF95354">
+			<Item class="Part" referent="RBX034AC7E1105E4C00B6CAFE2ED2CB331B">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<BinaryString name="AttributesSerialize"></BinaryString>
@@ -507,7 +507,7 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 					</Vector3>
 				</Properties>
 			</Item>
-			<Item class="Part" referent="RBX6F5DF701B03C400C97A960708C24BDC9">
+			<Item class="Part" referent="RBXB2DBE5FBB9E74F32A2D62D3B990FF230">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<BinaryString name="AttributesSerialize"></BinaryString>
@@ -601,7 +601,7 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 					</Vector3>
 				</Properties>
 			</Item>
-			<Item class="Part" referent="RBXB1D80DB61D074C62B688B255BAD9B8DF">
+			<Item class="Part" referent="RBXDB40C999A12C407FA275087607A3D403">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<BinaryString name="AttributesSerialize"></BinaryString>
@@ -696,7 +696,7 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 				</Properties>
 			</Item>
 		</Item>
-		<Item class="SpawnLocation" referent="RBXF9F392098CCF4B2D9D845B6811168FD1">
+		<Item class="SpawnLocation" referent="RBXD80B8CFFA71241AD9ECCCDCCE78936E0">
 			<Properties>
 				<bool name="AllowTeamChangeOnTouch">false</bool>
 				<bool name="Anchored">true</bool>
@@ -794,7 +794,7 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 					<Z>12</Z>
 				</Vector3>
 			</Properties>
-			<Item class="Decal" referent="RBX39CBE9CB627D47A29131A58DEC376FD7">
+			<Item class="Decal" referent="RBX2CD0D3E4157B4B02817054372F653A5F">
 				<Properties>
 					<BinaryString name="AttributesSerialize"></BinaryString>
 					<Color3 name="Color3">
@@ -812,7 +812,7 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 				</Properties>
 			</Item>
 		</Item>
-		<Item class="SurfaceGui" referent="RBXA88422EFF3E34E8581F72233E5D8382F">
+		<Item class="SurfaceGui" referent="RBX592D4A1E4526486FB0317EA98C9D0706">
 			<Properties>
 				<bool name="Active">true</bool>
 				<Ref name="Adornee">null</Ref>
@@ -839,7 +839,7 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 				<token name="ZIndexBehavior">1</token>
 				<float name="ZOffset">0</float>
 			</Properties>
-			<Item class="Frame" referent="RBX29FF8940E8AF4B3181A51EB689D22196">
+			<Item class="Frame" referent="RBX5BFA46BF3A254835A37DFBE26360D8F1">
 				<Properties>
 					<bool name="Active">false</bool>
 					<Vector2 name="AnchorPoint">
@@ -896,7 +896,7 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 			</Item>
 		</Item>
 	</Item>
-	<Item class="SoundService" referent="6">
+	<Item class="SoundService" referent="RBXFA1D08B8112D43D0BF7A3671D6B8616A">
 		<Properties>
 			<token name="AmbientReverb">0</token>
 			<BinaryString name="AttributesSerialize"></BinaryString>
@@ -909,7 +909,7 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
-	<Item class="NonReplicatedCSGDictionaryService" referent="RBX84A075B0BC5A46F2960FC67594DCD694">
+	<Item class="NonReplicatedCSGDictionaryService" referent="RBX39D7330632B54478B229819775E726F8">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">NonReplicatedCSGDictionaryService</string>
@@ -917,7 +917,7 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
-	<Item class="CSGDictionaryService" referent="RBX45702C5EF3DF40379C32A55AC88FE5CB">
+	<Item class="CSGDictionaryService" referent="RBX24E51D5A443145FF828554EC499B7701">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">CSGDictionaryService</string>
@@ -925,7 +925,7 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
-	<Item class="Chat" referent="RBX2612A159387C4347A22F58895D948489">
+	<Item class="Chat" referent="RBX0CA9AE9E682D40FFB9FD61767654DAA9">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<bool name="BubbleChatEnabled">false</bool>
@@ -935,7 +935,7 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
-	<Item class="TimerService" referent="RBX1FC528274D5D43E08F7A1EB752DA09DD">
+	<Item class="TimerService" referent="RBX411DA002A37349BDA707420D369D8C95">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">Instance</string>
@@ -943,7 +943,7 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
-	<Item class="Players" referent="RBX4266EAB0F7154DAAAC79AA3A8FD8CED0">
+	<Item class="Players" referent="RBX0DBDB9E3C4B04EF6A8A9345764D88A87">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<bool name="CharacterAutoLoads">false</bool>
@@ -955,7 +955,7 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
-	<Item class="ReplicatedFirst" referent="RBX8E744C3BE0144C3B9ADFFBC6C7675B01">
+	<Item class="ReplicatedFirst" referent="RBX9EE4046E7A56460EB2126DDC501C5960">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">ReplicatedFirst</string>
@@ -963,7 +963,7 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
-	<Item class="TweenService" referent="RBX085099D6D6C04552B20CB24CA777DCA6">
+	<Item class="TweenService" referent="RBX8FB2953B93944E23A573BDE137166975">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">TweenService</string>
@@ -971,7 +971,7 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
-	<Item class="PermissionsService" referent="RBXAA404323353441A8A0BBB06F93BBDA56">
+	<Item class="PermissionsService" referent="RBX53AB1B9ECDC046E2A00A6DF30860D00A">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">PermissionsService</string>
@@ -979,11 +979,10 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
-	<Item class="PlayerEmulatorService" referent="RBX2E3C925D108C4F389AE3CF5E436872C7">
+	<Item class="PlayerEmulatorService" referent="RBX69813C7235F741D39B3CDAD6ABB90025">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<bool name="CustomPoliciesEnabled">false</bool>
-			<string name="DEPRECATED_SerializedEmulatedPolicyInfo"></string>
 			<string name="EmulatedCountryCode"></string>
 			<string name="EmulatedGameLocale"></string>
 			<string name="Name">PlayerEmulatorService</string>
@@ -993,21 +992,22 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
-	<Item class="StudioData" referent="RBX29DE7DD270FE491B9D97EC42477EBD1C">
+	<Item class="StudioData" referent="RBX2D22A8110BDF46AA8E79C62A831060D5">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<int64 name="CommitInflightAuthorId">0</int64>
 			<string name="CommitInflightGuid"></string>
 			<int name="CommitInflightPlaceVersion">0</int>
 			<bool name="EnableScriptCollabByDefaultOnLoad">false</bool>
+			<bool name="EnableTeamCreateStreamingOnLoad">false</bool>
 			<string name="Name">StudioData</string>
 			<int64 name="SourceAssetId">-1</int64>
-			<int64 name="SrcPlaceId">7484506162</int64>
-			<int64 name="SrcUniverseId">2914187972</int64>
+			<int64 name="SrcPlaceId">7619626087</int64>
+			<int64 name="SrcUniverseId">2960167743</int64>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
-	<Item class="StarterPlayer" referent="7">
+	<Item class="StarterPlayer" referent="RBXD37EE7CBE77E423292058F488770CCDD">
 		<Properties>
 			<bool name="AllowCustomAnimations">true</bool>
 			<BinaryString name="AttributesSerialize"></BinaryString>
@@ -1052,14 +1052,14 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 			<BinaryString name="Tags"></BinaryString>
 			<bool name="UserEmotesEnabled">true</bool>
 		</Properties>
-		<Item class="StarterPlayerScripts" referent="8">
+		<Item class="StarterPlayerScripts" referent="RBX389444865A8F49C8BF470A7426A25BAD">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<string name="Name">StarterPlayerScripts</string>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="LocalScript" referent="9">
+			<Item class="LocalScript" referent="RBXC415C558F76747FD9AC15766B6312A8A">
 				<Properties>
 					<BinaryString name="AttributesSerialize"></BinaryString>
 					<bool name="Disabled">false</bool>
@@ -1070,7 +1070,7 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 					<int64 name="SourceAssetId">-1</int64>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="LocalScript" referent="RBXA0E1877E894B440B8BBE09FEB0771DAC">
+				<Item class="LocalScript" referent="RBX9DFD3F8F58044CBAB75B0BFB7D022A16">
 					<Properties>
 						<BinaryString name="AttributesSerialize"></BinaryString>
 						<bool name="Disabled">false</bool>
@@ -1093,7 +1093,7 @@ end)]]></ProtectedString>
 				</Item>
 			</Item>
 		</Item>
-		<Item class="StarterCharacterScripts" referent="RBXCA643577CBC948F3A1E51BFEB235B86A">
+		<Item class="StarterCharacterScripts" referent="RBX8A8D13E56D914443B9CC75E1FB4201D2">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<string name="Name">StarterCharacterScripts</string>
@@ -1102,7 +1102,7 @@ end)]]></ProtectedString>
 			</Properties>
 		</Item>
 	</Item>
-	<Item class="StarterPack" referent="RBX3101065F7B284356B0D6AE435C852394">
+	<Item class="StarterPack" referent="RBXDA3F9941D7F246C18D2A4DA392FD2CE4">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">StarterPack</string>
@@ -1110,7 +1110,7 @@ end)]]></ProtectedString>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
-	<Item class="StarterGui" referent="RBX0172FC219D354CF38260DFD7BE79D1D8">
+	<Item class="StarterGui" referent="RBX42F3DCC943124CFE8531324C4ADA4905">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">StarterGui</string>
@@ -1121,7 +1121,7 @@ end)]]></ProtectedString>
 			<BinaryString name="Tags"></BinaryString>
 			<token name="VirtualCursorMode">0</token>
 		</Properties>
-		<Item class="ScreenGui" referent="RBX1A21B635DBAE438899183D68DC7DACBB">
+		<Item class="ScreenGui" referent="RBX2B7CFF99A9704483B76B786DC07F76BD">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<bool name="AutoLocalize">true</bool>
@@ -1135,7 +1135,7 @@ end)]]></ProtectedString>
 				<BinaryString name="Tags"></BinaryString>
 				<token name="ZIndexBehavior">1</token>
 			</Properties>
-			<Item class="Frame" referent="RBX3F2162B8BEA44577880F7E98B861E9D9">
+			<Item class="Frame" referent="RBXD8AEAE7993ED4F4DBE642ED33B003C10">
 				<Properties>
 					<bool name="Active">false</bool>
 					<Vector2 name="AnchorPoint">
@@ -1189,7 +1189,7 @@ end)]]></ProtectedString>
 					<bool name="Visible">true</bool>
 					<int name="ZIndex">1</int>
 				</Properties>
-				<Item class="TextButton" referent="RBXAFA4CE9819694F84BE270EA43801478C">
+				<Item class="TextButton" referent="RBXA79E4CF0B700464EB08DB1709BFC9001">
 					<Properties>
 						<bool name="Active">true</bool>
 						<Vector2 name="AnchorPoint">
@@ -1270,7 +1270,7 @@ end)]]></ProtectedString>
 						<int name="ZIndex">1</int>
 					</Properties>
 				</Item>
-				<Item class="TextButton" referent="RBXC2A8ECE352BF42DD9DD2BDBAF0A13A2A">
+				<Item class="TextButton" referent="RBX8DEFE38C00A04584B04EE7CBDE404DB2">
 					<Properties>
 						<bool name="Active">true</bool>
 						<Vector2 name="AnchorPoint">
@@ -1351,7 +1351,7 @@ end)]]></ProtectedString>
 						<int name="ZIndex">1</int>
 					</Properties>
 				</Item>
-				<Item class="TextLabel" referent="RBX905D2B892A644C74A69E800BA363DE55">
+				<Item class="TextLabel" referent="RBXFCA62AD1906844E39DC29658F04F767F">
 					<Properties>
 						<bool name="Active">false</bool>
 						<Vector2 name="AnchorPoint">
@@ -1430,8 +1430,159 @@ end)]]></ProtectedString>
 				</Item>
 			</Item>
 		</Item>
+		<Item class="ScreenGui" referent="RBXA5FF409FE4914F21BEE3FAAB41575AC8">
+			<Properties>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<bool name="AutoLocalize">true</bool>
+				<int name="DisplayOrder">0</int>
+				<bool name="Enabled">true</bool>
+				<bool name="IgnoreGuiInset">false</bool>
+				<string name="Name">SettingsGui</string>
+				<bool name="ResetOnSpawn">true</bool>
+				<Ref name="RootLocalizationTable">null</Ref>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+				<token name="ZIndexBehavior">1</token>
+			</Properties>
+			<Item class="Frame" referent="RBXB17E216E6BE74D70AE7337F6711B35DD">
+				<Properties>
+					<bool name="Active">false</bool>
+					<Vector2 name="AnchorPoint">
+						<X>0</X>
+						<Y>0</Y>
+					</Vector2>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<bool name="AutoLocalize">true</bool>
+					<token name="AutomaticSize">0</token>
+					<Color3 name="BackgroundColor3">
+						<R>1</R>
+						<G>1</G>
+						<B>1</B>
+					</Color3>
+					<float name="BackgroundTransparency">0</float>
+					<Color3 name="BorderColor3">
+						<R>0.105882362</R>
+						<G>0.164705887</G>
+						<B>0.207843155</B>
+					</Color3>
+					<token name="BorderMode">0</token>
+					<int name="BorderSizePixel">1</int>
+					<bool name="ClipsDescendants">false</bool>
+					<bool name="Draggable">false</bool>
+					<int name="LayoutOrder">0</int>
+					<string name="Name">Frame</string>
+					<Ref name="NextSelectionDown">null</Ref>
+					<Ref name="NextSelectionLeft">null</Ref>
+					<Ref name="NextSelectionRight">null</Ref>
+					<Ref name="NextSelectionUp">null</Ref>
+					<UDim2 name="Position">
+						<XS>0.0683760718</XS>
+						<XO>0</XO>
+						<YS>0.893226206</YS>
+						<YO>0</YO>
+					</UDim2>
+					<Ref name="RootLocalizationTable">null</Ref>
+					<float name="Rotation">0</float>
+					<bool name="Selectable">false</bool>
+					<Ref name="SelectionImageObject">null</Ref>
+					<UDim2 name="Size">
+						<XS>0</XS>
+						<XO>199</XO>
+						<YS>0</YS>
+						<YO>49</YO>
+					</UDim2>
+					<token name="SizeConstraint">0</token>
+					<int64 name="SourceAssetId">-1</int64>
+					<token name="Style">0</token>
+					<BinaryString name="Tags"></BinaryString>
+					<bool name="Visible">true</bool>
+					<int name="ZIndex">1</int>
+				</Properties>
+				<Item class="TextButton" referent="RBXFD96E88C5E234172BC26E1B9812505D3">
+					<Properties>
+						<bool name="Active">true</bool>
+						<Vector2 name="AnchorPoint">
+							<X>0</X>
+							<Y>0</Y>
+						</Vector2>
+						<BinaryString name="AttributesSerialize">AQAAAAIAAABJZAYAAAAAAAAAAA==</BinaryString>
+						<bool name="AutoButtonColor">true</bool>
+						<bool name="AutoLocalize">true</bool>
+						<token name="AutomaticSize">0</token>
+						<Color3 name="BackgroundColor3">
+							<R>1</R>
+							<G>1</G>
+							<B>1</B>
+						</Color3>
+						<float name="BackgroundTransparency">0</float>
+						<Color3 name="BorderColor3">
+							<R>0.105882362</R>
+							<G>0.164705887</G>
+							<B>0.207843155</B>
+						</Color3>
+						<token name="BorderMode">0</token>
+						<int name="BorderSizePixel">1</int>
+						<bool name="ClipsDescendants">false</bool>
+						<bool name="Draggable">false</bool>
+						<token name="Font">3</token>
+						<int name="LayoutOrder">0</int>
+						<float name="LineHeight">1</float>
+						<int name="MaxVisibleGraphemes">-1</int>
+						<bool name="Modal">false</bool>
+						<string name="Name">ClearPlaceables</string>
+						<Ref name="NextSelectionDown">null</Ref>
+						<Ref name="NextSelectionLeft">null</Ref>
+						<Ref name="NextSelectionRight">null</Ref>
+						<Ref name="NextSelectionUp">null</Ref>
+						<UDim2 name="Position">
+							<XS>0</XS>
+							<XO>0</XO>
+							<YS>0</YS>
+							<YO>0</YO>
+						</UDim2>
+						<bool name="RichText">false</bool>
+						<Ref name="RootLocalizationTable">null</Ref>
+						<float name="Rotation">0</float>
+						<bool name="Selectable">true</bool>
+						<bool name="Selected">false</bool>
+						<Ref name="SelectionImageObject">null</Ref>
+						<UDim2 name="Size">
+							<XS>0</XS>
+							<XO>200</XO>
+							<YS>0</YS>
+							<YO>50</YO>
+						</UDim2>
+						<token name="SizeConstraint">0</token>
+						<int64 name="SourceAssetId">-1</int64>
+						<token name="Style">0</token>
+						<BinaryString name="Tags">R3VpQnV0dG9u</BinaryString>
+						<string name="Text">Clear Placed Objects</string>
+						<Color3 name="TextColor3">
+							<R>0</R>
+							<G>0</G>
+							<B>0</B>
+						</Color3>
+						<bool name="TextScaled">false</bool>
+						<float name="TextSize">14</float>
+						<Color3 name="TextStrokeColor3">
+							<R>0</R>
+							<G>0</G>
+							<B>0</B>
+						</Color3>
+						<float name="TextStrokeTransparency">1</float>
+						<float name="TextTransparency">0</float>
+						<token name="TextTruncate">0</token>
+						<bool name="TextWrapped">false</bool>
+						<token name="TextXAlignment">2</token>
+						<token name="TextYAlignment">1</token>
+						<bool name="Visible">true</bool>
+						<int name="ZIndex">1</int>
+					</Properties>
+				</Item>
+			</Item>
+		</Item>
 	</Item>
-	<Item class="LocalizationService" referent="RBXBE7A0D1821024EDAA9C7B2B3C5E2C556">
+	<Item class="LocalizationService" referent="RBX6B7719A4EC4C4FA0A0A5F3BA261B1B21">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">LocalizationService</string>
@@ -1439,7 +1590,7 @@ end)]]></ProtectedString>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
-	<Item class="TeleportService" referent="RBXE0E1905F4D20441AB33F5F3A6C089F65">
+	<Item class="TeleportService" referent="RBX0D74B2A9E80B4973859F74398CE2DA04">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">Teleport Service</string>
@@ -1447,7 +1598,7 @@ end)]]></ProtectedString>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
-	<Item class="CollectionService" referent="RBX189F880E15E04DF2B3D58FD0A01207A0">
+	<Item class="CollectionService" referent="RBX29B26328AA294AF1BE04709FE9516279">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">CollectionService</string>
@@ -1455,7 +1606,7 @@ end)]]></ProtectedString>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
-	<Item class="PhysicsService" referent="RBX581B0E27464046EB840329CDE9243479">
+	<Item class="PhysicsService" referent="RBX01DAB6CD8DD64A738366B889AA88E5C4">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">PhysicsService</string>
@@ -1463,7 +1614,7 @@ end)]]></ProtectedString>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
-	<Item class="Geometry" referent="RBX5B8A1A3FC2394BDA93FBD5730A98AC48">
+	<Item class="Geometry" referent="RBX2A4356F98FEC40F5BAAEA554F5E389ED">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">Geometry</string>
@@ -1471,7 +1622,7 @@ end)]]></ProtectedString>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
-	<Item class="InsertService" referent="RBXAFF543BBDB3A45119320A6F5AEA1283C">
+	<Item class="InsertService" referent="RBX98505FCD3F474BD3B883811C6FBF89A9">
 		<Properties>
 			<bool name="AllowClientInsertModels">false</bool>
 			<bool name="AllowInsertFreeModels">false</bool>
@@ -1480,7 +1631,7 @@ end)]]></ProtectedString>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
-		<Item class="StringValue" referent="RBXE027A208CAAC4915A3DF8E81FDA28DC7">
+		<Item class="StringValue" referent="RBX5D7E66428CAC426481C31689CAFB44DB">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<string name="Name">InsertionHash</string>
@@ -1490,7 +1641,7 @@ end)]]></ProtectedString>
 			</Properties>
 		</Item>
 	</Item>
-	<Item class="GamePassService" referent="RBX851CE87B874C4F6AA544CD96A22572A5">
+	<Item class="GamePassService" referent="RBXAEF4C3E5948342F58571EB45DBD1493D">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">GamePassService</string>
@@ -1498,7 +1649,7 @@ end)]]></ProtectedString>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
-	<Item class="Debris" referent="RBX79DF0AB46F834C7F8687214F3A3989E1">
+	<Item class="Debris" referent="RBX51A1FDBCB8E84FE6AED8CDF34A17E4EB">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<int name="MaxItems">1000</int>
@@ -1507,7 +1658,7 @@ end)]]></ProtectedString>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
-	<Item class="CookiesService" referent="RBX600A34CC741E432E86C775425D38C968">
+	<Item class="CookiesService" referent="RBX47F76761A76544E4B4DD8E40E5DA8F57">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">CookiesService</string>
@@ -1515,7 +1666,7 @@ end)]]></ProtectedString>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
-	<Item class="VRService" referent="RBX92F85BEB05CF4A1E8BCF6011A5338795">
+	<Item class="VRService" referent="RBXC8F12063D4794EA4A4C69C40536D53CB">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">VRService</string>
@@ -1523,7 +1674,7 @@ end)]]></ProtectedString>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
-	<Item class="ContextActionService" referent="RBX7B1F9D16FCFC42A58A08A263259334D0">
+	<Item class="ContextActionService" referent="RBX56F023615579496D8F2F7438A10894E9">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">ContextActionService</string>
@@ -1531,7 +1682,7 @@ end)]]></ProtectedString>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
-	<Item class="ScriptService" referent="RBX8AB8D5FB18DC49BBB9BF6F7BFC1914F3">
+	<Item class="ScriptService" referent="RBX4F3068165C144AF597AC29E12B8E5ABC">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">Instance</string>
@@ -1539,7 +1690,7 @@ end)]]></ProtectedString>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
-	<Item class="AssetService" referent="RBX84DFB4F3952E40AB902A8FA2B990F3F8">
+	<Item class="AssetService" referent="RBX9B3050AAF9684869A34E4ADF85D75859">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">AssetService</string>
@@ -1547,7 +1698,7 @@ end)]]></ProtectedString>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
-	<Item class="TouchInputService" referent="RBX9461413CEF264DF7985B38DB55AE7A0D">
+	<Item class="TouchInputService" referent="RBX3AA5B88AF2EC479F87C6B1953AA762E8">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">TouchInputService</string>
@@ -1555,7 +1706,7 @@ end)]]></ProtectedString>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
-	<Item class="AnalyticsService" referent="RBX5148B01BF4194C7BAB1FE9D9BBFFEC50">
+	<Item class="AnalyticsService" referent="RBXC19FAA06CC824236A9C3A9D6C19AF655">
 		<Properties>
 			<string name="ApiKey"></string>
 			<BinaryString name="AttributesSerialize"></BinaryString>
@@ -1563,7 +1714,7 @@ end)]]></ProtectedString>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
-		<Item class="ModuleScript" referent="RBXA790EA7D9678491BA6B4B185828EABA1">
+		<Item class="ModuleScript" referent="RBX4AA66EA1B0C94A4B9B301C063E2B3947">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<Content name="LinkedSource"><null></null></Content>
@@ -1581,7 +1732,7 @@ end)]]></ProtectedString>
 			</Properties>
 		</Item>
 	</Item>
-	<Item class="Selection" referent="RBXA8C06F0C31E84D22ABE77EA11A26C7E0">
+	<Item class="Selection" referent="RBXECD4435561514C0DAD93D71016BBD9A0">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">Selection</string>
@@ -1589,7 +1740,7 @@ end)]]></ProtectedString>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
-	<Item class="ServerScriptService" referent="4">
+	<Item class="ServerScriptService" referent="RBX1E2B4C1AB9A54AF2B320147EFC848947">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<bool name="LoadStringEnabled">false</bool>
@@ -1597,7 +1748,7 @@ end)]]></ProtectedString>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
-		<Item class="Script" referent="RBX59387CF2709E434481D9CF08D8926612">
+		<Item class="Script" referent="RBX2D0557D1E0714C0CB5D37BB2458A6246">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<bool name="Disabled">false</bool>
@@ -1609,6 +1760,8 @@ local PlayerManager = require(script.PlayerManager)
 local ReplicatedStorage = game:GetService('ReplicatedStorage')
 local placeablesFolder = ReplicatedStorage.Placeables
 local bindableEvent = game.ServerStorage.ServerToButton
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
 
 local function FindSpawn()
 	local debounce = false
@@ -1632,11 +1785,55 @@ end
 
 PlayerManager.Start()
 
+
+
+
+-- https://devforum.roblox.com/t/roblox-to-trello-guide/151887
+local TrelloAPI = require(game.ServerScriptService:WaitForChild("TrelloAPI"))
+
+--  Get Trello Board
+local BoardID = TrelloAPI:GetBoardID("RobloxPlacementSystemData")
+
+-- Use different list for studio/deployment
+local ListID
+if RunService:IsStudio() then
+	ListID = TrelloAPI:GetListID("Studio",BoardID)
+else
+	ListID = TrelloAPI:GetListID("Visitors",BoardID)
+end
+
+-- Adds name, date, join/leave to desired trello list
+local function StoreVisitInfo(playerName, joinOrLeave)
+	local dateTimeString = os.date("%x %X", os.time())
+
+	-- Create card in the list
+	local cardTitle = playerName .. "; " .. dateTimeString .. "; " .. joinOrLeave
+	local NewCard = TrelloAPI:AddCard(cardTitle, "", ListID)
+end
+
 -- Create new tycoon when player joins
 PlayerManager.PlayerAdded:Connect(function(player)
 	local tycoon = Tycoon.new(player, FindSpawn())
 	tycoon:Init()
+	StoreVisitInfo(player.Name, "Join")
 end)
+
+Players.PlayerRemoving:Connect(function(player)
+	StoreVisitInfo(player.Name, "Leave")
+end)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 -- Object placement
 -- Waiting for client to fire RemoteEvent
@@ -1674,7 +1871,7 @@ ReplicatedStorage:WaitForChild('Place').OnServerEvent:Connect(function(player, p
 	PlaceableClone.PrimaryPart.CFrame = realPos
 
 	-- Place inside of template group
-	PlaceableClone.Parent = tycoon.Model
+	PlaceableClone.Parent = tycoon.Model.PlacedObjects
 
 	-- Store in PlayerManager data that this has been placed
 	-- Since we use this data to place these items on join also, make sure to remove
@@ -1690,19 +1887,19 @@ end)]]></ProtectedString>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="Folder" referent="RBX585E0DCBC2EB405DA6D4EBA74B389E3A">
+			<Item class="Folder" referent="RBX2AD3369276124FFDB4A5DFF9D468F65F">
 				<Properties>
 					<BinaryString name="AttributesSerialize"></BinaryString>
 					<string name="Name">Components</string>
 					<int64 name="SourceAssetId">-1</int64>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="ModuleScript" referent="RBXEA86D6FD4B5D450AB4C4E58A66FF6EA4">
+				<Item class="ModuleScript" referent="RBX37D8814B5B244D029B58CD8D61FC3F8E">
 					<Properties>
 						<BinaryString name="AttributesSerialize"></BinaryString>
 						<Content name="LinkedSource"><null></null></Content>
-						<string name="Name">GuiButton</string>
-						<string name="ScriptGuid">{9A9F6498-6374-4147-A1C6-7CB6DC951555}</string>
+						<string name="Name">PlaceableButton</string>
+						<string name="ScriptGuid">{A4DB8B74-BE76-4578-A098-74C189408A74}</string>
 						<ProtectedString name="Source"><![CDATA[local PlayerManager = require(script.Parent.Parent.PlayerManager)
 --local ReplicatedStorage = game:GetService('ReplicatedStorage') -- to define the RemoteEvent
 --local placeablesFolder = ReplicatedStorage.Placeables
@@ -1710,12 +1907,12 @@ local componentFolder = script.Parent
 local ReplicatedStorage = game:GetService('ReplicatedStorage') -- to define the RemoteEvent
 local HttpService = game:GetService("HttpService")
 
-local GuiButton = {}
+local PlaceableButton = {}
 
-GuiButton.__index = GuiButton
+PlaceableButton.__index = PlaceableButton
 
-function GuiButton.new(tycoon, part)
-	local self = setmetatable({}, GuiButton)
+function PlaceableButton.new(tycoon, part)
+	local self = setmetatable({}, PlaceableButton)
 	self.Tycoon = tycoon
 	self.Instance = part
 	self.ButtonId = self.Instance:GetAttribute("Id")
@@ -1725,8 +1922,8 @@ function GuiButton.new(tycoon, part)
 	return self
 end
 
-function GuiButton:Init()
-	print("GuiButton init")
+function PlaceableButton:Init()
+	print("PlaceableButton init")
 
 	local debounce = false
 	local lastClick = 0
@@ -1761,7 +1958,7 @@ function GuiButton:Init()
 	-- end)
 end
 
-function GuiButton:Press(player, debounce)
+function PlaceableButton:Press(player, debounce)
 	local debounce = false
 	if not debounce then
 		debounce = true
@@ -1792,68 +1989,139 @@ function GuiButton:Press(player, debounce)
 	end)
 end
 
-function GuiButton:DisableButton()
+function PlaceableButton:DisableButton()
 	print("Disabling button")
 	self.Instance.Visible = false
 end
 
-function GuiButton:EnableButton()
+function PlaceableButton:EnableButton()
 	print("Enabling button")
 	self.Instance.Visible = true
 end
 
-return GuiButton
+return PlaceableButton
 ]]></ProtectedString>
 						<int64 name="SourceAssetId">-1</int64>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
-				<Item class="ModuleScript" referent="RBXB4FD04BE3B8F4429B9F1ECBED8E010D8">
+				<Item class="ModuleScript" referent="RBXEC4C116C1BF04F40A91976B68EDF29D5">
 					<Properties>
 						<BinaryString name="AttributesSerialize"></BinaryString>
 						<Content name="LinkedSource"><null></null></Content>
-						<string name="Name">Unlockable</string>
-						<string name="ScriptGuid">{BB3D967C-DACA-4966-9A77-F36473D7D0A0}</string>
-						<ProtectedString name="Source"><![CDATA[local Unlockable = {}
+						<string name="Name">SettingsButton</string>
+						<string name="ScriptGuid">{5225220A-0881-4D20-94BF-2B748C0EFCC3}</string>
+						<ProtectedString name="Source"><![CDATA[local PlayerManager = require(script.Parent.Parent.PlayerManager)
+--local ReplicatedStorage = game:GetService('ReplicatedStorage') -- to define the RemoteEvent
+--local placeablesFolder = ReplicatedStorage.Placeables
+local componentFolder = script.Parent
+local ReplicatedStorage = game:GetService('ReplicatedStorage') -- to define the RemoteEvent
+local HttpService = game:GetService("HttpService")
 
-Unlockable.__index = Unlockable
+local SettingsButton = {}
 
--- instance is the object
-function Unlockable.new(tycoon, instance)
-	local self = setmetatable({}, Unlockable)
+SettingsButton.__index = SettingsButton
+
+function SettingsButton.new(tycoon, part)
+	local self = setmetatable({}, SettingsButton)
 	self.Tycoon = tycoon
-	self.Instance = instance
-	
+	self.Instance = part
+	self.ButtonId = self.Instance:GetAttribute("Id")
+	print("run")
+	print(self)
+	print("\n\n")
 	return self
 end
 
-function Unlockable:Init()
-	-- Hook to topic
-	-- Could just pass id to function, but we don't really need to know info here
-	-- so just pass everything (even though just id)
-	self.Subscription = self.Tycoon:SubscribeTopic("Button", function(...)
-		self:OnButtonPressed(...)	
-	end)
+function SettingsButton:Init()
+	print("SettingsButton init")
+
+	local debounce = false
+	local lastClick = 0
+
+	local function onClick()
+		-- Use debounce AND tick() to prevent autoclicking
+		-- Autoclicking at 1ms gets 3-4 clicks past debounce, tick()
+		-- can catch this though
+		if not debounce then 
+			debounce = true
+
+			local thisClick = tick()
+			print(thisClick)
+			if thisClick - lastClick < 1 then
+				warn("Autoclicking")
+				lastClick = thisClick
+				debounce = false
+				return
+			end
+			lastClick = thisClick
+
+			print("Button press")
+			self:Press(self.Tycoon.Owner)
+			debounce = false
+			return
+		end
+	end
+
+	self.clickDetect = self.Instance.MouseButton1Click:Connect(onClick)
 end
 
-function Unlockable:OnButtonPressed(id)
-	-- compare id given
-	if id == self.Instance:GetAttribute("UnlockId") then
-		self.Tycoon:Unlock(self.Instance, id)
-		
-		-- once unlocked, no point for unlockable to be subscribed to button topic
-		self.Subscription:Disconnect()
+function SettingsButton:Press(player, debounce)
+	local debounce = false
+	if not debounce then
+		debounce = true
+
+
+		if self.ButtonId == 0 then -- Clear placed objects
+			print("Clearing placed objects")
+			self:ClearPlacedObjects(player)
+		end
+
+		-- if player == self.Tycoon.Owner then
+			
+		-- end
+		debounce = false
 	end
 end
 
-return Unlockable
+function SettingsButton:DisableButton()
+	print("Disabling button")
+	self.Instance.Visible = false
+end
+
+function SettingsButton:EnableButton()
+	print("Enabling button")
+	self.Instance.Visible = true
+end
+
+function SettingsButton:ClearPlacedObjects(player)
+	local data = PlayerManager.GetPlacedItems(player)
+	local placedItemFolder = self.Tycoon.Model.PlacedObjects
+
+	-- Remove physical items
+	for _, item in ipairs(placedItemFolder:GetChildren()) do
+		item:Destroy()
+		print("Destroyed " .. item.Name)
+	end
+
+	-- Remove items from placed item data
+	for index = 1, #data do
+		-- Always use 1 as the index: since we remove the item each iteration
+		-- the next item is moved into index 1
+		local uuid = data[1][2]
+
+		PlayerManager.RemovePlacedItem(player, uuid)
+	end
+end
+
+return SettingsButton
 ]]></ProtectedString>
 						<int64 name="SourceAssetId">-1</int64>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="ModuleScript" referent="RBXD108E7021D964DB1B46370EEF7082F4E">
+			<Item class="ModuleScript" referent="RBX80C149EB3BF54948BBA91628F04FF8DD">
 				<Properties>
 					<BinaryString name="AttributesSerialize"></BinaryString>
 					<Content name="LinkedSource"><null></null></Content>
@@ -2069,7 +2337,7 @@ return PlayerManager
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
 			</Item>
-			<Item class="ModuleScript" referent="RBX81047B4FB6644A0DB6AC57F40778DFDE">
+			<Item class="ModuleScript" referent="RBXB2680A02E1AB4664BE43EEF3280EFE5F">
 				<Properties>
 					<BinaryString name="AttributesSerialize"></BinaryString>
 					<Content name="LinkedSource"><null></null></Content>
@@ -2121,23 +2389,29 @@ function Tycoon:Init()
 	self.Owner:LoadCharacter()
 	self._spawn:SetAttribute("Occupied", true)
 
-
-
-	-- Get Gui that was distributed by StarterGui
+	-- Get Guis that were distributed by StarterGui
 	self.PlayerGui = game:GetService('Players')[self.Owner.Name]:WaitForChild('PlayerGui')
 	self.ShopGui = self.PlayerGui.ShopGui
-	print(self.ShopGui)
+	self.SettingsGui = self.PlayerGui.SettingsGui
+
 	-- Initializite all GuiButtons in the ShopGui
 	for _, descendant in pairs(self.ShopGui:GetDescendants()) do
 		if descendant:IsA("TextButton") then
-			print(descendant)
-			local compModule = require(componentFolder:FindFirstChild("GuiButton"))
+			local compModule = require(componentFolder:FindFirstChild("PlaceableButton"))
 			local newComp = compModule.new(self, descendant)
 			newComp:Init()
 		end
 	end
-	
 
+	-- Initializite all GuiButtons in the SettingsGui
+	for _, descendant in pairs(self.SettingsGui:GetDescendants()) do
+		if descendant:IsA("TextButton") then
+			local compModule = require(componentFolder:FindFirstChild("SettingsButton"))
+			local newComp = compModule.new(self, descendant)
+			newComp:Init()
+			print(descendant)
+		end
+	end
 	
 	self:LockAll()
 	self:LoadUnlocks()
@@ -2205,7 +2479,7 @@ function Tycoon:BuildSavedItem(itemId, uuid, relX, relZ, rotY)
 	PlaceableClone.PrimaryPart.CFrame = realPos
 
 	-- Place inside of template group
-	PlaceableClone.Parent = self.Model
+	PlaceableClone.Parent = self.Model.PlacedObjects
 
 	-- Store in PlayerManager data that this has been placed
 	-- Since we use this data to place these items on join also, make sure to remove
@@ -2322,22 +2596,1515 @@ return Tycoon
 				</Properties>
 			</Item>
 		</Item>
+		<Item class="ModuleScript" referent="RBX2F42C86DFF784DC087B1FD9ED09DC937">
+			<Properties>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">TrelloAPI</string>
+				<string name="ScriptGuid">{9E3D2C68-AF50-4EED-8439-5B32F261B313}</string>
+				<ProtectedString name="Source"><![CDATA[																																								local key	=	
+--[[
+	IF YOU DONT KNOW HOW TO SCRIPT GET OUT YOU WONT KNOW HOW TO USE THIS! -Dont mean to be rude, but it's true
+	
+	I suggest you move the script and take it out of the model then put the TrelloAPI into the ServerScriptService as exploiters will not be able to acess it in most cases, but thats just me. - nstrike159
+
+	There is a test script in here for those of you who want to test your configuration to use it MAKE SURE TO DISABLE IT!
+	
+	When something returns a table try running a recruisive function or loop to see what is inside the table
+	EX:
+	function printTable(tab)
+		local recrlimit=20--Sets recrusive limit so you do not crash studio if u want this off set it to some rediculous value like 10000
+		local inarray=false
+		local rep=0
+		local function printArrInfo(arr)
+			if #arr>recrlimit and inarray then
+				return
+			end
+			for i,v in next,arr do
+				if	type(v)=="table" then
+					print(string.rep("\t",rep)..tostring(i).."={")
+					inarray=true
+					rep=rep+1
+					printArrInfo(v)
+				else
+					print(string.rep("\t",rep)..tostring(i).."=".."\""..tostring(v).."\"")
+				end
+			end
+			if inarray then
+				rep=rep-1
+				print(string.rep("\t",rep).."}")
+				inarray=false
+			end
+		end
+		printArrInfo(tab)
+	end
+	
+	--HINT: Use the above function if you want to find out whats inside a table returned!
+	
+-Instructions
+	 1. Go to this link and click allow: 																																																																]]--[[
+	 2. Copy & Paste your API Key from https://trello.com/app-key into ]] "fbd3b1e06c026e6033329c2f747e1a76"; 																																																				--[[
+	 3. Authorize the application by substituting API-KEY in the link bellow with the api key from https://trello.com/app-key
+			  https://trello.com/1/authorize?key=fbd3b1e06c026e6033329c2f747e1a76&name=Roblox+Api&expiration=never&response_type=token&scope=read,write	
+	 4. Copy the random numbers and letters in the page sent to you
+	 5. Paste the random numbers and letters in the Value of Token (or make a variable named "token" in your script and put the value there)
+	 6. If anywhere an error occurs when in use with "Unauthorized" you didnt copy the full link!(or you added a space in the beggining)
+	
+-Functions
+	--------------
+	 GetBoardID([Board Name]) return Board ID
+	--------------
+	 GetListID([List Name],[Board ID]) return List ID
+	--------------
+	 GetCardID([Name],[Board ID]) returns Card ID
+	--------------
+	 GetBoardInfo([Board ID]) returns a table like this except not JSON 
+	{
+    "id": "4eea4ffc91e31d1746000046",
+    "name": "Example Board",
+    "desc": "This board is used in the API examples",
+    "lists": [{
+        "id": "4eea4ffc91e31d174600004a",
+        "name": "To Do Soon"
+    }, {
+        "id": "4eea4ffc91e31d174600004b",
+        "name": "Doing"
+    }, {
+        "id": "4eea4ffc91e31d174600004c",
+        "name": "Done"
+    }]
+	}
+	--------------
+	 GetCardInfo([Card ID],[Board ID]) returns an table 
+	 EX: {name="cardName",desc="cardDescription",...}
+	-----------
+	 GetLists([Board ID]) returns a table
+	------------
+	 AddCard([Name],[Decription],[List ID],Optional[AddUrl],Optional[Position **Valid Values: A position. top, bottom, or a positive number.**],Optional[Due*Default=null*],Optional[Label**Valid Values: all or a comma-separated list of: blue,green,orange,purple,red,yellow**],Optional[CardToCopyID]) returns a Table CardID is a property called "id" in this table
+	------------
+	 EditCard([CardID],[Name],[Decription],[List ID],Optional[AddUrl],Optional[Position **Valid Values: A position. top, bottom, or a positive number.**],Optional[Due*Default=null*],Optional[Label**Valid Values: all or a comma-separated list of: blue,green,orange,purple,red,yellow**],Optional[CardToCopyID]) returns a Table --Made by sloss2003 (https://github.com/Sloss2003)
+	------------
+	 DeleteCard([CardID])Deletes the card --made by sloss2003 (https://github.com/Sloss2003)
+	------------
+	 AddList([Name],[Board ID],Optional[List to Copy],Optional[Position *Valid Values: position. top, bottom, or a positive number.*])
+	------------
+	 *DEPRICATED*AddBoard([Name],[Description]) Use CreateBoard Instead
+	------------
+	 AddCardAtt([Card ID],[Name],[File,URL],[Value])		
+	------------
+	 AddLabel([Name],[Color],[Board ID]) returns Label ID
+	------------
+	 AddCardLabel([Card ID],[Label ID])	
+	------------
+	 GetLabels([Board ID])	returns a table such as bellow 
+	 EX: [{"id":"559adc5e19ad3a5dc2b9c003", "idBoard":"559adc5e9ad91e64b569a4d9", "name":"", "color":"green", "uses":0},
+		 {"id":"559adc5e19ad3a5dc2b9c004", "idBoard":"559adc5e9ad91e64b569a4d9", "name":"", "color":"yellow", "uses":0},
+		 {"id":"559adc5e19ad3a5dc2b9c006", "idBoard":"559adc5e9ad91e64b569a4d9", "name":"", "color":"red", "uses":0},
+		 {"id":"559adc5e19ad3a5dc2b9c007", "idBoard":"559adc5e9ad91e64b569a4d9", "name":"", "color": "purple", "uses":0},
+		 {"id":"559adc5e19ad3a5dc2b9c008", "idBoard":"559adc5e9ad91e64b569a4d9", "name":"", "color": "blue", "uses":0}]
+	------------
+	 GetCardsInList([List ID])	returns a table containing the cards in the list 
+	 EX: [{name="cardName",desc="cardDescription",...},{name="cardName",desc="cardDescription",...}]
+	------------
+	 PostComment([Card ID],Text)
+	------------	
+	 AddCheckList()		
+	------------	
+	 GetLabelID(LabelName, BoardID)		
+	------------
+	 GetMemberBoards(Username) returns a table containing the boards a member is in
+	------------
+	 GetBoardMembers(BoardID)	returns the members of a board in a array like this
+	EX: [{"id":"4ee7df1be582acdec80000ae", "fullName":"Bob Tester", "username":"bobtester"}, 
+		{"id":"4ee7df74e582acdec80000b6", "fullName":"David Tester", "username":"davidtester"},
+		{"id": "4ee7deffe582acdec80000ac", "fullName": "Joe Tester", "username": "joetester"}]
+	------------
+	 CreateBoard(Name,[Optional]desc,[Optional]{"private","public"}) returns the information about a board and creates a board 	
+	------------
+	 GetAllBoards() returns a array of BoardIDs of ALL boards you are in without board names!
+	------------
+	 GetBoardNameFromId([Board ID]) gets the board name from the id 	
+	------------
+	 AddCustomCard(Array/Dictionary,[List ID])	Here is a example Array using all valid values you could have in the array
+		{
+			name="CardName",
+			desc="CardDescription",																	--REMEMBER THIS IS IN MARKDOWN SO IT IS RECOMENDED TO USE [[ INSTEAD OF "
+			pos="bottom", 																			--Valid Values: A position. top, bottom, or a positive number in a string.
+			due="2016-12-25",																		--Valid Values: A date, or nil
+			labels="all", 																			--Valid Values: all or a comma-separated list of: blue, green, orange, purple, red, yellow REMEMBER THIS IS NOT NEEDED YOU CAN LEAVE THIS OUT!
+			idMembers="54d77d9a7559e423tf23g2e7",													--Valid Values: A comma-separated list of member IDs,
+			idLabels="1a2b3c4d5e6f7g8h9i10j11k12l",													--Valid Values: A comma-separated list of labelIds
+			urlSource="http://assetgame.roblox.com/Thumbs/Avatar.ashx?username=Shedletsky",			--Valid Values: a url starting with http:// or https:// or nil
+			fileSource="some.website.com/something.php", 											--Valid Values: a file
+			idCardSource="4eea4ffc91e31d174600004a",												--Valid Values: The id of the card to copy into a new card.
+			keepFromSource="all"																	--Valid Values: all or a comma-seperated list of: name, desc, pos, due, labels, idMembers, idLabels, urlSource, fileSource		
+		}	
+-Events
+	------------
+	.CardAdded(ListID,[Optional]Refresh_Time_In_Seconds,[Optional]Iterate_Through_All_Cards_First)
+		:connect(FUNCTION) --Function has argument of a table of the cards information like function cardAdded(Card)
+		:disconnect()
+	.CarRemoved(ListID,[Optional]Refresh_Time_In_Seconds,[Optional]Iterate_Through_All_Cards_First)
+		:connect(FUNCTION)
+		:disconnect()		
+	EXAMPLE:
+		'''
+			function cardAdded(card)
+				print(card.name)
+			end
+			function cardRemoved(card)
+				print(card.name)
+			end
+			local api=require(script.Parent.TrelloAPI) 
+			local boardid=api:GetBoardID("TestBoard")--The board id is different from the link you see when you go to a board 
+			local listid=api:GetListID("Testing",boardid) 
+			api.CardAdded(listid):connect(cardAdded)																																																																																																																																																																																																																																																																																																																																																																																																																																																																																	   	OUCH MY BACK!
+			api.CardRemoved(listid):connect(cardRemoved)
+		'''			
+--]]--]]-- ]]--]]
+local suc,err=pcall(function()
+	if game.Players.LocalPlayer~=nil then
+		warn("It is unsafe to have the api in a local enviorment pleasae move it to ServerScriptService and ONLY use it from Server Scripts!")
+	end
+end)
+if not script:IsDescendantOf(game.ServerScriptService) then
+	warn("It is unsafe to have the api in a local enviorment pleasae move it to ServerScriptService and ONLY use it from Server Scripts!")
+end
+local Private=true
+local addon
+local HS={}
+function UrlEncode_Not_Like_Roblox(tab)
+	local ret=""	
+	local c=0
+	for i,v in next,tab do
+
+				
+		ret=ret.."&"..(tostring(i)).."="..(tostring(v));
+	end
+	return ret
+end
+function HS:PostAsync(url,jsonData)
+	local rhs=game:GetService("HttpService");
+	local data
+	local thread=coroutine.create(function(u,j)
+		
+		local suc,msg=false,"";
+		repeat 
+			suc,msg=pcall(function()
+				data=rhs:PostAsync(u,j)
+			end)
+			--print(err)
+			wait(3)
+		until suc
+		coroutine.yield(data)
+	end)
+	local status,d=coroutine.resume(thread,url,jsonData);
+	while data==nil do
+		wait()
+	end
+	return data
+end
+function HS:GetAsync(url,cache)
+	local rhs=game:GetService("HttpService");
+	local data
+	local thread=coroutine.create(function(u,j)
+		
+		local suc,msg=false,"";
+		repeat 
+			suc,msg=pcall(function()
+				data=rhs:GetAsync(u,j)
+			end)
+			--print(data)
+			wait(3)
+		until suc
+		coroutine.yield(data)
+	end)
+	local status,d=coroutine.resume(thread,url,cache);
+	while data==nil do
+		wait()
+	end
+	return data
+end
+function HS:JSONEncode(tab)
+	local rhs=game:GetService("HttpService");
+	return rhs:JSONEncode(tab)
+end
+function HS:JSONDecode(tab)
+	local rhs=game:GetService("HttpService");
+	return rhs:JSONDecode(tab)
+end
+local IS=game:GetService("InsertService")
+local T = {}
+if script:FindFirstChild("Token")==nil and key=="Here!" and getfenv(0).token==nil then
+	error("No token or API-KEY available please set one using this link and putting the random numbers and letters into "..script:GetFullName().." or put it in a global variable in the script calling the TrelloAPI named 'token' (ignore the warning you get when creating a script if you do this) \nhttps://trello.com/1/authorize?key=[Your api key is at https://trello.com/app-key]&name=Roblox+Api&expiration=never&response_type=token&scope=read,write") 
+end --Thanks to iRexBot for Pointing out my Typo!
+while script:FindFirstChild("Token")==nil and getfenv(0).token==nil do
+	wait()
+end
+local token=script.Token.Value..""
+script.Token:Destroy()
+function getAddon()
+	if token~="" then
+		addon="?key="..key.."&token="..token
+	elseif getfenv(0).token~=nil then
+		local val=getfenv(0).token
+		addon="?key="..key.."&token="..val
+	else
+		error([[-Instructions.
+	  1. Go to this link and click allow: https://trello.com/1/authorize?key=[Your api key is at https://trello.com/app-key]&name=Roblox+Api&expiration=never&response_type=token&scope=read,write	
+	  2. Copy the token in the page sent to you
+	  3. Paste the token in the Value of Token]])
+	end
+	return "&key="..key.."&token="..token
+end
+--[[
+	POST /1/cards/[card id or shortlink]/actions/comments
+	Required permissions: comments
+	Arguments
+	text (required)
+		Valid Values: a string with a length from 1 to 16384
+--]]--]]
+function T:PostComment(cid,t)
+				local url
+			if Private then
+				getAddon()
+				url="https://api.trello.com/1/cards/"..tostring(cid).."/actions/comments"..addon
+			else
+				 url="https://api.trello.com/1/cards/"..tostring(cid).."/actions/comments"..addon
+			end
+			local dat={
+				text=t
+			}
+			local data=HS:JSONEncode(dat)
+			local re=HS:PostAsync(url,data)
+			local red=HS:JSONDecode(re)
+			return red
+end
+--/1/lists/[idList]/cards
+--[[
+	[{
+    "id": "4eea503791e31d1746000080",
+    "checkItemStates": [],
+    "closed": false,
+    "dateLastActivity": "2011-12-15T19:53:27.228Z",
+    "desc": "",
+    "descData": null,
+    "email": null,
+    "idAttachmentCover": null,
+    "idBoard": "",
+    "idLabels": [],
+    "idList": "",
+    "idMembersVoted": [],
+    "idShort": 3,
+    "manualCoverAttachment": false,
+    "name": "Finish my awesome application",
+    "pos": 65536,
+    "shortLink": "XlG8S7ll",
+    "badges": {
+        "votes": 0,
+        "viewingMemberVoted": false,
+        "subscribed": false,
+        "fogbugz": "",
+        "checkItems": 0,
+        "checkItemsChecked": 0,
+        "comments": 0,
+        "attachments": 0,
+        "description": false,
+        "due": null
+    },
+    "due": null,
+    "idChecklists": [],
+    "idMembers": [],
+    "labels": [],
+    "shortUrl": "",
+    "subscribed": false,
+    "url": ""
+}
+]]--]]--]]--]]
+	 function T:GetCardsInList(lid)
+			local url
+			if Private then
+				getAddon()
+				url="https://api.trello.com/1/lists/"..tostring(lid).."/cards"..addon
+			else
+				 getAddon()
+				 url="https://api.trello.com/1/lists/"..tostring(lid).."/cards"..addon
+			end
+			local re=HS:GetAsync(url,true)
+			local dat=HS:JSONDecode(re)
+		return dat
+	end
+--[[
+	POST /1/labels
+	Required permissions: write
+	Arguments
+	name (required)
+		Valid Values: a string with a length from 0 to 16384
+	color (required)
+		Valid Values: A valid label color or null
+	idBoard (required)
+		Valid Values: An id
+--]]--]]
+function T:AddLabel(nae,col,boardid)
+	local url
+		if Private then
+			getAddon()
+			url="https://api.trello.com/1/labels"..addon
+		else
+			 url="https://api.trello.com/1/labels"..addon
+		end
+	local dat={
+		name=nae,
+		color=col,
+		idBoard=boardid
+	}
+	local data=HS:JSONEncode(dat)
+	local re=HS:PostAsync(url,data)
+	--print(re)
+	return (HS:JSONDecode(re)).id
+end
+--[[
+	GET /1/boards/[board_id]
+
+Required permissions: read
+Arguments Show
+Examples
+https://api.trello.com/1/boards/4eea4ffc91e31d1746000046?lists=open&list_fields=name&fields=name,desc&key=[application_key]&token=[optional_auth_token]
+{
+    "id": "4eea4ffc91e31d1746000046",
+    "name": "Example Board",
+    "desc": "This board is used in the API examples",
+    "lists": [{
+        "id": "4eea4ffc91e31d174600004a",
+        "name": "To Do Soon"
+    }, {
+        "id": "4eea4ffc91e31d174600004b",
+        "name": "Doing"
+    }, {
+        "id": "4eea4ffc91e31d174600004c",
+        "name": "Done"
+    }]
+}
+--]]--]]
+function T:GetBoardNameFromId(id)
+	getAddon()
+	local ret=HS:GetAsync("https://api.trello.com/1/boards/"..id..addon,true)
+	local data=HS:JSONDecode(ret)
+	return data["name"]
+end
+--[[
+GET /1/tokens/[token]/member
+
+Required permissions: read
+Arguments Show]]--]]--
+function T:GetAllBoards()
+	getAddon()
+	local dat=HS:GetAsync("https://api.trello.com/1/tokens/"..token.."/member"..addon,true)
+	local data=HS:JSONDecode(dat)
+	
+	return data["idBoards"]
+end
+--[[
+	POST /1/cards/[card id or shortlink]/idLabels
+	Required permissions: write
+	Arguments
+	value (required)
+		Valid Values: The id of the label to add
+--]]--]]
+	function T:AddCardLabel(card,lid)
+		local url
+		local cardi=tostring(card)
+		if Private then
+			getAddon()
+			url="https://api.trello.com/1/cards/"..cardi.."/idLabels"..addon
+		else
+			 url="https://api.trello.com/1/cards/"..cardi.."/idLabels"..addon
+		end
+		--print(card,"IS THE CARD ID \n",lid,"IS THE LABEL ID")
+		local da={
+			value=lid
+		}
+		local dat=HS:JSONEncode(da)
+		local data=HS:PostAsync(url,dat)
+		--print(data)
+		return HS:JSONDecode(data)
+	end
+	--[[
+		POST /1/boards
+	Required permissions: write
+	Arguments
+	name (required)
+		Valid Values: a string with a length from 1 to 16384
+	desc (optional)
+		Valid Values: a string with a length from 0 to 16384
+	idOrganization (optional)
+		Valid Values: The id or name of the organization to add the board to.
+	idBoardSource (optional)
+		Valid Values: The id of the board to copy into the new board
+	keepFromSource (optional)
+		Default: all
+		Valid Values: Components of the source board to copy.
+	powerUps (optional)
+		Valid Values: all or a comma-separated list of:
+		calendar
+		cardAging
+		recap
+		voting
+	prefs_permissionLevel (optional)
+		Default: private
+		Valid Values: One of:
+		org
+		private
+		public
+	prefs_voting (optional)
+		Default: disabled
+		Valid Values: One of:
+		disabled
+		members
+		observers
+		org
+		public
+	prefs_comments (optional)
+		Default: members
+		Valid Values: One of:
+		disabled
+		members
+		observers
+		org
+		public
+	prefs_invitations (optional)
+		Default: members
+		Valid Values: One of:
+		admins
+		members
+	prefs_selfJoin (optional)
+		Default: true
+		Valid Values:
+		true
+		false
+	prefs_cardCovers (optional)
+		Default: true
+		Valid Values:
+		true
+		false
+	prefs_background (optional)
+		Default: blue
+		Valid Values: a string with a length from 0 to 16384
+	prefs_cardAging (optional)
+		Default: regular
+		Valid Values: One of:
+		pirate
+		regular
+	--]]--]]
+	function T:AddBoard(nae,dec)
+		local url
+		if Private then
+			getAddon()
+			url="https://api.trello.com/1/boards"..addon
+		else
+			 getAddon()
+			 url="https://api.trello.com/1/boards"..addon
+		end
+		local dat={
+			name=nae,
+			desc=dec
+		}
+		local data=HS:JSONEncode(dat)
+		local re=HS:PostAsync(url,data)
+		local red=HS:JSONDecode(re)
+		return red
+	end
+	function T:GetCardID(name,boardid)
+		local url
+		if Private then
+			getAddon()
+			url="https://api.trello.com/1/boards/"..boardid.."/cards"..addon
+		else
+			 getAddon()
+			 url="https://api.trello.com/1/boards/"..boardid.."/cards"..addon
+		end
+		local tab=HS:GetAsync(url,true)
+		local tabl=HS:JSONDecode(tab)
+		for k,ta in pairs(tabl) do
+			for p,t in pairs(ta) do
+				if p=="name" and t==name then
+					return ta.id
+				end
+			end
+		end
+	end
+	function T:GetCardInfo(cardid)
+		--/1/boards/[board_id]/cards/[idCard]
+		local url
+		if Private then
+			getAddon()
+			url="https://api.trello.com/1/cards/"..cardid..""..addon
+		else
+		   	 getAddon()
+			 url="https://api.trello.com/1/cards/"..cardid..""..addon
+		end
+		local re=HS:GetAsync(url,true)
+		local tab=HS:JSONDecode(re)
+		return tab
+	end
+	function T:GetBoardInfo(boardid)
+		local url
+		if Private then
+			getAddon()
+			url="https://api.trello.com/1/boards/"..boardid.."?lists=all&cards=all&card_checklists=all&labels=all&memberships=all&members=all&membersInvited=all&checklists=all&organization_memberships=all&fields=all"..getAddon()
+		else
+			 getAddon()
+			 url="https://api.trello.com/1/boards/"..boardid.."?lists=all&cards=all&card_checklists=all&labels=all&memberships=all&members=all&membersInvited=all&checklists=all&organization_memberships=all&fields=all"..getAddon()
+		end
+		local re=HS:GetAsync(url,true)
+		local data=HS:JSONDecode(re)
+		return data
+	end
+	function T:GetLists(boardid)
+		local url
+		if Private then
+			getAddon()
+			url="https://api.trello.com/1/boards/"..boardid.."/lists"..addon
+		else
+			getAddon()
+			url="https://api.trello.com/1/boards/"..boardid.."/lists"..addon
+		end
+		local re=HS:GetAsync(url,true)
+		local data=HS:JSONDecode(re)
+		return data
+	end
+	function T:GetMemberBoards(name)
+		local url
+		if Private then
+			getAddon()
+			url="https://api.trello.com/1/members/"..name.."/boards"..addon
+		else
+			getAddon()
+			url="https://api.trello.com/1/members/"..name.."/boards"..addon
+		end
+		local re=HS:GetAsync(url,true)
+		local data=HS:JSONDecode(re)
+		return data
+	end
+	function T:GetBoardMembers(boardid)
+		local url
+		if Private then
+			getAddon()
+			url="https://api.trello.com/1/boards/"..boardid.."/members"..addon
+		else
+			getAddon()
+			url="https://api.trello.com/1/boards/"..boardid.."/members"..addon
+		end
+		local re=HS:GetAsync(url,true)
+		local data=HS:JSONDecode(re)
+		return data
+	end
+--[[
+		POST /1/boards
+
+Required permissions: write
+Arguments Hide
+name (required)
+Valid Values: a string with a length from 1 to 16384
+desc (optional)
+Valid Values: a string with a length from 0 to 16384
+idOrganization (optional)
+Valid Values: The id or name of the organization to add the board to.
+idBoardSource (optional)
+Valid Values: The id of the board to copy into the new board
+keepFromSource (optional)
+Default: all
+Valid Values: Components of the source board to copy.
+powerUps (optional)
+Valid Values: all or a comma-separated list of:
+calendar
+cardAging
+recap
+voting
+prefs_permissionLevel (optional)
+Default: private
+Valid Values: One of:
+org
+private
+public
+prefs_voting (optional)
+Default: disabled
+Valid Values: One of:
+disabled
+members
+observers
+org
+public
+prefs_comments (optional)
+Default: members
+Valid Values: One of:
+disabled
+members
+observers
+org
+public
+prefs_invitations (optional)
+Default: members
+Valid Values: One of:
+admins
+members
+prefs_selfJoin (optional)
+Default: true
+Valid Values:
+true
+false
+prefs_cardCovers (optional)
+Default: true
+Valid Values:
+true
+false
+prefs_background (optional)
+Default: blue
+Valid Values: a string with a length from 0 to 16384
+prefs_cardAging (optional)
+Default: regular
+Valid Values: One of:
+pirate
+regular
+	]]--]]
+	function T:CreateBoard(nam,...)
+		local opt={...}
+		local tab={
+			name=nam
+		}
+		for i,v in next,opt do
+			local arg="none"
+			if i==1 then
+				tab["desc"]=v
+			elseif i==2 then
+				tab["prefs_permissionLevel"]=v
+			end
+		end
+		local tabl=HS:JSONEncode(tab)
+		local ret=HS:PostAsync("https://api.trello.com/1/boards",tabl)
+		return HS:JSONDecode(ret)
+	end
+	function T:GetBoardID(name)
+			local url
+			if Private then
+				getAddon()
+				url="https://api.trello.com/1/members/me/boards"..addon
+			else
+				getAddon()
+				url="https://api.trello.com/1/members/me/boards"..addon
+			end
+			local tball=HS:GetAsync(url,true)
+			local dt=HS:JSONDecode(tball)
+			for _,tab in pairs(dt) do
+				for p,it in pairs(tab) do
+					if p=="name" and it==name then
+						return tab.id
+					end
+				end
+			end
+			error(name.." not found!")
+			return nil
+		end
+	--[[
+POST /1/cards
+	Required permissions: write
+	Arguments
+	name (optional)
+		Valid Values: The name of the new card. It isn&#39;t required if the name is being copied from provided by a URL, file or card that is being copied.
+	desc (optional)
+		Valid Values: a string with a length from 0 to 16384
+	pos (optional)
+		Default: bottom
+		Valid Values: A position. top, bottom, or a positive number.
+	due (required)
+		Valid Values: A date, or null
+	labels (optional)
+		Valid Values: all or a comma-separated list of:
+		blue
+		green
+		orange
+		purple
+		red
+		yellow
+	idList (required)
+		Valid Values: id of the list that the card should be added to
+	idMembers (optional)
+		Valid Values: A comma-separated list of objectIds, 24-character hex strings
+	idLabels (optional)
+		Valid Values: A comma-separated list of objectIds, 24-character hex strings
+	urlSource (required)
+		Valid Values: A URL starting with http:// or https:// or null
+	fileSource (optional)
+		Valid Values: A file
+	idCardSource (optional)
+		Valid Values: The id of the card to copy into a new card.
+	keepFromSource (optional)
+		Default: all
+		Valid Values: Properties of the card to copy over from the source.
+
+	--]]--]]
+	function T:AddCard(...)
+		local url
+		local args={...}
+		local dat=nil
+		if #args==3 then
+			local nam,des,lid=args[1],args[2],args[3]
+			dat={
+			name=nam,
+			desc=des.."",
+			idList=lid,
+			urlSource=nil,
+			due=nil
+			}
+		elseif #args==4 then
+			local nam,des,lid,url=args[1],args[2],args[3],args[4]
+			dat={
+			name=nam,
+			desc=""..des,
+			idList=lid,
+			urlSource=url,
+			due=nil
+			}
+		elseif #args==5 then
+			local nam,des,lid,url,po=args[1],args[2],args[3],args[4],args[5]
+			dat={
+			name=nam,
+			desc=""..des,
+			idList=lid,
+			urlSource=url,
+			pos=po,
+			due=nil
+			}
+		elseif #args==6 then
+			local nam,des,lid,url,po,de=args[1],args[2],args[3],args[4],args[5],args[6]
+			dat={
+			name=nam,
+			desc=""..des,
+			idList=lid,
+			urlSource=url,
+			pos=po,
+			due=de
+			}
+		elseif #args==7 then
+			local nam,des,lid,url,po,de,label=args[1],args[2],args[3],args[4],args[5],args[6],args[7]
+			dat={
+			name=nam,
+			desc=""..des,
+			idList=lid,
+			urlSource=url,
+			pos=po,
+			due=de,
+			labels=label
+			}
+		elseif #args==8 then
+			local nam,des,lid,url,po,de,label,cc=args[1],args[2],args[3],args[4],args[5],args[6],args[7],args[8]
+			dat={
+			name=nam,
+			desc=""..des,
+			idList=lid,
+			urlSource=url,
+			pos=po,
+			due=de,
+			labels=label,
+			idCardSource=cc
+			}
+		end
+		local data
+		if dat~= nil then
+			data=HS:JSONEncode(dat)
+		else
+			error("No Parameters Found!")
+			return false
+		end
+		if Private then
+			getAddon()
+			url="https://api.trello.com/1/cards"..addon
+		else
+			 getAddon()
+			 url="https://api.trello.com/1/cards"..addon
+		end
+		local re=HS:PostAsync(url,data)
+		return HS:JSONDecode(re)
+	end
+	--[[
+POST /1/cards
+	Required permissions: write
+	Arguments
+	name (optional)
+		Valid Values: The name of the new card. It isn&#39;t required if the name is being copied from provided by a URL, file or card that is being copied.
+	desc (optional)
+		Valid Values: a string with a length from 0 to 16384
+	pos (optional)
+		Default: bottom
+		Valid Values: A position. top, bottom, or a positive number.
+	due (required)
+		Valid Values: A date, or null
+	labels (optional)
+		Valid Values: all or a comma-separated list of:
+		blue
+		green
+		orange
+		purple
+		red
+		yellow
+	idList (required)
+		Valid Values: id of the list that the card should be added to
+	idMembers (optional)
+		Valid Values: A comma-separated list of objectIds, 24-character hex strings
+	idLabels (optional)
+		Valid Values: A comma-separated list of objectIds, 24-character hex strings
+	urlSource (required)
+		Valid Values: A URL starting with http:// or https:// or null
+	fileSource (optional)
+		Valid Values: A file
+	idCardSource (optional)
+		Valid Values: The id of the card to copy into a new card.
+	keepFromSource (optional)
+		Default: all
+		Valid Values: Properties of the card to copy over from the source.
+
+	--]]--]]
+	function AddCustomCard(array, ListID)
+		if array["due"]==nil then
+			array["due"]=nil
+		end
+		if array["urlSource"]==nil then
+			array["urlSource"]=nil
+		end
+		array["idList"]=ListID
+		getAddon()
+		local ret=HS:PostAsync("https://api.trello.com/1/cards"..addon, HS:JSONEncode(array))
+		local data=HS:JSONDecode(ret)
+		return data
+	end
+	--[[
+POST /1/cards/[card id or shortlink]/attachments
+	Required permissions: write
+	Arguments
+	file (optional)
+		Valid Values: A file
+	url (optional)
+		Valid Values: A URL starting with http:// or https:// or null
+	name (optional)
+		Valid Values: a string with a length from 0 to 256
+	mimeType (optional)
+		Valid Values: a string with a length from 0 to 256
+	--]]--]]
+	function T:AddCardAtt(cardid,nae,type,value)
+		local url
+		local dat
+		if string.lower(type)=="file" then
+			dat={
+				name=nae,
+				file=value
+			}
+		elseif string.lower(type)=="url" then
+			dat={
+				name=nae,
+				url=value
+			}
+		elseif string.lower(type)=="mime" then
+			dat={
+				name=nae,
+				mimeType=value
+			}
+		end
+		local cardi=tostring(cardid)
+		if Private then
+			getAddon()
+			url="https://api.trello.com/1/cards/"..cardi.."/attachments"..addon
+		else
+			 getAddon()
+			 url="https://api.trello.com/1/cards/"..cardi.."/attachments"..addon
+		end
+		local data=HS:JSONEncode(dat)
+		local re=HS:PostAsync(url,data)
+		return re
+	end
+	--[[
+GET /1/boards/[board_id]/labels
+Required permissions: read
+Arguments
+	fields (optional)
+		Default: all
+		Valid Values: all or a comma-separated list of:
+		color
+		idBoard
+		name
+		uses
+	limit (optional)
+		Default: 50
+		Valid Values: a number from 0 to 1000
+	--]]--]]
+	function T:GetLabels(boardid)
+		local url
+		local dat
+		if Private then
+			getAddon()
+			url="https://api.trello.com/1/boards/"..boardid.."/labels"..addon
+		else
+			 getAddon()
+			 url="https://api.trello.com/1/boards/"..boardid.."/labels"..addon
+		end
+		local re=HS:GetAsync(url,true)
+		--print(re)
+		local dat=HS:JSONDecode(re)
+		return dat
+	end
+		--[[
+GET /1/boards/[board_id]/labels
+Required permissions: read
+Arguments
+	fields (optional)
+		Default: all
+		Valid Values: all or a comma-separated list of:
+		color
+		idBoard
+		name
+		uses
+	limit (optional)
+		Default: 50
+		Valid Values: a number from 0 to 1000
+	--]]--]]
+	function T:GetLabelID(LabelName,boardid)
+		local url
+		local dat
+		if Private then
+			getAddon()
+			url="https://api.trello.com/1/boards/"..boardid.."/labels"..addon
+		else
+			 getAddon()
+			 url="https://api.trello.com/1/boards/"..boardid.."/labels"..addon
+		end
+		local re=HS:GetAsync(url,true)
+		--print(re)
+		local dat=HS:JSONDecode(re)
+		local id
+		for i,v in next,dat do
+			if v.name==LabelName then
+				id=v.id
+				break
+			end
+		end
+		return id
+	end
+	
+	--[[
+	GET /1/boards/[board_id]/lists
+		Required permissions: read
+		Arguments
+		cards (optional)
+			Default: none
+			Valid Values: One of:
+			all
+			closed
+			none
+			open
+			visible
+		card_fields (optional)
+			Default: all
+			Valid Values: all or a comma-separated list of:
+			badges
+			checkItemStates
+			closed
+			dateLastActivity
+			desc
+			descData
+			due
+			email
+			idAttachmentCover
+			idBoard
+			idChecklists
+			idLabels
+			idList
+			idMembers
+			idMembersVoted
+			idShort
+			labels
+			manualCoverAttachment
+			name
+			pos
+			shortLink
+			shortUrl
+			subscribed
+			url
+		filter (optional)
+			Default: open
+			Valid Values: One of:
+			all
+			closed
+			none
+			open
+		fields (optional)
+			Default: all
+			Valid Values: all or a comma-separated list of:
+			closed
+			idBoard
+			name
+			pos
+			subscribed
+		--]]--]]
+	function T:GetListID(name,boardid)
+		local url
+		if Private then
+			getAddon()
+			url="https://api.trello.com/1/boards/"..boardid.."/lists"..addon
+		else
+			 getAddon()
+			 url="https://api.trello.com/1/boards/"..boardid.."/lists"..addon
+		end
+		local tab=HS:GetAsync(url,true)
+		local tabl=HS:JSONDecode(tab)
+		for k,ta in pairs(tabl) do
+			for p,t in pairs(ta) do
+				if p=="name" and t==name then
+					return ta.id
+				end
+			end
+		end
+	end
+	--[[
+		POST /1/lists
+			Required permissions: write
+			Arguments
+				name (required)
+					Valid Values: a string with a length from 1 to 16384
+				idBoard (required)
+					Valid Values: id of the board that the list should be added to
+				idListSource (optional)
+					Valid Values: The id of the list to copy into a new list.
+				pos (optional)
+					Default: top
+					Valid Values: A position. top, bottom, or a positive number.
+	--]]--]]
+	function T:AddList(...)
+		local args={...}
+		local nam,boid,idsource,po
+		local url
+		local dat
+		if #args==2 then
+			nam,boid=args[1],args[2]
+			dat={name=nam,idBoard=boid}
+		elseif #args==3 then
+			nam,boid,idsource=args[1],args[2],args[3]
+		 	dat={name=nam,idBoard=boid,idListSource=idsource}
+		elseif #args==4 then
+			nam,boid,idsource,po=args[1],args[2],args[3],args[4]
+			dat={name=nam,idBoard=boid,idListSource=idsource,pos=po}
+		else
+			error("Invalid arguments: "..table.concat(args,","))
+		end
+		--	
+		if Private then
+			getAddon()
+			url="https://api.trello.com/1/lists"..addon
+		else
+			getAddon()
+			url="https://api.trello.com/1/lists"..addon
+		end
+		local data=HS:JSONEncode(dat)
+		local re=HS:PostAsync(url,data)
+		return re.id
+	end
+	--[[
+	EXAMPLE:
+		function cardAdded(card)
+			print(card.name)
+		end
+		local api=require(script.Parent.TrelloAPI) 
+		local boardid=api:GetBoardID("TestBoard")--The board id is different from the link you see when you go to a board 
+		local listid=api:GetListID("Testing",boardid) 
+		api.CardAdded(listid):connect(cardAdded)
+		
+	--]]
+	function T.CardAdded(ListID,RefreshTimeInSecs,initialIteration)
+		if RefreshTimeInSecs==nil or RefreshTimeInSecs<30 then
+			RefreshTimeInSecs=30
+		end
+		if initialIteration==nil then
+			initialIteration=false
+		end
+		local Hook={}
+		local callbackEnded=false
+		local previousTable={}
+		if not initialIteration then
+			previousTable=T:GetCardsInList(ListID)
+		end
+		local function refreshCallback(callback)
+			local newTable=T:GetCardsInList(ListID)
+			if (#newTable>#previousTable) then
+				for _,i in next,newTable do
+					local found=false
+					for _,v in next,previousTable do
+						if (v.id==i.id) then
+							found=true
+						end
+					end  
+					if (not found) then
+						callback(i,ListID)
+					end
+				end
+			end
+			previousTable=newTable
+		end
+		local thread=nil
+		function Hook:connect(callback)
+			thread=coroutine.wrap(function(callbackEndedNested,callbackNested)
+				while ((not callbackEndedNested)) do			
+					local suc,msg = false,""
+					repeat
+						suc,msg=pcall(refreshCallback,callbackNested)
+					until suc
+					wait(RefreshTimeInSecs)
+				end
+			end)
+			thread(callbackEnded,callback)
+		end		
+		function Hook:disconnect()
+			callbackEnded=true
+			thread(callbackEnded,function()end)
+		end
+		return Hook
+	end
+	
+	--[[
+		function cardRemoved(card)
+			print(card.name)
+		end
+		local api=require(script.Parent.TrelloAPI) 
+		local boardid=api:GetBoardID("TestBoard")--The board id is different from the link you see when you go to a board 
+		local listid=api:GetListID("Testing",boardid) 
+		api.CardRemoved(listid):connect(cardRemoved)	
+	--]]
+	function T.CardRemoved(ListID,RefreshTimeInSecs,initialIteration)
+		if RefreshTimeInSecs==nil or RefreshTimeInSecs<30 then
+			RefreshTimeInSecs=30
+		end
+		if initialIteration==nil then
+			initialIteration=false
+		end
+		local Hook={}
+		local callbackEnded=false
+		local previousTable={}
+		if not initialIteration then
+			previousTable=T:GetCardsInList(ListID)
+		end
+		local function refreshCallback(callback)
+			local newTable=T:GetCardsInList(ListID)
+			if (#newTable<#previousTable) then
+				for _,i in next,newTable do
+					local found=false
+					for _,v in next,previousTable do
+						if (v.id==i.id) then
+							found=true
+						end
+					end  
+					if (not found) then
+						callback(i,ListID)
+					end
+				end
+			end
+			previousTable=newTable
+		end
+		local thread=nil
+		function Hook:connect(callback)
+			thread=coroutine.wrap(function(callbackEndedNested,callbackNested)
+				while ((not callbackEndedNested)) do			
+					local suc,msg = false,""
+					repeat
+						suc,msg=pcall(refreshCallback,callbackNested)
+					until suc
+					wait(RefreshTimeInSecs)
+				end
+			end)
+			thread(callbackEnded,callback)
+		end		
+		function Hook:disconnect()
+			callbackEnded=true
+			thread(callbackEnded,function()end)
+		end
+		return Hook
+	end
+	
+--[[
+	GET: DeleteCard
+	PARAMS: cardid, app, token
+	CREDITS TO: sloss2003 (https://github.com/mwalden2004)
+--]]
+function T:DeleteCard(cid)
+	local thing
+	local cardid = "";
+	if type(cid)=="table" then
+		cardid=cid.id;
+		thing = "?cardid="..cid.id.."&token="..token.."&key="..key
+	else
+		cardid=cid;
+		thing = "?cardid="..cid.."&token="..token.."&key="..key
+	end
+	print(thing)
+	local send = game:GetService("HttpService"):RequestAsync({Url = "https://api.trello.com/1/cards/"..cardid..thing, Method="DELETE"})
+	print(send.Body)
+	return(send)
+end
+
+
+--[[
+	GET: EditCard
+	PARAMS: cardid token app name desc
+	CREDITS TO: sloss2003 (https://github.com/mwalden2004)
+--]]
+function T:EditCard(...)
+		local url
+		local args={...}
+		local dat=nil;
+		local cid = args[1];
+		if #args==3 then
+			local cid,nam,des,lid=args[1],args[2],args[3]
+			dat={
+			cardid=cid,
+			name=nam,
+			desc=des.."",
+			idList=lid,
+			urlSource=nil,
+			due=nil
+			}
+		elseif #args==4 then
+			local cid,nam,des,lid,url=args[1],args[2],args[3],args[4]
+			dat={
+			cardid=cid,
+			name=nam,
+			desc=""..des,
+			idList=lid,
+			urlSource=url,
+			due=nil
+			}
+		elseif #args==5 then
+			local cid,nam,des,lid,url,po=args[1],args[2],args[3],args[4],args[5]
+			dat={
+			cardid=cid,
+			name=nam,
+			desc=""..des,
+			idList=lid,
+			urlSource=url,
+			pos=po,
+			due=nil
+			}
+		elseif #args==6 then
+			local cid,nam,des,lid,url,po,de=args[1],args[2],args[3],args[4],args[5],args[6]
+			dat={
+			cardid=cid,
+			name=nam,
+			desc=""..des,
+			idList=lid,
+			urlSource=url,
+			pos=po,
+			due=de
+			}
+		elseif #args==7 then
+			local cid,nam,des,lid,url,po,de,label=args[1],args[2],args[3],args[4],args[5],args[6],args[7]
+			dat={
+			cardid=cid,
+			name=nam,
+			desc=""..des,
+			idList=lid,
+			urlSource=url,
+			pos=po,
+			due=de,
+			labels=label
+			}
+		elseif #args==8 then
+			local cid,nam,des,lid,url,po,de,label,cc=args[1],args[2],args[3],args[4],args[5],args[6],args[7],args[8]
+			dat={
+			cardid=cid,
+			name=nam,
+			desc=""..des,
+			idList=lid,
+			urlSource=url,
+			pos=po,
+			due=de,
+			labels=label,
+			idCardSource=cc
+			}
+		end
+		local data
+		if dat~= nil then
+			data=UrlEncode_Not_Like_Roblox(dat)
+		else
+			error("No Parameters Found!")
+			return false
+		end
+		if typeof(cid) == "table" then
+			cid=cid.id;
+		end
+		if Private then
+			getAddon()
+			url="https://api.trello.com/1/cards/"..cid.."?key="..key.."&token="..token..data
+		else
+			 getAddon()
+			 url="https://api.trello.com/1/cards/"..cid..addon..data
+		end
+		local re=game:GetService("HttpService"):RequestAsync({Url = url, Method="PUT"})
+		return HS:JSONDecode(re.Body)
+		
+	end
+return T]]></ProtectedString>
+				<int64 name="SourceAssetId">214265621</int64>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+			<Item class="StringValue" referent="RBXFECA17283DDE4DBF835620BDD02135EE">
+				<Properties>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<string name="Name">Token</string>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+					<string name="Value">abc4e2e282826b79c9a4901ea0cb299ab4d907c8a86ee5ecca2656cb8df604d8</string>
+				</Properties>
+			</Item>
+			<Item class="Script" referent="RBX8B8CC766A3FC4855864AE078EACF4E18">
+				<Properties>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<bool name="Disabled">true</bool>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">ExampleScript</string>
+					<string name="ScriptGuid">{410E8582-0318-4EF4-9436-932E95A33755}</string>
+					<ProtectedString name="Source"><![CDATA[local recrlimit=20--Sets recrusive limit so you do not crash studio if u want this off set it to some rediculous value like 10000
+local inarray=false
+local rep=0
+function printArrInfo(arr)
+	if #arr>recrlimit and inarray then
+		return
+	end
+	for i,v in next,arr do
+		if	type(v)=="table" then
+			print(string.rep("\t",rep)..tostring(i).."={")
+			inarray=true
+			rep=rep+1
+			printArrInfo(v)
+		else
+			print(string.rep("\t",rep)..tostring(i).."=".."\""..tostring(v).."\"")
+		end
+	end
+	if inarray then
+		rep=rep-1
+		print(string.rep("\t",rep).."}")
+		inarray=false
+	end
+end
+local API=require(script.Parent)
+function test1()
+	--[[
+		this function tests the API on
+		 GetBoardMembers()
+		 GetAllBoards()
+		by outputing the members to all boards you are in.
+	--]]
+	local allboardids=API:GetAllBoards()--table of BoardIDs of boards I am in
+	printArrInfo(allboardids)--Prints out all board ids
+	print("Board Members")
+	for i,v in next,allboardids do
+		print(tostring(v).."={")
+		rep=1
+		local boardMembers=API:GetBoardMembers(v)--gets the board members of "v" a.k.a. one of the boards im in
+		printArrInfo(boardMembers)--Prints the info of the array returned by GetBoardMembers
+		rep=0
+		print("}")
+	end
+	print("\n\n\n\n")
+end
+
+function test2() 
+	--[[
+		this function tests the API on
+		 GetAllBoards()
+		 GetBoardInfo()
+		by outputting all available information on all your boards
+	--]]
+	local allboardids=API:GetAllBoards()--table of BoardIDs of boards I am in
+	for i,v in next,allboardids do
+		print(tostring(v).."={")
+		rep=1
+		printArrInfo(API:GetBoardInfo(v))
+		rep=0
+		print("}")
+	end
+end
+function test3()
+	--[[
+		this function tests the API on
+		 GetAllBoards()
+		 GetBoardID()
+		 GetListID()
+		 GetLists()
+		 GetCardsInList()
+		by outputting all board names and id's and alll lists and list ids and all cards in the first list 
+		of every board
+	--]]
+	local allboardids=API:GetAllBoards()--table of BoardIDs of boards I am in
+	for i,v in next,allboardids do
+		local boardName=API:GetBoardNameFromId(v)
+		print(boardName.."="..API:GetBoardID(boardName))
+		print("lists={")
+		local lists=API:GetLists(v)
+		rep=1
+		for q,e in next,lists do
+			print(e["name"].."="..API:GetListID(e["name"],v))
+		end
+		printArrInfo(lists)
+		if lists[1]~=nil then
+			rep=2
+			print("\tcards={")
+			printArrInfo(API:GetCardsInList(lists[1]["id"]))
+			print("\t}")
+		end
+		rep=0
+		print("}")
+	end
+end
+test1()
+test2()
+test3()]]></ProtectedString>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
+			<Item class="Script" referent="RBX7959D8190E0B4C59A683B381AD9196EF">
+				<Properties>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<bool name="Disabled">false</bool>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">TrelloDatastoreScript</string>
+					<string name="ScriptGuid">{F808B722-B7DD-403E-92B1-BAD4660C4A25}</string>
+					<ProtectedString name="Source"><![CDATA[local TrelloAPI = require(game.ServerScriptService:WaitForChild("TrelloAPI"))
+
+-- Get Board
+local BoardID = TrelloAPI:GetBoardID("RobloxPlacementSystemData")
+
+-- Get List
+local ListID = TrelloAPI:GetListID("The List",BoardID)
+
+-- Create card in the list
+local NewCard = TrelloAPI:AddCard("Example Card","Example Description",ListID)]]></ProtectedString>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
+		</Item>
 	</Item>
-	<Item class="ServerStorage" referent="RBX8AD1603AD2B94A2584930205BB1DA510">
+	<Item class="ServerStorage" referent="RBXA9A8B20AA72B4CA1BB63023280360D6F">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">ServerStorage</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
-		<Item class="Folder" referent="RBXE8018234CD044F71A7EB92DF9A1DCFD2">
+		<Item class="Folder" referent="RBXC9EDE5E5B8B34FBF95B2C6B2531EF694">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<string name="Name">Drops</string>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="Part" referent="RBX23B019F8335744C7AB45010F94648935">
+			<Item class="Part" referent="RBX174CA17E8E3F44C580D8C5E6218FE60E">
 				<Properties>
 					<bool name="Anchored">false</bool>
 					<BinaryString name="AttributesSerialize">AQAAAAUAAABXb3J0aAYAAAAAAAAUQA==</BinaryString>
@@ -2432,7 +4199,7 @@ return Tycoon
 				</Properties>
 			</Item>
 		</Item>
-		<Item class="Folder" referent="RBXC11D8209F165447FA67F4DFC638CEE52">
+		<Item class="Folder" referent="RBX97702C8643C941ED88BCFBBA6CFCD898">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<string name="Name">TycoonStorage</string>
@@ -2440,14 +4207,14 @@ return Tycoon
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
 		</Item>
-		<Item class="Folder" referent="RBX8F06A26060274612A95C13DCDF528C27">
+		<Item class="Folder" referent="RBX3224D383AD544C0880402C47AC65F100">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<string name="Name">TagList</string>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="Configuration" referent="RBX61FEE5B3364D453C9A236C2083015642">
+			<Item class="Configuration" referent="RBXA285D71F8DA74DB08E3F6AA5B3A78463">
 				<Properties>
 					<BinaryString name="AttributesSerialize"><![CDATA[BgAAAAsAAABBbHdheXNPblRvcAMABQAAAENvbG9yDw/cKD+ZGaQ8xPe7PggAAABEcmF3VHlw
 ZQIDAAAAQm94BQAAAEdyb3VwAgAAAAAEAAAASWNvbgIJAAAAdGFnX2dyZWVuBwAAAFZpc2li
@@ -2457,7 +4224,7 @@ bGUDAQ==]]></BinaryString>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
 			</Item>
-			<Item class="Configuration" referent="RBXB6E1E53E7E6C4FF2B59403F31B59C16F">
+			<Item class="Configuration" referent="RBXA26797EEBAF74EFC9C29639831628502">
 				<Properties>
 					<BinaryString name="AttributesSerialize"><![CDATA[BgAAAAsAAABBbHdheXNPblRvcAMABQAAAENvbG9yDxmzTD/S70g9CEVXPggAAABEcmF3VHlw
 ZQIDAAAAQm94BQAAAEdyb3VwAgAAAAAEAAAASWNvbgIJAAAAdGFnX2dyZWVuBwAAAFZpc2li
@@ -2467,7 +4234,7 @@ bGUDAQ==]]></BinaryString>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
 			</Item>
-			<Item class="Configuration" referent="RBX512E44C9A8F643598A0F242481DCD00C">
+			<Item class="Configuration" referent="RBX1CA207E8CFF64148B3CE058C474EE07E">
 				<Properties>
 					<BinaryString name="AttributesSerialize"><![CDATA[BgAAAAsAAABBbHdheXNPblRvcAMABQAAAENvbG9yDz1woz7rw50+1z7APQgAAABEcmF3VHlw
 ZQIDAAAAQm94BQAAAEdyb3VwAgAAAAAEAAAASWNvbgIJAAAAdGFnX2dyZWVuBwAAAFZpc2li
@@ -2477,7 +4244,7 @@ bGUDAQ==]]></BinaryString>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
 			</Item>
-			<Item class="Configuration" referent="RBX9DACB5B1848A4309A655C3EAA773FA29">
+			<Item class="Configuration" referent="RBXFF5A1DC7B0624D7E9C4A28EC983C04E9">
 				<Properties>
 					<BinaryString name="AttributesSerialize"><![CDATA[BgAAAAsAAABBbHdheXNPblRvcAMABQAAAENvbG9yD7ZlMj1+Shc/IXVwPggAAABEcmF3VHlw
 ZQIDAAAAQm94BQAAAEdyb3VwAgAAAAAEAAAASWNvbgIJAAAAdGFnX2dyZWVuBwAAAFZpc2li
@@ -2487,7 +4254,7 @@ bGUDAQ==]]></BinaryString>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
 			</Item>
-			<Item class="Configuration" referent="RBX3B03C9F1E6FE463BB0227BCD7F386C52">
+			<Item class="Configuration" referent="RBXD1CAF39C8279482CA0F932065DD391AC">
 				<Properties>
 					<BinaryString name="AttributesSerialize"><![CDATA[BgAAAAsAAABBbHdheXNPblRvcAMABQAAAENvbG9yD5eWFj+Oqz0+coJNPggAAABEcmF3VHlw
 ZQIDAAAAQm94BQAAAEdyb3VwAgAAAAAEAAAASWNvbgIJAAAAdGFnX2dyZWVuBwAAAFZpc2li
@@ -2497,7 +4264,7 @@ bGUDAQ==]]></BinaryString>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
 			</Item>
-			<Item class="Configuration" referent="RBX4D578E0DC70C4A0FA79CBD9BA55137FE">
+			<Item class="Configuration" referent="RBX6CE488D88D4C4F778097A933789FAD1E">
 				<Properties>
 					<BinaryString name="AttributesSerialize"><![CDATA[BgAAAAsAAABBbHdheXNPblRvcAMABQAAAENvbG9yD3qFxj4owVo/1C3LPQgAAABEcmF3VHlw
 ZQIDAAAAQm94BQAAAEdyb3VwAgAAAAAEAAAASWNvbgIJAAAAdGFnX2dyZWVuBwAAAFZpc2li
@@ -2507,7 +4274,7 @@ bGUDAQ==]]></BinaryString>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
 			</Item>
-			<Item class="Configuration" referent="RBX93A42E9551A44F0998B06619E0408C80">
+			<Item class="Configuration" referent="RBX62E94F12A5964DDD8C573D87A720BE2E">
 				<Properties>
 					<BinaryString name="AttributesSerialize"><![CDATA[BgAAAAsAAABBbHdheXNPblRvcAMABQAAAENvbG9yD5efjD58fHw/ekW7PggAAABEcmF3VHlw
 ZQIDAAAAQm94BQAAAEdyb3VwAgAAAAAEAAAASWNvbgIJAAAAdGFnX2dyZWVuBwAAAFZpc2li
@@ -2517,7 +4284,7 @@ bGUDAQ==]]></BinaryString>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
 			</Item>
-			<Item class="Configuration" referent="RBX5E9496EAB9C2457C93157960ECD81F92">
+			<Item class="Configuration" referent="RBX44064007FE284610993BB5B6D2FD2E29">
 				<Properties>
 					<BinaryString name="AttributesSerialize"><![CDATA[BgAAAAsAAABBbHdheXNPblRvcAMABQAAAENvbG9yD94XbD3Ew8M+2R1VPggAAABEcmF3VHlw
 ZQIDAAAAQm94BQAAAEdyb3VwAgAAAAAEAAAASWNvbgIJAAAAdGFnX2dyZWVuBwAAAFZpc2li
@@ -2527,7 +4294,7 @@ bGUDAQ==]]></BinaryString>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
 			</Item>
-			<Item class="Configuration" referent="RBX49A5E6CBC93E404EA95EFFFA4279C646">
+			<Item class="Configuration" referent="RBX57FC2957F01F41D3911AA6118812B9F5">
 				<Properties>
 					<BinaryString name="AttributesSerialize"><![CDATA[BgAAAAsAAABBbHdheXNPblRvcAMABQAAAENvbG9yD4EaND8LSS4/n4CSPggAAABEcmF3VHlw
 ZQIDAAAAQm94BQAAAEdyb3VwAgAAAAAEAAAASWNvbgIJAAAAdGFnX2dyZWVuBwAAAFZpc2li
@@ -2538,7 +4305,7 @@ bGUDAQ==]]></BinaryString>
 				</Properties>
 			</Item>
 		</Item>
-		<Item class="BindableEvent" referent="RBXD9718F294EF34514BA147C22C6C888C5">
+		<Item class="BindableEvent" referent="RBXCD0386F25E2D4030AD9F39E7AFB2CDBD">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<string name="Name">ServerToButton</string>
@@ -2546,7 +4313,7 @@ bGUDAQ==]]></BinaryString>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
 		</Item>
-		<Item class="Model" referent="RBX56B2F5B39AF2423CB2E63942F167F152">
+		<Item class="Model" referent="RBX76F36A553C0645C48C7A1F0ECFD4F13C">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<token name="LevelOfDetail">0</token>
@@ -2572,7 +4339,7 @@ bGUDAQ==]]></BinaryString>
 				</Vector3>
 				<string name="Name">Template</string>
 				<bool name="NeedsPivotMigration">false</bool>
-				<Ref name="PrimaryPart">RBX05CAB53B09B64F1DA4A5AD91AFBBE31D</Ref>
+				<Ref name="PrimaryPart">RBX0C0B3F8FE2FA409CB9FB6680B1662134</Ref>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
 				<OptionalCoordinateFrame name="WorldPivotData">
@@ -2592,7 +4359,7 @@ bGUDAQ==]]></BinaryString>
 					</CFrame>
 				</OptionalCoordinateFrame>
 			</Properties>
-			<Item class="Part" referent="RBX05CAB53B09B64F1DA4A5AD91AFBBE31D">
+			<Item class="Part" referent="RBX0C0B3F8FE2FA409CB9FB6680B1662134">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<BinaryString name="AttributesSerialize"></BinaryString>
@@ -2685,7 +4452,7 @@ bGUDAQ==]]></BinaryString>
 						<Z>36</Z>
 					</Vector3>
 				</Properties>
-				<Item class="Texture" referent="RBX008173DCE234493CA778124A034AEBE0">
+				<Item class="Texture" referent="RBX5E48E858171843C3B5ADE1918978455B">
 					<Properties>
 						<BinaryString name="AttributesSerialize"></BinaryString>
 						<Color3 name="Color3">
@@ -2707,7 +4474,7 @@ bGUDAQ==]]></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="SpawnLocation" referent="RBXA938C5C52FAB4CEC9C4DD24AA330DF01">
+			<Item class="SpawnLocation" referent="RBX7EECF2E218CE4E1E8E05CBCE6D4125B4">
 				<Properties>
 					<bool name="AllowTeamChangeOnTouch">false</bool>
 					<bool name="Anchored">true</bool>
@@ -2805,7 +4572,7 @@ bGUDAQ==]]></BinaryString>
 						<Z>4</Z>
 					</Vector3>
 				</Properties>
-				<Item class="Decal" referent="RBX6EDC3D7C0DB44599BB368A1431CA4B9A">
+				<Item class="Decal" referent="RBX26B7426C6A324281A8A29C11AA7A7B6C">
 					<Properties>
 						<BinaryString name="AttributesSerialize"></BinaryString>
 						<Color3 name="Color3">
@@ -2823,23 +4590,31 @@ bGUDAQ==]]></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
+			<Item class="Folder" referent="RBX1001F155C955440694E535EF2F1C9E93">
+				<Properties>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<string name="Name">PlacedObjects</string>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
 		</Item>
 	</Item>
-	<Item class="ReplicatedStorage" referent="1">
+	<Item class="ReplicatedStorage" referent="RBX294D32CE34994B149C5092998EB9AC25">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">ReplicatedStorage</string>
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
-		<Item class="Folder" referent="2">
+		<Item class="Folder" referent="RBX84EF2E0D0BF94C018F6F20E83B1C0AAE">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<string name="Name">Common</string>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="ModuleScript" referent="RBX8072EF46CA80432597DAEE4C47EE2479">
+			<Item class="ModuleScript" referent="RBXE1548826783D427ABC599AC78F05AAED">
 				<Properties>
 					<BinaryString name="AttributesSerialize"></BinaryString>
 					<Content name="LinkedSource"><null></null></Content>
@@ -3189,7 +4964,7 @@ return PlacementSystem
 				</Properties>
 			</Item>
 		</Item>
-		<Item class="RemoteEvent" referent="RBXDBDB881CDF47414786A768B5EDAF8472">
+		<Item class="RemoteEvent" referent="RBX35EDF3A24D9F4DFEADEBB375951FF069">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<string name="Name">Place</string>
@@ -3197,7 +4972,7 @@ return PlacementSystem
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
 		</Item>
-		<Item class="RemoteEvent" referent="RBXA5AEC058EE0E4B54BE8F4DD0E21F9652">
+		<Item class="RemoteEvent" referent="RBX6B818CA22CAF4BA3A572DC80A414D31F">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<string name="Name">Select</string>
@@ -3205,14 +4980,14 @@ return PlacementSystem
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
 		</Item>
-		<Item class="Folder" referent="RBXC537B69E0D1342F9A1C96095CBD593AC">
+		<Item class="Folder" referent="RBX763F35A2CAC24FFB8AEE010E724D7879">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<string name="Name">Placeables</string>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="Model" referent="RBX7DC3106641F94401BFEDAF9EA25B5E3E">
+			<Item class="Model" referent="RBXA73E6B4704B94E8186CC28FBF7CC3179">
 				<Properties>
 					<BinaryString name="AttributesSerialize">AQAAAAIAAABJZAIIAAAARGVtb1BhcnQ=</BinaryString>
 					<token name="LevelOfDetail">0</token>
@@ -3238,7 +5013,7 @@ return PlacementSystem
 					</Vector3>
 					<string name="Name">DemoPart</string>
 					<bool name="NeedsPivotMigration">false</bool>
-					<Ref name="PrimaryPart">RBX3F3853B9C72440B8883A6BAA51EEF4BB</Ref>
+					<Ref name="PrimaryPart">RBX4A2ABC9E4A6242AAB40D4566373FD389</Ref>
 					<int64 name="SourceAssetId">-1</int64>
 					<BinaryString name="Tags">UGxhY2VhYmxl</BinaryString>
 					<OptionalCoordinateFrame name="WorldPivotData">
@@ -3258,7 +5033,7 @@ return PlacementSystem
 						</CFrame>
 					</OptionalCoordinateFrame>
 				</Properties>
-				<Item class="Model" referent="RBX1A1E38794A564D1298AE3007A56C00E6">
+				<Item class="Model" referent="RBX4B16C4FD831D43DBBFF270CE119B26E9">
 					<Properties>
 						<BinaryString name="AttributesSerialize"></BinaryString>
 						<token name="LevelOfDetail">0</token>
@@ -3304,7 +5079,7 @@ return PlacementSystem
 							</CFrame>
 						</OptionalCoordinateFrame>
 					</Properties>
-					<Item class="Part" referent="RBX8EF3D2B89407424AAB14EA47BE247736">
+					<Item class="Part" referent="RBX07F8C06A45C4424C9397EFAF941D5F04">
 						<Properties>
 							<bool name="Anchored">false</bool>
 							<BinaryString name="AttributesSerialize"></BinaryString>
@@ -3398,7 +5173,7 @@ return PlacementSystem
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="Part" referent="RBX76652592FF1D4E21A56FAA6A3D6D63C1">
+					<Item class="Part" referent="RBX7562313E0CDA49389683B6B195DA9711">
 						<Properties>
 							<bool name="Anchored">false</bool>
 							<BinaryString name="AttributesSerialize"></BinaryString>
@@ -3493,7 +5268,7 @@ return PlacementSystem
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Model" referent="RBX912394D0E10D4384B7240D0D751751F4">
+				<Item class="Model" referent="RBXA079BFD8E74F41C2A04FCF25C8EED5E1">
 					<Properties>
 						<BinaryString name="AttributesSerialize"></BinaryString>
 						<token name="LevelOfDetail">0</token>
@@ -3539,7 +5314,7 @@ return PlacementSystem
 							</CFrame>
 						</OptionalCoordinateFrame>
 					</Properties>
-					<Item class="Part" referent="RBX0264F503213841FE9990326FB38E7752">
+					<Item class="Part" referent="RBX228205DCA582479395EEC4726FED3FA5">
 						<Properties>
 							<bool name="Anchored">false</bool>
 							<BinaryString name="AttributesSerialize"></BinaryString>
@@ -3633,7 +5408,7 @@ return PlacementSystem
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="Part" referent="RBX7185DDBE94A24BF3B7E924E6C4B5D1C4">
+					<Item class="Part" referent="RBX653EE96343F74FAF94C8EE971D2ADDB6">
 						<Properties>
 							<bool name="Anchored">false</bool>
 							<BinaryString name="AttributesSerialize"></BinaryString>
@@ -3727,7 +5502,7 @@ return PlacementSystem
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="Part" referent="RBX94B0ECE3E30F4FEDB9B893A48DDF6C3D">
+					<Item class="Part" referent="RBXD65FE72A47D5413CA25D20A6836A4159">
 						<Properties>
 							<bool name="Anchored">false</bool>
 							<BinaryString name="AttributesSerialize"></BinaryString>
@@ -3822,7 +5597,7 @@ return PlacementSystem
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBX3F3853B9C72440B8883A6BAA51EEF4BB">
+				<Item class="Part" referent="RBX4A2ABC9E4A6242AAB40D4566373FD389">
 					<Properties>
 						<bool name="Anchored">true</bool>
 						<BinaryString name="AttributesSerialize"></BinaryString>
@@ -3915,7 +5690,7 @@ return PlacementSystem
 							<Z>2</Z>
 						</Vector3>
 					</Properties>
-					<Item class="Motor6D" referent="RBXD788B6597ED04D54B0AC847283B0BAED">
+					<Item class="Motor6D" referent="RBX5115CFFEBC194DDE8DFCB9CF737911A9">
 						<Properties>
 							<BinaryString name="AttributesSerialize"></BinaryString>
 							<CoordinateFrame name="C0">
@@ -3950,13 +5725,13 @@ return PlacementSystem
 							<bool name="Enabled">true</bool>
 							<float name="MaxVelocity">0</float>
 							<string name="Name">Part</string>
-							<Ref name="Part0">RBX3F3853B9C72440B8883A6BAA51EEF4BB</Ref>
-							<Ref name="Part1">RBX8EF3D2B89407424AAB14EA47BE247736</Ref>
+							<Ref name="Part0">RBX4A2ABC9E4A6242AAB40D4566373FD389</Ref>
+							<Ref name="Part1">RBX07F8C06A45C4424C9397EFAF941D5F04</Ref>
 							<int64 name="SourceAssetId">-1</int64>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
 					</Item>
-					<Item class="Motor6D" referent="RBX6297545D7E364BBDB9D2E195DF8D6128">
+					<Item class="Motor6D" referent="RBXE78207F53385499F84401AFDC7788F7D">
 						<Properties>
 							<BinaryString name="AttributesSerialize"></BinaryString>
 							<CoordinateFrame name="C0">
@@ -3991,13 +5766,13 @@ return PlacementSystem
 							<bool name="Enabled">true</bool>
 							<float name="MaxVelocity">0</float>
 							<string name="Name">Part</string>
-							<Ref name="Part0">RBX3F3853B9C72440B8883A6BAA51EEF4BB</Ref>
-							<Ref name="Part1">RBX76652592FF1D4E21A56FAA6A3D6D63C1</Ref>
+							<Ref name="Part0">RBX4A2ABC9E4A6242AAB40D4566373FD389</Ref>
+							<Ref name="Part1">RBX7562313E0CDA49389683B6B195DA9711</Ref>
 							<int64 name="SourceAssetId">-1</int64>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
 					</Item>
-					<Item class="Motor6D" referent="RBXB9C579942C96452A977418C3E97DB949">
+					<Item class="Motor6D" referent="RBX46BD905C75A64D35B9E6631012867879">
 						<Properties>
 							<BinaryString name="AttributesSerialize"></BinaryString>
 							<CoordinateFrame name="C0">
@@ -4032,13 +5807,13 @@ return PlacementSystem
 							<bool name="Enabled">true</bool>
 							<float name="MaxVelocity">0</float>
 							<string name="Name">CollisionDetector</string>
-							<Ref name="Part0">RBX3F3853B9C72440B8883A6BAA51EEF4BB</Ref>
-							<Ref name="Part1">RBX94B0ECE3E30F4FEDB9B893A48DDF6C3D</Ref>
+							<Ref name="Part0">RBX4A2ABC9E4A6242AAB40D4566373FD389</Ref>
+							<Ref name="Part1">RBXD65FE72A47D5413CA25D20A6836A4159</Ref>
 							<int64 name="SourceAssetId">-1</int64>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
 					</Item>
-					<Item class="Motor6D" referent="RBX5D52949AE50B461BA4A9C1E123E71689">
+					<Item class="Motor6D" referent="RBX364FDDAB04704E78B0C9109C0C0B5F9F">
 						<Properties>
 							<BinaryString name="AttributesSerialize"></BinaryString>
 							<CoordinateFrame name="C0">
@@ -4073,13 +5848,13 @@ return PlacementSystem
 							<bool name="Enabled">true</bool>
 							<float name="MaxVelocity">0</float>
 							<string name="Name">CollisionDetector</string>
-							<Ref name="Part0">RBX3F3853B9C72440B8883A6BAA51EEF4BB</Ref>
-							<Ref name="Part1">RBX0264F503213841FE9990326FB38E7752</Ref>
+							<Ref name="Part0">RBX4A2ABC9E4A6242AAB40D4566373FD389</Ref>
+							<Ref name="Part1">RBX228205DCA582479395EEC4726FED3FA5</Ref>
 							<int64 name="SourceAssetId">-1</int64>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
 					</Item>
-					<Item class="Motor6D" referent="RBX43E39DFC4BC34C63B698DE2812402E84">
+					<Item class="Motor6D" referent="RBX9F522F60E8A943FB80401148B840B0B9">
 						<Properties>
 							<BinaryString name="AttributesSerialize"></BinaryString>
 							<CoordinateFrame name="C0">
@@ -4114,15 +5889,15 @@ return PlacementSystem
 							<bool name="Enabled">true</bool>
 							<float name="MaxVelocity">0</float>
 							<string name="Name">CollisionDetector</string>
-							<Ref name="Part0">RBX3F3853B9C72440B8883A6BAA51EEF4BB</Ref>
-							<Ref name="Part1">RBX7185DDBE94A24BF3B7E924E6C4B5D1C4</Ref>
+							<Ref name="Part0">RBX4A2ABC9E4A6242AAB40D4566373FD389</Ref>
+							<Ref name="Part1">RBX653EE96343F74FAF94C8EE971D2ADDB6</Ref>
 							<int64 name="SourceAssetId">-1</int64>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
 					</Item>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBXB6762E9D969945AAA5ED9F204EB2B40A">
+			<Item class="Model" referent="RBX02A37B7F17104316A923959E2D4A988F">
 				<Properties>
 					<BinaryString name="AttributesSerialize">AQAAAAIAAABJZAIJAAAARGVtb1BhcnQy</BinaryString>
 					<token name="LevelOfDetail">0</token>
@@ -4148,7 +5923,7 @@ return PlacementSystem
 					</Vector3>
 					<string name="Name">DemoPart2</string>
 					<bool name="NeedsPivotMigration">false</bool>
-					<Ref name="PrimaryPart">RBX266858DBDC1C44E9B1634D6E147EFFCE</Ref>
+					<Ref name="PrimaryPart">RBX1F748CA8692242C5AD18ACEE9396BA67</Ref>
 					<int64 name="SourceAssetId">-1</int64>
 					<BinaryString name="Tags">UGxhY2VhYmxl</BinaryString>
 					<OptionalCoordinateFrame name="WorldPivotData">
@@ -4168,7 +5943,7 @@ return PlacementSystem
 						</CFrame>
 					</OptionalCoordinateFrame>
 				</Properties>
-				<Item class="Model" referent="RBX5CB8723C36BE460E97918DE219AB5149">
+				<Item class="Model" referent="RBXF540F72ADD544D688042104A534C4297">
 					<Properties>
 						<BinaryString name="AttributesSerialize"></BinaryString>
 						<token name="LevelOfDetail">0</token>
@@ -4214,7 +5989,7 @@ return PlacementSystem
 							</CFrame>
 						</OptionalCoordinateFrame>
 					</Properties>
-					<Item class="Part" referent="RBX8A0641AE57AB4498ABCB5C7F3A231B9A">
+					<Item class="Part" referent="RBXF6E0EFCDC6B54FB1BE229A2D0F0DE307">
 						<Properties>
 							<bool name="Anchored">false</bool>
 							<BinaryString name="AttributesSerialize"></BinaryString>
@@ -4308,7 +6083,7 @@ return PlacementSystem
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="Part" referent="RBX9D8E846C4D3E4C13B54E2E8F6A3CE905">
+					<Item class="Part" referent="RBXC129CB46CB984B59B840AA497171DECA">
 						<Properties>
 							<bool name="Anchored">false</bool>
 							<BinaryString name="AttributesSerialize"></BinaryString>
@@ -4403,7 +6178,7 @@ return PlacementSystem
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Model" referent="RBX5D79A0205C0644BC8DFBD13ACA5D3BBC">
+				<Item class="Model" referent="RBXA1CA638C2EF74F6D9280AC9395BCAD83">
 					<Properties>
 						<BinaryString name="AttributesSerialize"></BinaryString>
 						<token name="LevelOfDetail">0</token>
@@ -4449,7 +6224,7 @@ return PlacementSystem
 							</CFrame>
 						</OptionalCoordinateFrame>
 					</Properties>
-					<Item class="Part" referent="RBX26646314D5E74ABC97F5A07837CCE116">
+					<Item class="Part" referent="RBXC6CF100E6967489091DEC19844D44844">
 						<Properties>
 							<bool name="Anchored">false</bool>
 							<BinaryString name="AttributesSerialize"></BinaryString>
@@ -4543,7 +6318,7 @@ return PlacementSystem
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="Part" referent="RBX53B1212DA311461A816C5720B3313830">
+					<Item class="Part" referent="RBX3BF1E2223722466AA8CFA2DE5DC1B993">
 						<Properties>
 							<bool name="Anchored">false</bool>
 							<BinaryString name="AttributesSerialize"></BinaryString>
@@ -4637,7 +6412,7 @@ return PlacementSystem
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="Part" referent="RBXE6C06FCBB56D4CE18961A16B3EFB88AC">
+					<Item class="Part" referent="RBX45962259E3044D75A0C810C5DDE997BD">
 						<Properties>
 							<bool name="Anchored">false</bool>
 							<BinaryString name="AttributesSerialize"></BinaryString>
@@ -4732,7 +6507,7 @@ return PlacementSystem
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBX266858DBDC1C44E9B1634D6E147EFFCE">
+				<Item class="Part" referent="RBX1F748CA8692242C5AD18ACEE9396BA67">
 					<Properties>
 						<bool name="Anchored">true</bool>
 						<BinaryString name="AttributesSerialize"></BinaryString>
@@ -4825,7 +6600,7 @@ return PlacementSystem
 							<Z>2</Z>
 						</Vector3>
 					</Properties>
-					<Item class="Motor6D" referent="RBXB33F27A0F6A94635B86D8D2F0C9C0EC6">
+					<Item class="Motor6D" referent="RBXBD952CA564E04437824D00AC88457E75">
 						<Properties>
 							<BinaryString name="AttributesSerialize"></BinaryString>
 							<CoordinateFrame name="C0">
@@ -4860,13 +6635,13 @@ return PlacementSystem
 							<bool name="Enabled">true</bool>
 							<float name="MaxVelocity">0</float>
 							<string name="Name">Part</string>
-							<Ref name="Part0">RBX266858DBDC1C44E9B1634D6E147EFFCE</Ref>
-							<Ref name="Part1">RBX9D8E846C4D3E4C13B54E2E8F6A3CE905</Ref>
+							<Ref name="Part0">RBX1F748CA8692242C5AD18ACEE9396BA67</Ref>
+							<Ref name="Part1">RBXC129CB46CB984B59B840AA497171DECA</Ref>
 							<int64 name="SourceAssetId">-1</int64>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
 					</Item>
-					<Item class="Motor6D" referent="RBX79E02F5602AE4450BB709EB03EF8B862">
+					<Item class="Motor6D" referent="RBX77731C239782403886214F1E4C3815F1">
 						<Properties>
 							<BinaryString name="AttributesSerialize"></BinaryString>
 							<CoordinateFrame name="C0">
@@ -4901,13 +6676,13 @@ return PlacementSystem
 							<bool name="Enabled">true</bool>
 							<float name="MaxVelocity">0</float>
 							<string name="Name">Part</string>
-							<Ref name="Part0">RBX266858DBDC1C44E9B1634D6E147EFFCE</Ref>
-							<Ref name="Part1">RBX8A0641AE57AB4498ABCB5C7F3A231B9A</Ref>
+							<Ref name="Part0">RBX1F748CA8692242C5AD18ACEE9396BA67</Ref>
+							<Ref name="Part1">RBXF6E0EFCDC6B54FB1BE229A2D0F0DE307</Ref>
 							<int64 name="SourceAssetId">-1</int64>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
 					</Item>
-					<Item class="Motor6D" referent="RBXB37F638ACD784EC8844B61B127BE6193">
+					<Item class="Motor6D" referent="RBXA7B7320B41E74374832914EBBB6E1ECB">
 						<Properties>
 							<BinaryString name="AttributesSerialize"></BinaryString>
 							<CoordinateFrame name="C0">
@@ -4942,13 +6717,13 @@ return PlacementSystem
 							<bool name="Enabled">true</bool>
 							<float name="MaxVelocity">0</float>
 							<string name="Name">CollisionDetector</string>
-							<Ref name="Part0">RBX266858DBDC1C44E9B1634D6E147EFFCE</Ref>
-							<Ref name="Part1">RBXE6C06FCBB56D4CE18961A16B3EFB88AC</Ref>
+							<Ref name="Part0">RBX1F748CA8692242C5AD18ACEE9396BA67</Ref>
+							<Ref name="Part1">RBX45962259E3044D75A0C810C5DDE997BD</Ref>
 							<int64 name="SourceAssetId">-1</int64>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
 					</Item>
-					<Item class="Motor6D" referent="RBXEF3BF024FAC9468E92FD8A6816AE18A5">
+					<Item class="Motor6D" referent="RBX7F768493311E4169A36EB33E7EB0CC1A">
 						<Properties>
 							<BinaryString name="AttributesSerialize"></BinaryString>
 							<CoordinateFrame name="C0">
@@ -4983,13 +6758,13 @@ return PlacementSystem
 							<bool name="Enabled">true</bool>
 							<float name="MaxVelocity">0</float>
 							<string name="Name">CollisionDetector</string>
-							<Ref name="Part0">RBX266858DBDC1C44E9B1634D6E147EFFCE</Ref>
-							<Ref name="Part1">RBX53B1212DA311461A816C5720B3313830</Ref>
+							<Ref name="Part0">RBX1F748CA8692242C5AD18ACEE9396BA67</Ref>
+							<Ref name="Part1">RBX3BF1E2223722466AA8CFA2DE5DC1B993</Ref>
 							<int64 name="SourceAssetId">-1</int64>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
 					</Item>
-					<Item class="Motor6D" referent="RBX9C89B454D9034E61B4414C525437F3D6">
+					<Item class="Motor6D" referent="RBX8A76909F629243C2A6B735E7246AD640">
 						<Properties>
 							<BinaryString name="AttributesSerialize"></BinaryString>
 							<CoordinateFrame name="C0">
@@ -5024,8 +6799,8 @@ return PlacementSystem
 							<bool name="Enabled">true</bool>
 							<float name="MaxVelocity">0</float>
 							<string name="Name">CollisionDetector</string>
-							<Ref name="Part0">RBX266858DBDC1C44E9B1634D6E147EFFCE</Ref>
-							<Ref name="Part1">RBX26646314D5E74ABC97F5A07837CCE116</Ref>
+							<Ref name="Part0">RBX1F748CA8692242C5AD18ACEE9396BA67</Ref>
+							<Ref name="Part1">RBXC6CF100E6967489091DEC19844D44844</Ref>
 							<int64 name="SourceAssetId">-1</int64>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
@@ -5034,7 +6809,7 @@ return PlacementSystem
 			</Item>
 		</Item>
 	</Item>
-	<Item class="LuaWebService" referent="RBXC5BAB1EEC55E418DA996DC78AB669E17">
+	<Item class="LuaWebService" referent="RBX7D2461AF30F540DAB08F9DC8C6D6C84A">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<string name="Name">Instance</string>
@@ -5042,7 +6817,7 @@ return PlacementSystem
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
-	<Item class="Lighting" referent="0">
+	<Item class="Lighting" referent="RBXEF256D92B3FB4F12848440A27DD738D3">
 		<Properties>
 			<Color3 name="Ambient">
 				<R>0</R>
@@ -5087,15 +6862,7 @@ return PlacementSystem
 			<string name="TimeOfDay">14:00:00</string>
 		</Properties>
 	</Item>
-	<Item class="LanguageService" referent="RBX2318F8B1D41841629FA3692836F5354C">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="Name">LanguageService</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="HttpService" referent="RBX2E264EBA56CE4CFEBBBF1608F4C93DA1">
+	<Item class="HttpService" referent="RBXA1C5078A0D674C41A0D2324609A339DC">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<bool name="HttpEnabled">true</bool>
@@ -5104,7 +6871,15 @@ return PlacementSystem
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
-	<Item class="TestService" referent="RBXE32D5CA1CA9A4EF6BC8BB08D0F766DAB">
+	<Item class="LanguageService" referent="RBXFC0CDA8F18854771B5B8F2484BF0DD38">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<string name="Name">LanguageService</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
+		</Properties>
+	</Item>
+	<Item class="TestService" referent="RBXB898210D0E0A47338DEDF9B8E074639F">
 		<Properties>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<bool name="AutoRuns">true</bool>
@@ -5119,6 +6894,16 @@ return PlacementSystem
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
 			<double name="Timeout">10</double>
+		</Properties>
+	</Item>
+	<Item class="ProximityPromptService" referent="RBX9089EC8BC0AD452AA07F62CE1157CF83">
+		<Properties>
+			<BinaryString name="AttributesSerialize"></BinaryString>
+			<bool name="Enabled">true</bool>
+			<int name="MaxPromptsVisible">16</int>
+			<string name="Name">ProximityPromptService</string>
+			<int64 name="SourceAssetId">-1</int64>
+			<BinaryString name="Tags"></BinaryString>
 		</Properties>
 	</Item>
 	<SharedStrings>
