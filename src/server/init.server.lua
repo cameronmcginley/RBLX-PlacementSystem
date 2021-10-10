@@ -30,7 +30,12 @@ PlayerManager.Start()
 PlayerManager.PlayerAdded:Connect(function(player)
 	local tycoon = Tycoon.new(player, FindSpawn())
 	tycoon:Init()
+	print("Init")
 end)
+
+
+
+
 
 -- Object placement
 -- Waiting for client to fire RemoteEvent
